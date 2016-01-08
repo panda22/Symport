@@ -1,0 +1,22 @@
+.question-builder-field-type-specific.for-options 
+  .div-for-test
+    .row
+      .small-2.column.edit-code-header-column
+        .code-wrapper
+          a.edit-code-header click="toggleEditCodes target='view'" Edit Codes
+      .small-10.column.answer-choice-header-column
+        label Answer Choices:
+    each question.config.selections
+      .row.answer-choice-row
+        .small-2.column
+          .code-wrapper
+            LabCompass.highlightParentTextField class="content" highlightParentDepth=4 value=code class="edit-question-code" disabled=true
+        .small-9.column
+          LabCompass.ActionContextTextField highlightParentDepth=3 actionContext=content class="option-value" value=value action="addOption" targetObject=view takeFocus=false
+        .small-1.column
+
+  .row
+    .small-12.columns
+      each error in question.errors.optionConfigs
+        /.error = error
+        question-error errorString=error questionObject=question

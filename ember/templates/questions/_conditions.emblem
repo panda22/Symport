@@ -1,0 +1,17 @@
+.question-builder-field
+  .conditionSelector
+    label Conditional Logic:
+    p This question will be shown based on the conditions set below. Conditions are only available for questions that precede this one.
+    .row
+      .small-12.columns
+        h3.condition-header 
+          .showQuestionIf
+            | Show this question if
+    each condition in question.conditions
+      = render "questions/condition" condition
+    .row
+      .small-12.columns
+        if question.isTheFirstQuestion
+          button.button.plus-with-text.left.disabled disabled=true Add If Statement
+        else
+          button.button.plus-with-text.left click="addCondition" Add If Statement

@@ -1,0 +1,14 @@
+{
+  "name": "dataTables.foundation",
+  "_cacheHeaders": {
+    "ETag": "W/\"13e0a26-1002-50ebd4526777c-gzip\"",
+    "Last-Modified": "Tue, 10 Feb 2015 15:09:15 GMT",
+    "Content-Type": "application/javascript"
+  },
+  "_release": "e-tag:W/\"13e0a26",
+  "main": "index.js",
+  "_source": "http://cdn.datatables.net/plug-ins/f2c75b7247b/integration/foundation/dataTables.foundation.js",
+  "_target": "*",
+  "_originalSource": "http://cdn.datatables.net/plug-ins/f2c75b7247b/integration/foundation/dataTables.foundation.js",
+  "_direct": true
+}

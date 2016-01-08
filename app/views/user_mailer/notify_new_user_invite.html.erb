@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<h2>New User Invite Notification</h2>
+<p>
+  An email was sent from <%= @inviting_user.first_name %> <%= @inviting_user.last_name %>
+  from address <%= @inviting_email %> to join project "<%= @project_name %>"
+</p>
+<p>
+  The email was sent to address <%= @received_address %> with message "<%= @full_message %>"
+</p>
+
+</body>
+</html>

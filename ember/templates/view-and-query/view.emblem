@@ -1,0 +1,82 @@
+page-header title="Data"
+	if noLongerLoading
+		.row
+			.small-12.column
+				dl.tabs
+					dd
+						link-to "view-and-query.saved-queries" tabindex="-1" | Query
+					dd.active
+						link-to "view-and-query.view" tabindex="-1" | View Data
+.project-grid-wrapper
+	if noDataView
+		.no-forms-grid-graphic
+	else
+		if project.structures.content
+			if noLongerLoading
+				.row
+					.small-6.column.no-padding-column
+						.page-title.view-form-select Select the forms to view
+						p.phi-notification class=hasBlockedPhi:default:hide
+							| Due to your permissions, you do not have access to PHI data.
+					.small-3.column.download-button-column
+						button.button.cloud-download-with-text disabled=noDownloadPermission click="export" Download Data
+					.small-3.column.end.download-button-column.downloadCodebookButton
+						button.button.codebook-download disabled=noDownloadPermission click="codebook" Download Codebook
+				if showSelectAll
+					.row
+						.form-select-wrapper
+							.form-select.select-all
+								LabCompass.ActionableCheckbox id="selectAllForms" checked="true" action="selectAllForms"
+								| Select All
+				.row
+					.form-select-wrapper
+						each form in formCheckBoxes
+							.form-select title=form.name
+								if form.hasNoQuestions
+										input type="checkbox" disabled=true
+										span.grayed-out-form {{form.shortName}}
+										<span data-tooltip data-width="210" aria-haspopup="true" class="tip-right tooltip-div" title="You have not added any questions to this form, therefore there is no data to display. Add questions on the Build Form page."></span>
+								else
+									LabCompass.ActionableCheckbox id=form.nameId action="enableForm" param=form.name checked=form.checked class="singleFormSelect"
+									| {{form.shortName}}
+				.row.grid-view-row
+					.small-2.column
+						.filter-text
+							.showText
+								| Show
+						Ember.Select value=pageLength content=pageLengthOptions
+					.small-5.column
+						.filter-text
+							| Sort:
+						.drop-down-container.sort-variable-drop-down#sort-variable-drop-down
+							drop-down isEditable=false val=curSortVariable inputOptions=model.header inputOptionValue="value"
+						.filter-text
+							| by
+						.drop-down-container.sort-type-drop-down#sort-type-drop-down
+							drop-down isEditable=false inputOptions=sortTypes val=curSortType
+					.small-4.column id="searchingPortion"
+						.filter-text
+							.searchText
+								| Search
+						Ember.Select value=filterRowType content=filterRowTypes
+						Ember.TextField value=subjectFilterText class="searchingBox"
+			else
+				.page-title {{loadingText}}
+			.row class={noLongerLoading:default:hide}
+				.small-12.column
+					.table-wrapper
+						table#main-data-table
+		else
+			.no-forms-grid-graphic
+div id="searchSortJoyride"
+  ol class="joyride-list" data-joyride="" data-options="next_button:true;"
+    li data-button="Next" data-id="searchingPortion" data-options="tip_location:bottom;"
+      p.content This is the data page, where you can get a complete picture of all the data in your project.
+      p.content 
+        i Search through your data by choosing a variable and filtering it with the search bar. 
+      p.content 
+        i Sort your data by choosing the variable and sorting method by which you would like to order the data.
+    li data-id="queryTabJoyride" data-button="Next" data-options="tip_location:bottom;"
+      p.content Search for and identify specific subsets of the data from the query page.
+
+

@@ -1,0 +1,11 @@
+.dialog.small.create-project
+  .header
+    h2 Rename Subject ID
+  .body
+    p Rename your Subject ID:{{model.old_id}} below
+    LabCompass.ActionContextTextField class="subject-id-rename" value=subjectID action="updateSubjectID" actionContext=content takeFocus=true
+    each error in errors.subjectID
+      p.error = error
+  .actions
+    button.button.cancel click="closeDialog" Cancel
+    button.button.main.right click="updateSubjectID this" Save

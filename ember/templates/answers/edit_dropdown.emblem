@@ -1,0 +1,8 @@
+if qBuilderPreview
+  /LabCompass.DatalistText class="edit-answer-field data-list-text" value=answer.answer placeholder="Please Select ..." disabled=disabled list="preview-dropdown-list"
+    /datalist id="preview-dropdown-list"
+  drop-down class="placeholder" placeholder="Please Select..." isEditable=true staySmall=true val=answer.answer inputOptions=answer.question.config.selections.content inputOptionValue="value" disabled=disabled listenForValues=true
+else
+  /LabCompass.DatalistText class="edit-answer-field data-list-text" value=answer.answer placeholder="Please Select ..." disabled=disabled list=answer.question.id
+    /datalist id=answer.question.id
+  drop-down class="placeholder" placeholder="Please Select..." isEditable=true staySmall=true val=answer.answer inputOptions=answer.question.config.selections.content inputOptionValue="value" disabled=disabled stickyFocus=stickyFocus listenForValues=true

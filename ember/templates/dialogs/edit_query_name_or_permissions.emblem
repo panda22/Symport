@@ -1,0 +1,27 @@
+.dialog.medium.save-query-params
+  if isNameEdit
+    .header
+      h2 Rename Query
+    .body
+      .table-header.edit
+        | Rename your query below
+      Ember.TextField value=editModel.name
+      each error in editModel.errors.name
+        .sub-error.moreBottom = error
+  else
+    .header
+      h2 Edit Permissions
+    .body
+      .table-header.edit
+        | Who can view/edit this query?
+      p.content
+        ' Only the creator (you) and the admins will be able to
+        ' edit permissions, delete, and rename queries
+      LabCompass.RadioButtonGroup value=editModel.isShared
+        label.yes-radio
+          view view.RadioButton value=false |      Just Me
+        label.no-radio
+          view view.RadioButton value=true |      Everyone
+  .actions
+    button.button.cancel click="closeDialog" Cancel
+    button.button.main.right click="confirmSaveQuery" Save Settings

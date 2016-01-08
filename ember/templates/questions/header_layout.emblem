@@ -1,0 +1,6 @@
+//.row
+//  .small-3.columns
+//    p Header:
+//  .small-9.columns
+//    Ember.TextField class="question-prompt" value=question.prompt
+//yield

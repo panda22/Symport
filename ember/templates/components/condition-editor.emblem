@@ -1,0 +1,2 @@
+.condition
+  LabCompass.ConditionTypeSpecificUI highlightParentDepth=5 question=question condition=condition

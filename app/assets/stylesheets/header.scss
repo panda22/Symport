@@ -1,0 +1,318 @@
+@import "colors";
+
+.main-content > .row {
+  margin-left: 0;
+}
+
+.projects > .row {
+  margin-left: 0;
+}
+
+.projectsButton {
+  color: $lc-blue !important;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button):hover {
+  background: $lc-gray;
+  color: $lc-text-black;
+}
+
+.top-bar-section {
+  li:hover {
+    cursor: pointer;
+  }
+}
+
+.header-box {
+  background-color: $lc-header-bg-color;
+  padding-left: 0px;
+  height: 130px;
+  margin-left: -78px;
+
+  h1, h3 {
+    color: $lc-primary-action-color;
+  }
+
+  h2 {
+    color: $lc-darker-black;
+    padding-left: 35px;
+    margin-top : 6px;
+    margin-bottom: -4px;
+    font-size: 22px;
+    z-index: 11;
+    position: relative;
+    visibility: hidden;
+  }
+
+  > .row {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100rem;
+
+    > .small-12.column{
+      padding-left: 0px;
+      padding-right: 0px;
+
+      > .ember-view.breadcrumbs{
+        padding-right: 0;
+        border: none;
+      }
+    }
+  }
+}
+
+.my-projects-header-box {
+  background-color: $lc-gray;
+  padding-left: 0px;
+  margin-top: -91px;
+  margin-left: 1px;
+  min-width: 150rem;
+  z-index: 1;
+  height: 95px;
+  position: fixed;
+  h1, h3 {
+    color: $lc-primary-action-color;
+  }
+
+  h2 {
+    color: $lc-text-black;
+    padding-left: 50px;
+    font-size: 48px;
+    font-family: Open Sans;
+    font-weight: 200;
+    margin-bottom: 3px;
+  }
+
+  p {
+    color: $lc-darker-black;
+    padding-left: 50px;
+    padding-top: 0;
+    margin-top : 0px;
+    font-size: 16px;
+    font-family: Open Sans;
+    font-weight: 200;
+    margin-bottom: 0;
+  }
+  .card-title {
+    margin-top: -18px;
+    margin-bottom: 19px;
+    margin-left: 45px;
+    width: 134px;
+  }
+  .content {
+    margin-left: 45px;
+    font-weight: 200;
+    line-height: 22px;
+  }
+  .content-wrapper {
+    margin-top: 20px;
+  }
+}
+
+.projects {
+  margin-top: 126px;
+  .ember-select {
+    margin-top: 39px !important;
+  }
+}
+
+.top-bar{
+  padding-left: 1.337px;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  width: auto;
+  position: relative;
+  background: $lc-gray;
+  #barText {
+    font-size: 22px; 
+    color: $lc-text-black; 
+    line-height: 1.4; 
+    margin-top: 9px; 
+    margin-left: 180px; 
+    position: fixed;
+    font-family: Open Sans;
+    &.condensed-sidebar {
+      margin-left: 100px;
+    }
+    &.card-title {
+      margin-left: 173px;
+      margin-top: 17px;
+    }
+  }
+  .dropdown {
+    border-left: 1px solid $lc-medium-gray;
+    .bottom-element {
+      border-bottom: 1px solid #BDBDBD;
+      box-shadow: 3px 3px 3px $lc-medium-gray;
+    }
+  }
+  .title-area.condensed-sidebar {
+    box-shadow: rgb(204, 204, 204) -17px -22px 10px 21px !important;
+    width: 50px;
+    .name {
+      height: 90px;
+    }
+    .symport-logo {
+      background-image: image-url("symport-logo-condensed.svg");
+      width: auto;
+      background-size: 50px 34px;
+      margin-left: auto;
+      margin-top: 39px;
+      height: 46px;
+
+    }
+  }
+  .title-area {
+    width: 130px;
+    height: 130px;
+    background: $lc-blue;
+    z-index: 10;
+    margin-left: -1px;
+
+    .symport-logo { 
+      background-image: image-url("symport-logo.svg");
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: left;
+      background-size: 103px 42px;
+      margin-left: 14px;
+      margin-top: 39px;
+      a{
+        padding: 27px 72px;
+      }
+    }
+  }
+}
+.top-bar-section li:not(.has-form) a:not(.button) {
+	text-transform: uppercase;
+	font-weight: 600;
+  background: $lc-gray !important;
+  color: $lc-text-black;	
+}
+
+.top-bar-section .dropdown li:not(.has-form) a:not(.button), 
+.top-bar-section .dropdown li:not(.has-form):hover > a:not(.button),
+.top-bar-section ul li:hover:not(.has-form) > a {
+  color: $lc-text-black;
+}
+
+// This is a workaround to hamlbars inserting <script> tags around our bindings.
+// Foundation has this same style applied to the first element of ul.breadcrumbs,
+// but that ends up being a <script> instead of an <li>
+
+.breadcrumbs {
+  padding-right: 0;
+	border: none;
+  line-height: 1.4;
+  margin-top: 15px;
+  position: relative;
+  padding: 4px 3.125rem 4px;
+  margin-bottom: 0px;
+
+  a {
+    line-height: 1.4;
+  }
+}
+
+.breadcrumbs > * {
+  line-height: 1.4;
+}
+
+.breadcrumbs > li:first-of-type:before {
+  content: " ";
+  margin: 0;
+}
+
+.top-bar {
+  li.has-dropdown:last-of-type {
+    display: none;
+  }
+  .start-list {
+    margin-right: -17px;
+    .num-steps {
+      position: absolute;
+      line-height: 1.5;
+      top: 13px;
+      left: -15px;
+      width: 24px;
+      height: 24px;
+      background-color: $lc-green;
+      border-radius: 100px;
+      color: white;
+      text-align: center
+    }
+    .dropdown {
+      margin-top: -10px;
+      border: 1px solid $lc-dark-gray;
+      box-shadow: 3px 3px 3px $lc-dark-gray;
+      padding: 16px;
+      padding-bottom: 6px;
+      background: white;
+      .done-check {
+        background: image-url("onboard-check.svg") no-repeat center;
+        margin: auto;
+        width: 75px;
+        height: 75px;
+      }
+      li {
+        margin-bottom: 10px;
+        .icon, .content {
+          vertical-align: middle;
+          display: inline-block;
+        }
+        .icon {
+          background: image-url("onboard-x.svg") no-repeat center;
+          background-size: 8px;
+          width: 12px;
+          height: 8px;
+          margin-right: 10px;
+        }
+        &.complete {
+          .icon {
+            background-image: image-url("onboard-check.svg");
+            background-size: 12px 12px;
+            height: 12px;
+          }
+          .content {
+            text-decoration: line-through;
+            color: #989898;
+          }
+        }
+      }
+    }
+  }
+}
+/* needed to overwrite a foundation media query with the top bar to
+get it to work properly with the new sidebar/topbar */
+@media only screen and (min-width: 0em) {
+  .top-bar {
+    overflow: visible;
+    .title-area {
+      float: left;
+    }
+  }
+  .top-bar-section ul {
+    width: auto;
+    height: auto !important;
+    display: inline;
+    li {
+      float: left;
+    }
+  }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 762px) {
+  .top-bar {
+    li.has-dropdown.full {
+      display: none;
+    }
+    li.has-dropdown:last-of-type {
+      display: block;
+    }
+    li.full {
+      display: none;
+    }
+  }
+}

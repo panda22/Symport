@@ -1,0 +1,1609 @@
+
+
+Started GET "/" for 10.0.2.2 at 2014-07-16 18:50:09 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by IndexController#index as HTML
+  Rendered application/index.slim within layouts/application (29.7ms)
+Completed 200 OK in 54921ms (Views: 54920.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2014-07-16 18:51:05 +0000
+Processing by IndexController#index as HTML
+  Rendered application/index.slim within layouts/application (0.1ms)
+Completed 200 OK in 3046ms (Views: 3045.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 10.0.2.2 at 2014-07-16 18:51:08 +0000
+
+
+Started GET "/assets/combo-box.css?body=1" for 10.0.2.2 at 2014-07-16 18:51:09 +0000
+
+
+Started GET "/assets/buttons.css?body=1" for 10.0.2.2 at 2014-07-16 18:51:09 +0000
+
+
+Started GET "/assets/colors.css?body=1" for 10.0.2.2 at 2014-07-16 18:51:09 +0000
+
+
+Started GET "/assets/dialog.css?body=1" for 10.0.2.2 at 2014-07-16 18:51:10 +0000
+
+
+Started GET "/assets/form-structure.css?body=1" for 10.0.2.2 at 2014-07-16 18:51:10 +0000
+
+
+Started GET "/assets/header.css?body=1" for 10.0.2.2 at 2014-07-16 18:51:11 +0000
+
+
+Started GET "/assets/page-tabs.css?body=1" for 10.0.2.2 at 2014-07-16 18:51:11 +0000
+
+
+Started GET "/assets/project.css?body=1" for 10.0.2.2 at 2014-07-16 18:51:11 +0000
+
+
+Started GET "/assets/questions.css?body=1" for 10.0.2.2 at 2014-07-16 18:51:12 +0000
+
+
+Started GET "/assets/responses-grid.css?body=1" for 10.0.2.2 at 2014-07-16 18:51:12 +0000
+
+
+Started GET "/assets/responses.css?body=1" for 10.0.2.2 at 2014-07-16 18:51:13 +0000
+
+
+Started GET "/assets/sidenav.css?body=1" for 10.0.2.2 at 2014-07-16 18:51:13 +0000
+
+
+Started GET "/assets/users.css?body=1" for 10.0.2.2 at 2014-07-16 18:51:13 +0000
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-07-16 18:51:14 +0000
+
+
+Started GET "/assets/pikaday.css?body=1" for 10.0.2.2 at 2014-07-16 18:51:14 +0000
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:15 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:15 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:15 +0000
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:16 +0000
+
+
+Started GET "/assets/foundation/foundation.abide.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:16 +0000
+
+
+Started GET "/assets/foundation/foundation.accordion.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:17 +0000
+
+
+Started GET "/assets/foundation/foundation.alert.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:17 +0000
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:17 +0000
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:18 +0000
+
+
+Started GET "/assets/foundation/foundation.interchange.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:18 +0000
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:18 +0000
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:19 +0000
+
+
+Started GET "/assets/foundation/foundation.offcanvas.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:19 +0000
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:20 +0000
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:20 +0000
+
+
+Started GET "/assets/foundation/foundation.slider.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:20 +0000
+
+
+Started GET "/assets/foundation/foundation.tab.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:21 +0000
+
+
+Started GET "/assets/foundation/foundation.tooltip.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:21 +0000
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:21 +0000
+
+
+Started GET "/assets/foundation/foundation.equalizer.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:22 +0000
+
+
+Started GET "/assets/foundation.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:22 +0000
+
+
+Started GET "/assets/handlebars.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:23 +0000
+
+
+Started GET "/assets/ember.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:23 +0000
+
+
+Started GET "/assets/moment/moment.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:23 +0000
+
+
+Started GET "/assets/moment-timezone/builds/moment-timezone-with-data-2010-2020.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:24 +0000
+
+
+Started GET "/assets/pikaday.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:24 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:25 +0000
+
+
+Started GET "/assets/data/init.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:27 +0000
+
+
+Started GET "/assets/data/transforms/transform.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:27 +0000
+
+
+Started GET "/assets/data/attributes.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:28 +0000
+
+
+Started GET "/assets/data/errors.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:28 +0000
+
+
+Started GET "/assets/data/model.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:29 +0000
+
+
+Started GET "/assets/data/relationship_array.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:29 +0000
+
+
+Started GET "/assets/data/storage.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:29 +0000
+
+
+Started GET "/assets/data/transforms/boolean.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:30 +0000
+
+
+Started GET "/assets/data/transforms/number.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:30 +0000
+
+
+Started GET "/assets/data/transforms/string.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:31 +0000
+
+
+Started GET "/assets/data/utils.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:31 +0000
+
+
+Started GET "/assets/mixins/with_form_structure.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:31 +0000
+
+
+Started GET "/assets/mixins/with_project.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:32 +0000
+
+
+Started GET "/assets/storage/server_interface.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:32 +0000
+
+
+Started GET "/assets/storage/session.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:33 +0000
+
+
+Started GET "/assets/storage/storage.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:33 +0000
+
+
+Started GET "/assets/models/boolean_options.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:33 +0000
+
+
+Started GET "/assets/models/form_answer.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:34 +0000
+
+
+Started GET "/assets/models/form_level_permissions.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:34 +0000
+
+
+Started GET "/assets/models/form_question.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:35 +0000
+
+
+Started GET "/assets/models/form_response.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:35 +0000
+
+
+Started GET "/assets/models/form_structure.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:35 +0000
+
+
+Started GET "/assets/models/form_structure_permission.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:36 +0000
+
+
+Started GET "/assets/models/project.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:36 +0000
+
+
+Started GET "/assets/models/project_level_permissions.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:37 +0000
+
+
+Started GET "/assets/models/question_condition.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:37 +0000
+
+
+Started GET "/assets/models/question_option.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:37 +0000
+
+
+Started GET "/assets/models/range_options.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:38 +0000
+
+
+Started GET "/assets/models/selection_options.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:38 +0000
+
+
+Started GET "/assets/models/team_level_permissions.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:38 +0000
+
+
+Started GET "/assets/models/team_member.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:39 +0000
+
+
+Started GET "/assets/models/text_options.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:39 +0000
+
+
+Started GET "/assets/models/user.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:40 +0000
+
+
+Started GET "/assets/logic/base/contains_comparator.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:40 +0000
+
+
+Started GET "/assets/logic/base/equality_comparator.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:40 +0000
+
+
+Started GET "/assets/logic/base/numeric_comparator.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:41 +0000
+
+
+Started GET "/assets/logic/checkbox_comparator.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:41 +0000
+
+
+Started GET "/assets/logic/checkboxes_formatter.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:41 +0000
+
+
+Started GET "/assets/logic/date_comparator.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:42 +0000
+
+
+Started GET "/assets/logic/dependent_question_identifier.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:42 +0000
+
+
+Started GET "/assets/logic/numerical_range_comparator.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:43 +0000
+
+
+Started GET "/assets/logic/question_number_assigner.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:43 +0000
+
+
+Started GET "/assets/logic/response_logic_coordinator.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:43 +0000
+
+
+Started GET "/assets/logic/text_comparator.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:44 +0000
+
+
+Started GET "/assets/logic/text_formatter.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:44 +0000
+
+
+Started GET "/assets/logic/time_duration_comparator.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:44 +0000
+
+
+Started GET "/assets/logic/time_duration_formatter.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:45 +0000
+
+
+Started GET "/assets/logic/time_of_day_comparator.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:45 +0000
+
+
+Started GET "/assets/controllers/account_profile_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:46 +0000
+
+
+Started GET "/assets/controllers/create_team_member_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:46 +0000
+
+
+Started GET "/assets/controllers/dialog_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:46 +0000
+
+
+Started GET "/assets/controllers/download_form_responses_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:47 +0000
+
+
+Started GET "/assets/controllers/form_build_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:47 +0000
+
+
+Started GET "/assets/controllers/form_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:47 +0000
+
+
+Started GET "/assets/controllers/form_grid_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:48 +0000
+
+
+Started GET "/assets/controllers/form_list_view_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:48 +0000
+
+
+Started GET "/assets/controllers/form_preview_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:49 +0000
+
+
+Started GET "/assets/controllers/project_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:49 +0000
+
+
+Started GET "/assets/controllers/project_create_form_structure_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:49 +0000
+
+
+Started GET "/assets/controllers/project_index_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:50 +0000
+
+
+Started GET "/assets/controllers/projects_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:50 +0000
+
+
+Started GET "/assets/controllers/projects_index_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:51 +0000
+
+
+Started GET "/assets/controllers/question_dialog_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:51 +0000
+
+
+Started GET "/assets/controllers/questions_condition_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:51 +0000
+
+
+Started GET "/assets/controllers/response_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:52 +0000
+
+
+Started GET "/assets/controllers/response_edit_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:52 +0000
+
+
+Started GET "/assets/controllers/response_index_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:52 +0000
+
+
+Started GET "/assets/controllers/responses_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:53 +0000
+
+
+Started GET "/assets/controllers/sign_in_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:53 +0000
+
+
+Started GET "/assets/controllers/sign_up_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:54 +0000
+
+
+Started GET "/assets/controllers/team_members_index_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:54 +0000
+
+
+Started GET "/assets/controllers/update_form_structure_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:54 +0000
+
+
+Started GET "/assets/controllers/update_team_member_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:55 +0000
+
+
+Started GET "/assets/views/questions/base/question_editor_options_fields.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:55 +0000
+
+
+Started GET "/assets/views/answers/answer_filtered.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:56 +0000
+
+
+Started GET "/assets/views/answers/answer_type_specific_ui.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:56 +0000
+
+
+Started GET "/assets/views/answers/checkboxes.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:56 +0000
+
+
+Started GET "/assets/views/answers/date.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:57 +0000
+
+
+Started GET "/assets/views/answers/email.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:57 +0000
+
+
+Started GET "/assets/views/answers/header.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:58 +0000
+
+
+Started GET "/assets/views/answers/numerical_range.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:58 +0000
+
+
+Started GET "/assets/views/answers/pagebreak.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:58 +0000
+
+
+Started GET "/assets/views/answers/phone_number.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:59 +0000
+
+
+Started GET "/assets/views/answers/radiobuttons.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:59 +0000
+
+
+Started GET "/assets/views/answers/text.js?body=1" for 10.0.2.2 at 2014-07-16 18:51:59 +0000
+
+
+Started GET "/assets/views/answers/text_value_viewer.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:00 +0000
+
+
+Started GET "/assets/views/answers/time_duration.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:00 +0000
+
+
+Started GET "/assets/views/answers/time_of_day.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:01 +0000
+
+
+Started GET "/assets/views/answers/zipcode.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:01 +0000
+
+
+Started GET "/assets/views/combo_box_option_view.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:01 +0000
+
+
+Started GET "/assets/views/operands/operand_date_editor.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:02 +0000
+
+
+Started GET "/assets/views/operands/operand_numerical_range_editor.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:02 +0000
+
+
+Started GET "/assets/views/operands/operand_phone_number_editor.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:03 +0000
+
+
+Started GET "/assets/views/operands/operand_selection_editor.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:03 +0000
+
+
+Started GET "/assets/views/operands/operand_text_editor.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:03 +0000
+
+
+Started GET "/assets/views/operands/operand_time_duration.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:04 +0000
+
+
+Started GET "/assets/views/operands/operand_time_of_day_editor.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:04 +0000
+
+
+Started GET "/assets/views/operands/operand_zipcode_editor.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:05 +0000
+
+
+Started GET "/assets/views/questions/condition_type_specific_ui.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:05 +0000
+
+
+Started GET "/assets/views/questions/question_editor_default_fields.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:05 +0000
+
+
+Started GET "/assets/views/questions/question_editor_numerical_range_fields.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:06 +0000
+
+
+Started GET "/assets/views/questions/question_editor_text_fields.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:06 +0000
+
+
+Started GET "/assets/views/questions/question_editor_type_specific_fields.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:06 +0000
+
+
+Started GET "/assets/views/questions/question_editor_yes_no_fields.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:07 +0000
+
+
+Started GET "/assets/views/questions/question_header_fields.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:07 +0000
+
+
+Started GET "/assets/views/questions/question_pagebreak_fields.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:08 +0000
+
+
+Started GET "/assets/views/questions/question_sequencing.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:08 +0000
+
+
+Started GET "/assets/helpers/add_one.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:08 +0000
+
+
+Started GET "/assets/components/answer_editor_component.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:09 +0000
+
+
+Started GET "/assets/components/bread_crumbs_component.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:09 +0000
+
+
+Started GET "/assets/components/checkboxes_field.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:09 +0000
+
+
+Started GET "/assets/components/combo_box_component.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:10 +0000
+
+
+Started GET "/assets/components/combo_box_logic.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:10 +0000
+
+
+Started GET "/assets/components/condition_editor.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:11 +0000
+
+
+Started GET "/assets/components/date_field.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:11 +0000
+
+
+Started GET "/assets/components/email_field.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:11 +0000
+
+
+Started GET "/assets/components/enhanced_select.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:12 +0000
+
+
+Started GET "/assets/components/export-data.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:12 +0000
+
+
+Started GET "/assets/components/form_answer_time_component.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:12 +0000
+
+
+Started GET "/assets/components/number_field.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:13 +0000
+
+
+Started GET "/assets/components/numerical_range_field.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:13 +0000
+
+
+Started GET "/assets/components/page_numbers_component.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:14 +0000
+
+
+Started GET "/assets/components/phone_number_field.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:14 +0000
+
+
+Started GET "/assets/components/question_editor_component.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:14 +0000
+
+
+Started GET "/assets/components/radio_button.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:15 +0000
+
+
+Started GET "/assets/components/radio_button_group.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:15 +0000
+
+
+Started GET "/assets/components/time_duration_field.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:16 +0000
+
+
+Started GET "/assets/components/time_of_day_field.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:16 +0000
+
+
+Started GET "/assets/components/variable_name_field.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:16 +0000
+
+
+Started GET "/assets/components/welcome-message.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:17 +0000
+
+
+Started GET "/assets/templates/account/profile.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:17 +0000
+
+
+Started GET "/assets/templates/account/sign-in.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:17 +0000
+
+
+Started GET "/assets/templates/account/sign-up.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:18 +0000
+
+
+Started GET "/assets/templates/account/timed-out.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:18 +0000
+
+
+Started GET "/assets/templates/answers/default_layout.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:19 +0000
+
+
+Started GET "/assets/templates/answers/edit_checkboxes.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:19 +0000
+
+
+Started GET "/assets/templates/answers/edit_date.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:19 +0000
+
+
+Started GET "/assets/templates/answers/edit_email.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:20 +0000
+
+
+Started GET "/assets/templates/answers/edit_numerical_range.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:20 +0000
+
+
+Started GET "/assets/templates/answers/edit_phone_number.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:20 +0000
+
+
+Started GET "/assets/templates/answers/edit_radiobuttons.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:21 +0000
+
+
+Started GET "/assets/templates/answers/edit_text.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:21 +0000
+
+
+Started GET "/assets/templates/answers/edit_time_duration.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:22 +0000
+
+
+Started GET "/assets/templates/answers/edit_time_of_day.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:22 +0000
+
+
+Started GET "/assets/templates/answers/edit_zipcode.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:22 +0000
+
+
+Started GET "/assets/templates/answers/filtered.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:23 +0000
+
+
+Started GET "/assets/templates/answers/header_layout.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:23 +0000
+
+
+Started GET "/assets/templates/answers/pagebreak_layout.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:24 +0000
+
+
+Started GET "/assets/templates/answers/view_checkboxes.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:24 +0000
+
+
+Started GET "/assets/templates/answers/view_text_value.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:24 +0000
+
+
+Started GET "/assets/templates/application.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:25 +0000
+
+
+Started GET "/assets/templates/components/answer-editor.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:25 +0000
+
+
+Started GET "/assets/templates/components/bread-crumbs.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:26 +0000
+
+
+Started GET "/assets/templates/components/checkboxes-field.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:26 +0000
+
+
+Started GET "/assets/templates/components/combo-box.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:26 +0000
+
+
+Started GET "/assets/templates/components/condition-editor.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:27 +0000
+
+
+Started GET "/assets/templates/components/date-field.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:27 +0000
+
+
+Started GET "/assets/templates/components/export-data.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:28 +0000
+
+
+Started GET "/assets/templates/components/numerical-range-field.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:28 +0000
+
+
+Started GET "/assets/templates/components/page-header.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:28 +0000
+
+
+Started GET "/assets/templates/components/page-numbers.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:29 +0000
+
+
+Started GET "/assets/templates/components/phone-number-field.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:29 +0000
+
+
+Started GET "/assets/templates/components/question-editor.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:29 +0000
+
+
+Started GET "/assets/templates/components/time-duration-field.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:30 +0000
+
+
+Started GET "/assets/templates/components/time-of-day-field.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:30 +0000
+
+
+Started GET "/assets/templates/components/welcome-message.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:31 +0000
+
+
+Started GET "/assets/templates/dialogs/_team_member_radio_buttons_admin.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:31 +0000
+
+
+Started GET "/assets/templates/dialogs/_team_member_radio_buttons_non_admin.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:31 +0000
+
+
+Started GET "/assets/templates/dialogs/add_new_team_member.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:32 +0000
+
+
+Started GET "/assets/templates/dialogs/confirm_delete_form.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:32 +0000
+
+
+Started GET "/assets/templates/dialogs/confirm_delete_project.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:33 +0000
+
+
+Started GET "/assets/templates/dialogs/confirm_delete_question.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:33 +0000
+
+
+Started GET "/assets/templates/dialogs/confirm_delete_team_member.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:33 +0000
+
+
+Started GET "/assets/templates/dialogs/confirm_download_responses.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:34 +0000
+
+
+Started GET "/assets/templates/dialogs/create_form_structure.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:34 +0000
+
+
+Started GET "/assets/templates/dialogs/create_project.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:35 +0000
+
+
+Started GET "/assets/templates/dialogs/edit_existing_team_member.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:35 +0000
+
+
+Started GET "/assets/templates/dialogs/question.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:35 +0000
+
+
+Started GET "/assets/templates/dialogs/update_form_structure.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:36 +0000
+
+
+Started GET "/assets/templates/dialogs/update_project.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:36 +0000
+
+
+Started GET "/assets/templates/form/build.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:36 +0000
+
+
+Started GET "/assets/templates/form/grid.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:37 +0000
+
+
+Started GET "/assets/templates/form/list_view.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:37 +0000
+
+
+Started GET "/assets/templates/form/preview.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:38 +0000
+
+
+Started GET "/assets/templates/forms/index.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:38 +0000
+
+
+Started GET "/assets/templates/operands/date.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:38 +0000
+
+
+Started GET "/assets/templates/operands/default_layout.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:39 +0000
+
+
+Started GET "/assets/templates/operands/numericalrange.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:39 +0000
+
+
+Started GET "/assets/templates/operands/phonenumber.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:40 +0000
+
+
+Started GET "/assets/templates/operands/selection.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:40 +0000
+
+
+Started GET "/assets/templates/operands/text.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:40 +0000
+
+
+Started GET "/assets/templates/operands/timeduration.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:41 +0000
+
+
+Started GET "/assets/templates/operands/timeofday.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:41 +0000
+
+
+Started GET "/assets/templates/operands/zipcode.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:41 +0000
+
+
+Started GET "/assets/templates/project.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:42 +0000
+
+
+Started GET "/assets/templates/project/index.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:42 +0000
+
+
+Started GET "/assets/templates/projects/index.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:43 +0000
+
+
+Started GET "/assets/templates/questions/_conditions.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:43 +0000
+
+
+Started GET "/assets/templates/questions/condition.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:43 +0000
+
+
+Started GET "/assets/templates/questions/default_layout.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:44 +0000
+
+
+Started GET "/assets/templates/questions/header_layout.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:44 +0000
+
+
+Started GET "/assets/templates/questions/numericalrange.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:45 +0000
+
+
+Started GET "/assets/templates/questions/options.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:45 +0000
+
+
+Started GET "/assets/templates/questions/sequence.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:45 +0000
+
+
+Started GET "/assets/templates/questions/text.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:46 +0000
+
+
+Started GET "/assets/templates/questions/yesno.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:46 +0000
+
+
+Started GET "/assets/templates/response/edit.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:47 +0000
+
+
+Started GET "/assets/templates/response/index.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:47 +0000
+
+
+Started GET "/assets/templates/response/view.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:47 +0000
+
+
+Started GET "/assets/templates/responses.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:48 +0000
+
+
+Started GET "/assets/templates/team-members/index.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:48 +0000
+
+
+Started GET "/assets/routes/protected_route.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:49 +0000
+
+
+Started GET "/assets/routes/account_routes.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:49 +0000
+
+
+Started GET "/assets/routes/application_route.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:49 +0000
+
+
+Started GET "/assets/routes/forms_routes.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:50 +0000
+
+
+Started GET "/assets/routes/index_route.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:50 +0000
+
+
+Started GET "/assets/routes/projects_routes.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:51 +0000
+
+
+Started GET "/assets/routes/response_routes.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:51 +0000
+
+
+Started GET "/assets/routes/team_members_routes.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:51 +0000
+
+
+Started GET "/assets/router.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:52 +0000
+
+
+Started GET "/assets/question_types.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:52 +0000
+
+
+Started GET "/assets/lab_compass.js?body=1" for 10.0.2.2 at 2014-07-16 18:52:52 +0000
+
+
+Started GET "/" for 10.0.2.2 at 2014-07-16 18:54:45 +0000
+Processing by IndexController#index as HTML
+  Rendered application/index.slim within layouts/application (0.1ms)
+Completed 200 OK in 7568ms (Views: 7567.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 10.0.2.2 at 2014-07-16 18:54:54 +0000
+
+
+Started GET "/assets/buttons.css?body=1" for 10.0.2.2 at 2014-07-16 18:54:54 +0000
+
+
+Started GET "/assets/combo-box.css?body=1" for 10.0.2.2 at 2014-07-16 18:54:54 +0000
+
+
+Started GET "/assets/form-structure.css?body=1" for 10.0.2.2 at 2014-07-16 18:54:55 +0000
+
+
+Started GET "/assets/dialog.css?body=1" for 10.0.2.2 at 2014-07-16 18:54:55 +0000
+
+
+Started GET "/assets/colors.css?body=1" for 10.0.2.2 at 2014-07-16 18:54:55 +0000
+
+
+Started GET "/assets/header.css?body=1" for 10.0.2.2 at 2014-07-16 18:54:56 +0000
+
+
+Started GET "/assets/page-tabs.css?body=1" for 10.0.2.2 at 2014-07-16 18:54:56 +0000
+
+
+Started GET "/assets/project.css?body=1" for 10.0.2.2 at 2014-07-16 18:54:56 +0000
+
+
+Started GET "/assets/questions.css?body=1" for 10.0.2.2 at 2014-07-16 18:54:57 +0000
+
+
+Started GET "/assets/responses-grid.css?body=1" for 10.0.2.2 at 2014-07-16 18:54:57 +0000
+
+
+Started GET "/assets/responses.css?body=1" for 10.0.2.2 at 2014-07-16 18:54:58 +0000
+
+
+Started GET "/assets/sidenav.css?body=1" for 10.0.2.2 at 2014-07-16 18:54:58 +0000
+
+
+Started GET "/assets/users.css?body=1" for 10.0.2.2 at 2014-07-16 18:54:58 +0000
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-07-16 18:54:59 +0000
+
+
+Started GET "/assets/pikaday.css?body=1" for 10.0.2.2 at 2014-07-16 18:54:59 +0000
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 10.0.2.2 at 2014-07-16 18:54:59 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:00 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:00 +0000
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:01 +0000
+
+
+Started GET "/assets/foundation/foundation.abide.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:01 +0000
+
+
+Started GET "/assets/foundation/foundation.accordion.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:01 +0000
+
+
+Started GET "/assets/foundation/foundation.alert.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:02 +0000
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:02 +0000
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:02 +0000
+
+
+Started GET "/assets/foundation/foundation.interchange.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:03 +0000
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:03 +0000
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:03 +0000
+
+
+Started GET "/assets/foundation/foundation.offcanvas.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:04 +0000
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:04 +0000
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:04 +0000
+
+
+Started GET "/assets/foundation/foundation.slider.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:05 +0000
+
+
+Started GET "/assets/foundation/foundation.tab.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:05 +0000
+
+
+Started GET "/assets/foundation/foundation.tooltip.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:06 +0000
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:06 +0000
+
+
+Started GET "/assets/foundation/foundation.equalizer.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:06 +0000
+
+
+Started GET "/assets/foundation.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:07 +0000
+
+
+Started GET "/assets/handlebars.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:07 +0000
+
+
+Started GET "/assets/ember.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:07 +0000
+
+
+Started GET "/assets/moment/moment.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:08 +0000
+
+
+Started GET "/assets/moment-timezone/builds/moment-timezone-with-data-2010-2020.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:08 +0000
+
+
+Started GET "/assets/pikaday.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:08 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:09 +0000
+
+
+Started GET "/assets/data/init.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:12 +0000
+
+
+Started GET "/assets/data/transforms/transform.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:12 +0000
+
+
+Started GET "/assets/data/attributes.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:13 +0000
+
+
+Started GET "/assets/data/errors.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:13 +0000
+
+
+Started GET "/assets/data/model.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:13 +0000
+
+
+Started GET "/assets/data/relationship_array.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:14 +0000
+
+
+Started GET "/assets/data/storage.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:14 +0000
+
+
+Started GET "/assets/data/transforms/boolean.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:14 +0000
+
+
+Started GET "/assets/data/transforms/number.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:15 +0000
+
+
+Started GET "/assets/data/transforms/string.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:15 +0000
+
+
+Started GET "/assets/data/utils.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:15 +0000
+
+
+Started GET "/assets/mixins/with_form_structure.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:16 +0000
+
+
+Started GET "/assets/mixins/with_project.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:16 +0000
+
+
+Started GET "/assets/storage/server_interface.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:16 +0000
+
+
+Started GET "/assets/storage/session.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:17 +0000
+
+
+Started GET "/assets/storage/storage.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:17 +0000
+
+
+Started GET "/assets/models/boolean_options.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:18 +0000
+
+
+Started GET "/assets/models/form_answer.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:18 +0000
+
+
+Started GET "/assets/models/form_level_permissions.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:18 +0000
+
+
+Started GET "/assets/models/form_question.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:19 +0000
+
+
+Started GET "/assets/models/form_response.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:19 +0000
+
+
+Started GET "/assets/models/form_structure.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:19 +0000
+
+
+Started GET "/assets/models/form_structure_permission.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:20 +0000
+
+
+Started GET "/assets/models/project.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:20 +0000
+
+
+Started GET "/assets/models/project_level_permissions.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:20 +0000
+
+
+Started GET "/assets/models/question_condition.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:21 +0000
+
+
+Started GET "/assets/models/question_option.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:21 +0000
+
+
+Started GET "/assets/models/range_options.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:21 +0000
+
+
+Started GET "/assets/models/selection_options.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:22 +0000
+
+
+Started GET "/assets/models/team_level_permissions.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:22 +0000
+
+
+Started GET "/assets/models/team_member.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:22 +0000
+
+
+Started GET "/assets/models/text_options.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:23 +0000
+
+
+Started GET "/assets/models/user.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:23 +0000
+
+
+Started GET "/assets/logic/base/contains_comparator.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:24 +0000
+
+
+Started GET "/assets/logic/base/equality_comparator.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:24 +0000
+
+
+Started GET "/assets/logic/base/numeric_comparator.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:24 +0000
+
+
+Started GET "/assets/logic/checkbox_comparator.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:25 +0000
+
+
+Started GET "/assets/logic/checkboxes_formatter.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:25 +0000
+
+
+Started GET "/assets/logic/date_comparator.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:25 +0000
+
+
+Started GET "/assets/logic/dependent_question_identifier.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:26 +0000
+
+
+Started GET "/assets/logic/numerical_range_comparator.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:26 +0000
+
+
+Started GET "/assets/logic/question_number_assigner.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:26 +0000
+
+
+Started GET "/assets/logic/response_logic_coordinator.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:27 +0000
+
+
+Started GET "/assets/logic/text_comparator.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:27 +0000
+
+
+Started GET "/assets/logic/text_formatter.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:28 +0000
+
+
+Started GET "/assets/logic/time_duration_comparator.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:28 +0000
+
+
+Started GET "/assets/logic/time_duration_formatter.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:28 +0000
+
+
+Started GET "/assets/logic/time_of_day_comparator.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:29 +0000
+
+
+Started GET "/assets/controllers/account_profile_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:29 +0000
+
+
+Started GET "/assets/controllers/create_team_member_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:29 +0000
+
+
+Started GET "/assets/controllers/dialog_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:30 +0000
+
+
+Started GET "/assets/controllers/download_form_responses_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:30 +0000
+
+
+Started GET "/assets/controllers/form_build_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:30 +0000
+
+
+Started GET "/assets/controllers/form_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:31 +0000
+
+
+Started GET "/assets/controllers/form_grid_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:31 +0000
+
+
+Started GET "/assets/controllers/form_list_view_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:31 +0000
+
+
+Started GET "/assets/controllers/form_preview_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:32 +0000
+
+
+Started GET "/assets/controllers/project_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:32 +0000
+
+
+Started GET "/assets/controllers/project_create_form_structure_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:32 +0000
+
+
+Started GET "/assets/controllers/project_index_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:33 +0000
+
+
+Started GET "/assets/controllers/projects_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:33 +0000
+
+
+Started GET "/assets/controllers/projects_index_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:34 +0000
+
+
+Started GET "/assets/controllers/question_dialog_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:34 +0000
+
+
+Started GET "/assets/controllers/questions_condition_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:34 +0000
+
+
+Started GET "/assets/controllers/response_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:35 +0000
+
+
+Started GET "/assets/controllers/response_edit_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:35 +0000
+
+
+Started GET "/assets/controllers/response_index_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:35 +0000
+
+
+Started GET "/assets/controllers/responses_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:36 +0000
+
+
+Started GET "/assets/controllers/sign_in_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:36 +0000
+
+
+Started GET "/assets/controllers/sign_up_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:36 +0000
+
+
+Started GET "/assets/controllers/team_members_index_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:37 +0000
+
+
+Started GET "/assets/controllers/update_form_structure_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:37 +0000
+
+
+Started GET "/assets/controllers/update_team_member_controller.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:37 +0000
+
+
+Started GET "/assets/views/questions/base/question_editor_options_fields.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:38 +0000
+
+
+Started GET "/assets/views/answers/answer_filtered.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:38 +0000
+
+
+Started GET "/assets/views/answers/answer_type_specific_ui.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:39 +0000
+
+
+Started GET "/assets/views/answers/checkboxes.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:39 +0000
+
+
+Started GET "/assets/views/answers/date.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:39 +0000
+
+
+Started GET "/assets/views/answers/email.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:40 +0000
+
+
+Started GET "/assets/views/answers/header.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:40 +0000
+
+
+Started GET "/assets/views/answers/numerical_range.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:40 +0000
+
+
+Started GET "/assets/views/answers/pagebreak.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:41 +0000
+
+
+Started GET "/assets/views/answers/phone_number.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:41 +0000
+
+
+Started GET "/assets/views/answers/radiobuttons.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:41 +0000
+
+
+Started GET "/assets/views/answers/text.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:42 +0000
+
+
+Started GET "/assets/views/answers/text_value_viewer.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:42 +0000
+
+
+Started GET "/assets/views/answers/time_duration.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:42 +0000
+
+
+Started GET "/assets/views/answers/time_of_day.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:43 +0000
+
+
+Started GET "/assets/views/answers/zipcode.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:43 +0000
+
+
+Started GET "/assets/views/combo_box_option_view.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:44 +0000
+
+
+Started GET "/assets/views/operands/operand_date_editor.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:44 +0000
+
+
+Started GET "/assets/views/operands/operand_numerical_range_editor.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:44 +0000
+
+
+Started GET "/assets/views/operands/operand_phone_number_editor.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:45 +0000
+
+
+Started GET "/assets/views/operands/operand_selection_editor.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:45 +0000
+
+
+Started GET "/assets/views/operands/operand_text_editor.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:45 +0000
+
+
+Started GET "/assets/views/operands/operand_time_duration.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:46 +0000
+
+
+Started GET "/assets/views/operands/operand_time_of_day_editor.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:46 +0000
+
+
+Started GET "/assets/views/operands/operand_zipcode_editor.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:46 +0000
+
+
+Started GET "/assets/views/questions/condition_type_specific_ui.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:47 +0000
+
+
+Started GET "/assets/views/questions/question_editor_default_fields.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:47 +0000
+
+
+Started GET "/assets/views/questions/question_editor_numerical_range_fields.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:47 +0000
+
+
+Started GET "/assets/views/questions/question_editor_text_fields.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:48 +0000
+
+
+Started GET "/assets/views/questions/question_editor_type_specific_fields.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:48 +0000
+
+
+Started GET "/assets/views/questions/question_editor_yes_no_fields.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:49 +0000
+
+
+Started GET "/assets/views/questions/question_header_fields.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:49 +0000
+
+
+Started GET "/assets/views/questions/question_pagebreak_fields.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:49 +0000
+
+
+Started GET "/assets/views/questions/question_sequencing.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:50 +0000
+
+
+Started GET "/assets/helpers/add_one.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:50 +0000
+
+
+Started GET "/assets/components/answer_editor_component.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:50 +0000
+
+
+Started GET "/assets/components/bread_crumbs_component.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:51 +0000
+
+
+Started GET "/assets/components/checkboxes_field.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:51 +0000
+
+
+Started GET "/assets/components/combo_box_component.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:51 +0000
+
+
+Started GET "/assets/components/combo_box_logic.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:52 +0000
+
+
+Started GET "/assets/components/condition_editor.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:52 +0000
+
+
+Started GET "/assets/components/date_field.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:52 +0000
+
+
+Started GET "/assets/components/email_field.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:53 +0000
+
+
+Started GET "/assets/components/enhanced_select.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:53 +0000
+
+
+Started GET "/assets/components/export-data.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:54 +0000
+
+
+Started GET "/assets/components/form_answer_time_component.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:54 +0000
+
+
+Started GET "/assets/components/number_field.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:54 +0000
+
+
+Started GET "/assets/components/numerical_range_field.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:55 +0000
+
+
+Started GET "/assets/components/page_numbers_component.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:55 +0000
+
+
+Started GET "/assets/components/phone_number_field.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:55 +0000
+
+
+Started GET "/assets/components/question_editor_component.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:56 +0000
+
+
+Started GET "/assets/components/radio_button.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:56 +0000
+
+
+Started GET "/assets/components/radio_button_group.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:56 +0000
+
+
+Started GET "/assets/components/time_duration_field.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:57 +0000
+
+
+Started GET "/assets/components/time_of_day_field.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:57 +0000
+
+
+Started GET "/assets/components/variable_name_field.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:57 +0000
+
+
+Started GET "/assets/components/welcome-message.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:58 +0000
+
+
+Started GET "/assets/templates/account/profile.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:58 +0000
+
+
+Started GET "/assets/templates/account/sign-in.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:59 +0000
+
+
+Started GET "/assets/templates/account/sign-up.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:59 +0000
+
+
+Started GET "/assets/templates/account/timed-out.js?body=1" for 10.0.2.2 at 2014-07-16 18:55:59 +0000
+
+
+Started GET "/assets/templates/answers/default_layout.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:00 +0000
+
+
+Started GET "/assets/templates/answers/edit_checkboxes.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:00 +0000
+
+
+Started GET "/assets/templates/answers/edit_date.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:00 +0000
+
+
+Started GET "/assets/templates/answers/edit_email.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:01 +0000
+
+
+Started GET "/assets/templates/answers/edit_numerical_range.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:01 +0000
+
+
+Started GET "/assets/templates/answers/edit_phone_number.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:01 +0000
+
+
+Started GET "/assets/templates/answers/edit_radiobuttons.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:02 +0000
+
+
+Started GET "/assets/templates/answers/edit_text.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:02 +0000
+
+
+Started GET "/assets/templates/answers/edit_time_duration.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:02 +0000
+
+
+Started GET "/assets/templates/answers/edit_time_of_day.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:03 +0000
+
+
+Started GET "/assets/templates/answers/edit_zipcode.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:03 +0000
+
+
+Started GET "/assets/templates/answers/filtered.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:04 +0000
+
+
+Started GET "/assets/templates/answers/header_layout.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:04 +0000
+
+
+Started GET "/assets/templates/answers/pagebreak_layout.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:04 +0000
+
+
+Started GET "/assets/templates/answers/view_checkboxes.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:05 +0000
+
+
+Started GET "/assets/templates/answers/view_text_value.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:05 +0000
+
+
+Started GET "/assets/templates/application.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:05 +0000
+
+
+Started GET "/assets/templates/components/answer-editor.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:06 +0000
+
+
+Started GET "/assets/templates/components/bread-crumbs.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:06 +0000
+
+
+Started GET "/assets/templates/components/checkboxes-field.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:06 +0000
+
+
+Started GET "/assets/templates/components/combo-box.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:07 +0000
+
+
+Started GET "/assets/templates/components/condition-editor.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:07 +0000
+
+
+Started GET "/assets/templates/components/date-field.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:08 +0000
+
+
+Started GET "/assets/templates/components/export-data.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:08 +0000
+
+
+Started GET "/assets/templates/components/numerical-range-field.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:08 +0000
+
+
+Started GET "/assets/templates/components/page-header.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:09 +0000
+
+
+Started GET "/assets/templates/components/page-numbers.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:09 +0000
+
+
+Started GET "/assets/templates/components/phone-number-field.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:09 +0000
+
+
+Started GET "/assets/templates/components/question-editor.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:10 +0000
+
+
+Started GET "/assets/templates/components/time-duration-field.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:10 +0000
+
+
+Started GET "/assets/templates/components/time-of-day-field.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:10 +0000
+
+
+Started GET "/assets/templates/components/welcome-message.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:11 +0000
+
+
+Started GET "/assets/templates/dialogs/_team_member_radio_buttons_admin.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:11 +0000
+
+
+Started GET "/assets/templates/dialogs/_team_member_radio_buttons_non_admin.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:12 +0000
+
+
+Started GET "/assets/templates/dialogs/add_new_team_member.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:12 +0000
+
+
+Started GET "/assets/templates/dialogs/confirm_delete_form.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:12 +0000
+
+
+Started GET "/assets/templates/dialogs/confirm_delete_project.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:13 +0000
+
+
+Started GET "/assets/templates/dialogs/confirm_delete_question.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:13 +0000
+
+
+Started GET "/assets/templates/dialogs/confirm_delete_team_member.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:13 +0000
+
+
+Started GET "/assets/templates/dialogs/confirm_download_responses.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:14 +0000
+
+
+Started GET "/assets/templates/dialogs/create_form_structure.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:14 +0000
+
+
+Started GET "/assets/templates/dialogs/create_project.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:14 +0000
+
+
+Started GET "/assets/templates/dialogs/edit_existing_team_member.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:15 +0000
+
+
+Started GET "/assets/templates/dialogs/question.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:15 +0000
+
+
+Started GET "/assets/templates/dialogs/update_form_structure.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:15 +0000
+
+
+Started GET "/assets/templates/dialogs/update_project.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:16 +0000
+
+
+Started GET "/assets/templates/form/build.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:16 +0000
+
+
+Started GET "/assets/templates/form/grid.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:16 +0000
+
+
+Started GET "/assets/templates/form/list_view.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:17 +0000
+
+
+Started GET "/assets/templates/form/preview.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:17 +0000
+
+
+Started GET "/assets/templates/forms/index.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:18 +0000
+
+
+Started GET "/assets/templates/operands/date.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:18 +0000
+
+
+Started GET "/assets/templates/operands/default_layout.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:18 +0000
+
+
+Started GET "/assets/templates/operands/numericalrange.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:19 +0000
+
+
+Started GET "/assets/templates/operands/phonenumber.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:19 +0000
+
+
+Started GET "/assets/templates/operands/selection.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:19 +0000
+
+
+Started GET "/assets/templates/operands/text.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:20 +0000
+
+
+Started GET "/assets/templates/operands/timeduration.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:20 +0000
+
+
+Started GET "/assets/templates/operands/timeofday.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:20 +0000
+
+
+Started GET "/assets/templates/operands/zipcode.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:21 +0000
+
+
+Started GET "/assets/templates/project.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:21 +0000
+
+
+Started GET "/assets/templates/project/index.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:22 +0000
+
+
+Started GET "/assets/templates/projects/index.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:22 +0000
+
+
+Started GET "/assets/templates/questions/_conditions.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:22 +0000
+
+
+Started GET "/assets/templates/questions/condition.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:23 +0000
+
+
+Started GET "/assets/templates/questions/default_layout.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:23 +0000
+
+
+Started GET "/assets/templates/questions/header_layout.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:23 +0000
+
+
+Started GET "/assets/templates/questions/numericalrange.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:24 +0000
+
+
+Started GET "/assets/templates/questions/options.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:24 +0000
+
+
+Started GET "/assets/templates/questions/sequence.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:24 +0000
+
+
+Started GET "/assets/templates/questions/text.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:25 +0000
+
+
+Started GET "/assets/templates/questions/yesno.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:25 +0000
+
+
+Started GET "/assets/templates/response/edit.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:25 +0000
+
+
+Started GET "/assets/templates/response/index.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:26 +0000
+
+
+Started GET "/assets/templates/response/view.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:26 +0000
+
+
+Started GET "/assets/templates/responses.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:27 +0000
+
+
+Started GET "/assets/templates/team-members/index.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:27 +0000
+
+
+Started GET "/assets/routes/protected_route.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:27 +0000
+
+
+Started GET "/assets/routes/account_routes.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:28 +0000
+
+
+Started GET "/assets/routes/application_route.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:28 +0000
+
+
+Started GET "/assets/routes/forms_routes.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:28 +0000
+
+
+Started GET "/assets/routes/index_route.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:29 +0000
+
+
+Started GET "/assets/routes/projects_routes.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:29 +0000
+
+
+Started GET "/assets/routes/response_routes.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:29 +0000
+
+
+Started GET "/assets/routes/team_members_routes.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:30 +0000
+
+
+Started GET "/assets/router.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:30 +0000
+
+
+Started GET "/assets/question_types.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:30 +0000
+
+
+Started GET "/assets/lab_compass.js?body=1" for 10.0.2.2 at 2014-07-16 18:56:31 +0000

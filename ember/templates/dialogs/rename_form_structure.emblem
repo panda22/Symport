@@ -1,0 +1,16 @@
+.dialog.small.create-form
+  .header
+    h2 Rename Form
+  .body
+    ol
+      li.table-header
+        | Enter your form name below
+        LabCompass.ActionContextTextField class="form-name" placeholder="e.g. Demographics" value=editModel.name selectOnFocus=true takeFocus=true
+      each error in editModel.errors.name
+        p.sub-error = error
+      li.table-header
+        | Enter your form description below (optional)
+        LabCompass.AutosizeTextArea value=editModel.description
+  .actions
+    button.button.cancel click="closeDialog" Cancel
+    button.button.main.right click="update" Save

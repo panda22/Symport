@@ -1,0 +1,16 @@
+.left-column.full-sidebar-left id="sidebar-id"
+  .side-content
+    .collapse-sidebar-button.right click="collapseSidebar" 
+    ul.side-nav
+      /for condensed sidebar
+      li.nav-item.empty click="colorData" tooltip="Data" = link-to "project.form-data" tabindex="-1" classNames="nav-link view-data-icon" |
+      li.nav-item.empty click="colorForms" tooltip="Forms" = link-to "project.index" tabindex="-1" classNames="nav-link settings-icon" |
+      li.nav-item.empty click="colorTeam" tooltip="Team" = link-to "team-members.index" tabindex="-1" classNames="nav-link team-icon" | 
+      li.nav-item.empty click="colorQuery" tooltip="Query" = link-to "view-and-query.saved-queries"  tabindex="-1" classNames="nav-link import-icon" |
+      /for full sidebar
+      li.nav-item.full click="colorData" = link-to "project.form-data" tabindex="-1" classNames="nav-link view-data-icon formDataText" | Data
+      li.nav-item.full click="colorForms" = link-to "project.index" tabindex="-1" classNames="nav-link settings-icon formsText"  | Forms
+      li.nav-item.full click="colorTeam" = link-to "team-members.index" tabindex="-1" classNames="nav-link team-icon teamText" | Team
+      li.nav-item.full click="colorQuery" = link-to "view-and-query.saved-queries" tabindex="-1" classNames="nav-link import-icon importText" | Query
+.right-column.full-sidebar-right id="page-content" 
+  outlet

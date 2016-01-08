@@ -1,0 +1,9 @@
+h1 Forms
+
+ul
+  each
+    li
+      link-to "form.build" id 
+        span = name
+    
+

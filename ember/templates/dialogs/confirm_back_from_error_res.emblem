@@ -1,0 +1,13 @@
+.dialog.small
+  .header
+    h2 Unsaved Corrections
+
+  .body
+    p Are you sure you want to go back? If you do you will lose all of the corrections you have made up to this point.
+
+  .actions
+
+    button.button.cancel click="closeDialog" Resume Import
+    button.button.main.right.confirm-leave click="confirmgoBackErrorRestoTimeOfDayFormat" Go Back
+
+

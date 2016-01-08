@@ -1,0 +1,19 @@
+if needsPages
+  .pagination-centered
+    ul.pagination
+      if canStepBackward
+        li.arrow: a click="stepBackward" &laquo;
+      else
+        li.arrow.unavailable: a &laquo;
+      each item in pageItems
+        if item.ellipses
+          li.unavailable: a &hellip;
+        else
+          if item.current
+            li.current: a = item.page
+          else
+            li: a click="pageClicked item.page" = item.page
+      if canStepForward
+        li.arrow: a click="stepForward" &raquo;
+      else
+        li.arrow.unavailable: a &raquo;

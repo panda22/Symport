@@ -1,0 +1,103 @@
+@import "colors";
+@import "foundation/functions";
+
+$bold: 600;
+$normal: 400;
+$light: 200;
+
+$dark: $lc-darker-black;
+
+.base-font {
+    color: $lc-text-black;
+    font-weight: $normal;
+    font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+}
+.dark-light {
+	color: $dark;
+	font-weight: $light;
+}
+.dark-bold {
+	color: $dark;
+	font-weight: $bold;
+}
+
+/* ____________________________ */
+.main-instructions {
+	@extend .dark-light;
+	font-size: rem-calc(28);
+}
+.sub-instructions {
+	@extend .dark-bold;
+	font-size: rem-calc(18);
+}
+/* ____________________________ */
+.page-header {
+	@extend .dark-bold;
+	font-size: rem-calc(16);
+}
+.table-header {
+	@extend .dark-bold;
+	font-size: rem-calc(14);
+}
+.sub-table-header {
+	@extend .dark-light;
+	font-size: rem-calc(14);	
+}
+/* ____________________________ */
+.main-info {
+	@extend .base-font;
+	font-size: rem-calc(16);
+}
+/* ____________________________ */
+.content {
+	@extend .base-font;	
+	font-size: rem-calc(14);
+}
+.sub-content {
+	@extend .base-font;	
+	font-size: rem-calc(12);
+}
+/* ____________________________ */
+.card-title {
+	@extend .dark-light;
+	font-size: rem-calc(25);
+}
+.card-details {
+	@extend .dark-light;
+	font-size: rem-calc(16);
+	margin-left: -14px;
+}
+/* ____________________________ */
+.main-error {
+	color: $lc-red;
+	font-weight: $normal;
+	font-size: rem-calc(16);
+}
+.sub-error {
+	color: $lc-red;
+	font-weight: $normal;
+	font-size: rem-calc(14);
+	line-height: 1.4;
+	&.padding {
+		padding-top: 10px;
+	}
+	&.larger {
+		width: 108%;
+	}
+	&.moreBottom {
+		padding-bottom: 20px;
+	}
+}
+/* ____________________________ */
+.text-link {
+	color: $lc-blue;
+	font-weight: $normal;
+	font-size: rem-calc(14);
+	cursor: pointer;
+	&:hover {
+		text-decoration: underline;
+	}
+	&.negative {
+		color: $lc-red;
+	}
+}

@@ -1,0 +1,7 @@
+.dialog.small.create-project
+  .header
+    h2 Rename Subject ID
+  .body
+    p You have unsaved changes to this form response. You must save these changes before you can rename the subject ID.
+  .actions
+    button.button.main.right click="closeDialog" Close

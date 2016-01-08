@@ -1,0 +1,114 @@
+page-header title="Build Form"
+  .row
+    .small-12.column
+      dl.tabs
+        dd.active
+          link-to "form.build" | Edit Form
+        dd
+          link-to "form.preview" | Preview Form
+
+.form-structure.main-content
+  .row.header-row
+    .small-12.column
+      h2.form-name = name
+  .row
+    .small-12.column.description {{description}}
+  .row
+    .small-12.column.saved-at {{savedAtString}}
+  .row
+    .small-12.column
+      .instructions
+        .search-bar-wrapper
+          question-search-bar text="Search for Question" isBuildContext=true setPlaceholder=true
+              drop-down isEditable=true val=curSearchString inputOptions=questionSearchArray
+      .form-questions.box-around-form
+        .row.add-question-button-row
+          .small-12.column
+            if isNewPage
+              button.button.light-plus-with-text.right click="addQuestionAfter prevPageQuestion" Add Question or Formatting
+            else
+              if isFirstPage
+                button.button.light-plus-with-text.right click="addQuestion" Add Question or Formatting
+              else
+                button.button.light-plus-with-text.right click="addQuestionAfter prevPageQuestion" Add Question or Formatting
+        if isNewPage
+          .row
+            .small-12.column.text-center.no-content-text
+              | Add questions to this page above
+        else
+          each question in displayedQuestions
+            .form-question-container id=question.id
+              question-editor question=question editing=false
+              .row
+                .small-12.column
+                  .form-question-tools
+                    .tool: a.delete click="confirmDeleteQuestion question" Delete
+                    if question.canBranch
+                      .tool: a click="branchQuestion question" Create Branched Question
+                    .tool: a click="duplicateQuestion question" Duplicate
+                    .tool: a click="editQuestion question" Edit
+              .row.add-question-button-row
+                .small-12.column
+                  button.button.light-plus-with-text.right click="addQuestionAfter question" Add Question or Formatting
+          else
+            .empty-questions-build-state
+
+        if addNewPage
+          .row.add-new-page-row
+            .small-12.column
+              a.right click="addNewPage"
+                | Click here to create a new page and continue adding questions
+          .row.make-fast-row
+            .small-12.column
+              .right.content To make your form fast we cap each page at {{QUESTIONS_PER_PAGE}} questions
+        if isPaging
+          .row.question-pagination.content
+            .small-6.column
+              if isNewPage
+                .page-display
+              else
+                .page-display.content#builder-page-display
+                  ' Showing {{curPageInfo.firstQuestionName}} through
+                  ' {{curPageInfo.lastQuestionName}} of
+                  ' {{paginationInfo.lastQuestionName}}
+            .small-6.column
+              .page-links
+                ul.pagination role="menubar" aria-label="Pagination"
+                  if paginationInfo.firstPage.isCurPage
+                    if isNewPage
+                      li.paginate_button
+                        a click="changePage paginationInfo.firstPage"
+                          | &lt;&lt; First
+                    else
+                      li.paginate_button.unavailable
+                        a
+                          | &lt;&lt; First
+                  else
+                    li.paginate_button
+                      a click="changePage paginationInfo.firstPage"
+                        | &lt;&lt; First
+                  each page in paginationInfo.pages
+                    li.paginate_button class={page.isCurPage:current}
+                      a click="changePage page"
+                        | {{page.firstQuestionName}}-{{page.lastQuestionName}}
+                  if paginationInfo.lastPage.isCurPage
+                    li.paginate_button.unavailable
+                      a Last >>
+                  else
+                    li.paginate_button
+                      a click="changePage paginationInfo.lastPage" Last >>
+
+div id="buildFormJoyride"
+  ol class="joyride-list" data-joyride=""
+    li data-id="addAQuestion" data-button="Next" data-options="tip_location:right;prev_button:false;next_button:false;"
+      p.content Use the Form Builder to add, edit, or delete questions.
+    li data-id="addAQuestion" class="questionAddingTooltip" data-button="Next" data-options="tip_location:right;prev_button:false;next_button:false;"
+      p.content Try adding a question now.
+
+div id="helpJoyride"
+  ol class="joyride-list" data-joyride=""
+    li data-id="helpButton" data-button="Next" data-options="tip_location:bottom;prev_button:false;next_button:false;"
+      p.content If you need anything, you can find help here.
+    li data-button="Finish"
+      p.content Good Job! You have completed our onboarding and are ready to start your own project or join someone else's.
+      p.content :)

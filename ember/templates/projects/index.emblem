@@ -1,0 +1,68 @@
+.right-column
+  .my-projects-header-box
+    .card-title My Projects
+    .content Projects are a way for you to access and organize forms and team members.
+    .content People can invite you to their projects, and you can invite people to your project.
+  .projects
+    .row
+      .small-12.column
+        .form-structures
+          .row
+            .small-6.column.clearfix
+              button.button.plus-with-text.left click="createProject" Create New Project
+            .small-3.column.clearfix
+              .sorting-text-container
+                p Sort By:
+            .small-3.columns.clearfix
+              Ember.Select class="sub-table-header.settings-with-text.right" content=listSorting value=listValue              
+
+          each project in sortedProjects
+            .clickable-project-container id=project.id
+              .row.top-bottom-border click="openProject project.id"
+                if project.isDemo
+                  .project-links
+                else
+                  .project-links
+                    a.settings data-dropdown=project.hoverId data-options="is_hover:true;" Project Settings
+                    ul id=project.hoverId class="f-dropdown" data-dropdown-content=""
+                      li.dropdownLink
+                        if project.userPermissions.deleteProject
+                          .link.delete-link
+                            a.delete.right click="confirmDeleteProject project" Delete
+                        else
+                          .link.delete-link
+                            a.delete.right.disabled click="" Delete
+                      li.dropdownLink
+                        .link
+                          a.rename.right class=project.userPermissions.deleteProject::notAdmin click="editProjectSettings project" disabled=userPermissions.disableEditSettings Rename Project
+                .project-detail
+                  .side-bar.small-1.column
+                  .small-8.column
+                    .project-info
+                      h3.form-name = project.name
+                      //.info.forms-count Forms: {{formsCount}}
+                      //.info.subjects-count Subjects: {{subjectsCount}}
+                      .info.administrator-names Admins: {{project.administratorNames}}
+                  .small-3.column.right
+          else
+            h2 style="margin-left: 39%;" Welcome {{session.user.firstName}} {{session.user.lastName}}
+            .no-projects-graphic
+
+div id="projectIndexJoyride"
+  ol class="joyride-list" data-joyride=""
+    li data-button="Next" class="joyrideFirstModal" data-options="tip_location:top;prev_button:false;next_button:false;"
+      p.sub-instructions Welcome to Symport.
+      p.content Hi {{session.user.firstName}},
+      p.content To help you learn and gain value, we've built you a demo project you are free to explore.  
+      p.content We have highlighted some of the most important functions and features to help you become familiar with Symport before you move on to your own project.  
+
+      p.content Be on the lookout for pulsing buttons that will help guide you through the tour.
+    li data-button="Get Started" class="joyrideFirstModal" data-options="tip_location:top;prev_button:false;next_button:false;"
+      p.content
+        i Click on the Demo Project to get started!
+      p.content If you would like to skip this tutorial, you are free to navigate away at any time.
+
+
+
+
+

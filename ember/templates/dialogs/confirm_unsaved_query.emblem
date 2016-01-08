@@ -1,0 +1,14 @@
+.dialog.small
+  .header
+    h2 Unsaved Changes
+
+  .body
+    p Are you sure you want to leave this page?
+    p
+      ' If you do any changes to the query parameters
+      ' will not be saved.
+
+  .actions
+
+    button.button.cancel click="closeDialog" Cancel
+    button.button.main.right.confirm-leave click="confirmLeave" Leave

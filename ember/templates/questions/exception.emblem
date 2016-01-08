@@ -1,0 +1,8 @@
+label value
+Ember.TextField value=value
+   
+label label
+Ember.TextField value=label
+    
+label type (zipcode,numericalrange,timeofday,email,date_day,date_year,date_month)
+Ember.TextField value=exceptionType

@@ -1,0 +1,459 @@
+.formless-import
+	if show_escape
+		.little-x click="backToData"
+	.fake-modal
+		if file_upload_state
+			.file-upload-state
+				.advice-text
+					.main-instructions You may import your data into Symport as a .CSV from Excel 
+				.body
+					.box1
+						.image-wrapper
+							.advice1
+						.content 
+							.inline Learn how to correctly format your spreadsheet
+							.inline.link click="adviceHelp1" here
+					.box2
+						.image-wrapper
+							.advice2
+						.content During import you can add rows, columns, or both.
+					.box3
+						.image-wrapper
+							.advice3
+						.content 
+							.inline Learn how to save your data in a .CSV using excel
+							.inline.link click="adviceHelp2" here
+				.buttons-area
+					button.button.cancel-query click="backToData" Cancel
+					.file-but-wrap id="joyrideUpload"
+						span.drag-drop Click To Upload Your CSV File Or Drag & Drop It In
+						Ember.TextField class="upload" id='file-upload' type='file' value=fake_path_select multiple=false 
+
+		if file_preview_state
+			.file-preview-state
+				.advice-text
+					.main-instructions Here are the first 15 rows of your spreadsheet. Is this the data you wish to upload?
+					.content {{fileName}} has {{num_spreadsheet_rows}} Rows and {{num_spreadsheet_cols}} Columns
+				.body
+					table.file-preview-table
+						tr
+							each head in headers_row
+								th.table-header {{head}}
+						each row in values_rows_preview
+							tr.preview-row
+								each val in row
+									td.content {{val}}
+				.buttons-area
+					button.button.cancel-query.left click="backToData" Cancel
+					button.button.primary click="backToFile" Go Back
+					button.button.main.right click="confirmPreview" Yes, Continue
+
+		if select_existing_form_state
+			.select-existing-form-state
+				.advice-text
+					.main-instructions Select the form you want to import data into
+				import-state-machine class="state-machine-wrapper" state_step=1 fileName=fileName shortFileName=shortFileName
+				.body
+					LabCompass.RadioButtonGroup value=form_selection
+						each form in allowed_forms
+							if form.userPermissions.enterData
+								div
+									label.radio-option.card-details
+										view view.RadioButton value=form id=form.id | {{form.name}}
+										= value
+							else
+								div 
+									label.radio-option
+										.disabled-form {{form.name}}
+						if project.userPermissions.createForms
+							div 
+								label.radio-option.main-info
+									view view.RadioButton value="*^*new form*^*" | Create a New Form
+
+				.buttons-area
+					button.button.cancel-query.left click="backToData" Cancel
+					button.button.primary click="backToPreview" Go Back
+					button.button.main.right click="confirmFormSelection" Save & Continue
+		
+		if new_form_state
+			.new-form-state
+				.advice-text
+					.main-instructions Lets make a form based off your data
+					.content Once we instantly build your form, you can easily collect and structure data
+				import-state-machine class="state-machine-wrapper" state_step=1 fileName=fileName shortFileName=shortFileName
+				.body
+					.details-box 
+						.page-header 1. Enter the form name below
+						.indent
+							Ember.TextField value=new_form_name
+					.details-box 
+						.page-header 2. Enter a form description below
+						.indent
+							.content What might collaborators want to know about this form?
+							Ember.TextArea value=new_form_description
+				.buttons-area
+					button.button.cancel-query.left click="backToData" Cancel
+					button.button.primary click="backToSelectForm" Go Back
+					button.button.main.right click="confirmNewFormSelection" Save & Continue
+					if show_error
+						.error-message.main-error 
+
+		if select_import_options_state
+			.select_import_options_state
+				.advice-text
+					.main-instructions How would you like to import data?
+				import-state-machine class="state-machine-wrapper" state_step=2 fileName=fileName shortFileName=shortFileName
+				.body
+					LabCompass.RadioButtonGroup value=import_mode_selection
+						div
+							label.card-details
+								view view.RadioButton value="rows" | Only Add new Rows
+							.learn-more click="learnMore1" (Learn More...)
+						div
+							label.card-details
+								view view.RadioButton value="columns" | Add All Columns
+							.learn-more click="learnMore2" (Learn More...)
+						div
+							label.card-details
+								view view.RadioButton value="all" | Add All New Rows & Update Existing Data
+							.learn-more click="learnMore3" (Learn More...)
+				.buttons-area
+					button.button.cancel-query.left click="backToData" Cancel
+					button.button.primary click="backToNewForm" Go Back
+					button.button.main.right click="confirmImportOptions" Save & Continue
+					if show_error
+						.error-message.main-error
+		if mapping_state
+			.mapping-state
+				.advice-text
+					if mapping_confirmation_sub_state
+						.main-instructions Great Work! Please double check your variable/header matches before moving forward
+					else
+						.main-instructions Please look at your spreadsheet(.csv) and tell us which column headers match your form's variables
+						.content We've recommended a few matches for you, they are shown in blue
+				import-state-machine class="state-machine-wrapper" state_step=2 fileName=fileName shortFileName=shortFileName
+				.body
+					table class=mapping_confirmation_sub_state:confirming:active
+						tr
+
+							th.page-header Variable Name
+								<span data-tooltip data-width="275" aria-haspopup="true" class="tip-right tooltip-div" title="This list contains the question variables you created while building the form. They should be paired with the Column Header containing each question's data."></span>
+							th.page-header Spreadsheet(.csv) Column Header
+								<span data-tooltip data-width="275" aria-haspopup="true" class="tip-right tooltip-div" title="Column Header Names come from the first row of your spreadsheet(.csv). They should be paired with the corresponding variable names from the form's questions."></span>
+							th.ignore-cell 
+								if not_mapping_confirmation_sub_state
+									.ignore#ignore-all-questions click="ignoreAllQuestions" Ignore All
+						each question in filtered_questions
+							tr.mapping-row
+								td.content {{question.variableName}}
+								td.content
+									drop-down id=question.id placeholder="Please Select..." isEditable=not_mapping_confirmation_sub_state inputOptions=headers_row disabled=mapping_confirmation_sub_state
+								td.ignore-cell
+									if not_mapping_confirmation_sub_state
+										.ignore click="ignoreQuestion question" Ignore
+										.undo click="ignoreQuestion question" Undo
+							each option in question.config.selections
+								if option.otherOption
+									tr.mapping-row
+										td.content.other-var-cell {{option.otherVariableName}}
+										td.content.other-cell 
+											drop-down id=question.variableName placeholder="Please Select..." isEditable=not_mapping_confirmation_sub_state inputOptions=headers_row disabled=mapping_confirmation_sub_state
+											div style="display: none;" {{option.value}}
+										td.ignore-cell	
+											if not_mapping_confirmation_sub_state
+												.ignore click="ignoreOther question" Ignore
+												.undo click="ignoreOther question" Undo
+						if form_structure.userPermissions.buildForm
+							if not_mapping_confirmation_sub_state
+								tr.add-question-row
+									td.main-info click="addNewQuestion" + Add New Question
+									td
+									td
+                    			
+				.buttons-area
+					if mapping_confirmation_sub_state
+						button.button.cancel-query.left click="backToData" Cancel
+						button.button.primary click="backToChooseMapping" Go Back
+						button.button.main.right click="acceptMapping" Save & Continue
+					else
+						button.button.cancel-query.left click="backToData" Cancel
+						button.button.primary click="backToOptions" Go Back
+						button.button.main.right click="checkMapping" Save & Confirm
+					if show_error
+						.error-message.main-error
+
+		if select_subject_id_state
+			.select-subject-id-state
+				.advice-text
+					.main-instructions Tell us whether you have longitudinal data and which column contains the Subject ID  
+					<span data-tooltip data-width="300" aria-haspopup="true" class="tip-right tooltip-div" title="Subject IDs are the unique identifiers used to store all of the data for one study subject. Subject IDs work across your entire project, and will be used to find the data matched with that subject."></span>
+				import-state-machine class="state-machine-wrapper" state_step=3 fileName=fileName shortFileName=shortFileName
+				.body
+					.details-box  
+						.page-header 1. In your spreadsheet, what column header are your Subject IDs listed under?
+						.indent
+							drop-down isEditable=true placeholder="Please Select..." inputOptions=headers_row val=subject_id_header
+					.details-box  
+						.page-header 2. Do you use Secondary IDs in your longitudinal data?
+						.indent
+							if form_structure.id
+								.content This form has already been created and doesn't use longitudinal data
+							.content Secondary IDs are used when collecting data for a single form multiple times per subject(relational data)
+							.content Examples are longitudinal data collection or patients having multiple lab samples
+							LabCompass.RadioButtonGroup value=form_structure.isManyToOne disabled=existing_form
+								label.content
+									view view.RadioButton value=true | Yes
+								label.content
+									view view.RadioButton value=false | No
+
+				.buttons-area
+					button.button.cancel-query.left click="backToData" Cancel
+					button.button.primary click="backToMapping" Go Back
+					button.button.main.right click="confirmSubjectID" Save & Continue
+					if show_error
+						.error-message.main-error
+		if many_to_one_options_state
+			.many-to-one-options-state 
+				.advice-text
+					.main-instructions Tell us some details about your longitudinal data
+				import-state-machine class="state-machine-wrapper" state_step=3 fileName=fileName shortFileName=shortFileName
+				.body
+					.details-box 
+						.page-header 1. What do you want to call your Secondary IDs?
+						.indent
+							.content Examples are visit date, adverse effect, or tissue sample
+							Ember.TextField value=form_structure.secondaryId disabled=existing_form
+							.sub-error#empty-secondary
+					.details-box 
+						.page-header 2. Are your Secondary IDs in the same column as your Subject IDs?
+						.indent
+							LabCompass.RadioButtonGroup value=single_column_id
+								label.content
+									view view.RadioButton value=true | Yes
+								label.content
+									view view.RadioButton value=false | No
+					.details-box
+						if single_column_id
+							.page-header 3. In your spreadsheet(csv), what character seperates your Subject ID and Secondary ID?
+							.indent
+								.image-box
+								Ember.TextField value=id_seperator
+								.sub-error#empty-seperator
+						else
+							.page-header 3. Okay, in your spreadsheet(csv), what column is your Secondary ID in?
+							.indent
+								drop-down isEditable=true placeholder="Please Select..." inputOptions=headers_without_subject val=secondary_id_header_place
+								.sub-error#bad-secondary
+
+				.buttons-area
+					button.button.cancel-query.left click="backToData" Cancel
+					button.button.primary click="backToSubject" Go Back
+					button.button.main.right click="confirmManyToOneOptions" Save & Continue
+					if show_error
+						.error-message.main-error
+		if missing_subject_state
+			.missing-subject-state
+				.advice-text
+					if form_structure.isManyToOne
+						.main-instructions We found {{remaining_missing_subjects}} rows with missing Subject ID(s) and/or {{form_structure.secondaryId}}(s)
+						.main-error All rows must have a Subject ID and {{form_structure.secondaryId}}. Please enter one below
+					else
+						.main-instructions We found {{remaining_missing_subjects}} rows with missing Subject ID(s)
+						.main-error All rows must have a Subject ID. Please enter on below
+				import-state-machine class="state-machine-wrapper" state_step=4 fileName=fileName shortFileName=shortFileName
+				.body
+					div class=form_structure.isManyToOne:tables-wrapper-mto:tables-wrapper
+						.subject-table-wrapper
+							table.subject-table
+								tr
+									th.line-number
+									th.page-header Subject ID
+								if before_missing
+									tr
+										td.content.line-number
+											div Line {{before_missing.line}}
+										td.content 
+											div {{before_missing.sub}}
+								if current_missing
+									tr class=current_missing.ignored:ignored:active-missing
+										td.content.line-number
+											div Line {{current_missing.line}}
+										td.content.id 
+											div style="padding: 0px"
+												Ember.TextField value=current_missing.sub
+								if after_missing
+									tr
+										td.content.line-number
+											div Line {{after_missing.line}}
+										td.content 
+											div {{after_missing.sub}}
+						if form_structure.isManyToOne
+							.secondary-table-wrapper
+								table.secondary-table
+									tr
+										th.page-header 
+											div style="max-width: 95px; text-overflow: ellipsis; overflow: hidden;" title=form_structure.secondaryId {{form_structure.secondaryId}}
+									if before_missing
+										tr
+											td.content 
+												div {{before_missing.sec}}
+									if current_missing
+										tr class=current_missing.ignored:ignored:active-missing
+											td.content.id
+												div style="padding: 0px"
+													Ember.TextField value=current_missing.sec
+									if after_missing
+										tr
+											td.content 
+												div {{after_missing.sec}}
+						.data-table-wrapper
+							table.data-table
+								tr
+									each head in headers_without_subject_or_secondary
+										th.page-header.data-header title=head {{head}}
+								if before_missing
+									tr
+										each value in before_missing.data
+											td.content 
+												div title=value {{value}}
+								if current_missing
+									tr#current-missing-row style="height: 32px" class=current_missing.ignored:ignored:active-missing
+										each value in current_missing.data
+											td.content 
+												div title=value {{value}}
+								if after_missing
+									tr
+										each value in after_missing.data
+											td.content 
+												div title=value {{value}}
+						.delete-table-wrapper
+							table.delete-table
+								tr
+									th.line-number
+								if before_missing
+									tr
+										td.content.line-number
+											div
+								if current_missing
+									tr class=current_missing.ignored:ignored:active-missing
+										td.content.line-number
+											div
+												if current_missing.ignored
+													.undo click="deleteMissingRow false" Undo
+												else
+													.delete click="deleteMissingRow true" Delete
+								if after_missing
+									tr
+										td.content.line-number
+											div
+
+				.buttons-area
+					button.button.cancel-query.left click="backToData" Cancel
+					if more_missing
+						if has_next_missing
+							button.button.primary.right click="nextMissingSubject true" Next
+						button.button.main.right click="saveAndNextMissingSubject" Save 
+					else
+						button.button.main.right style="margin-right: 0px;" click="saveAndNextMissingSubject" Save & Continue
+					if has_prev_missing
+						button.button.primary click="nextMissingSubject false" Previous
+					else
+						button.button.primary click="nextMissingSubject false" Go Back
+					if show_error
+						if form_structure.isManyToOne
+							.error-message.main-error style="padding: 5px 5px"
+						else
+							.error-message.main-error
+
+		if dup_subject_state
+			.dup-subject-state
+				.advice-text
+					if form_structure.isManyToOne
+						.main-instructions We found {{remaining_duplicate_subjects}} duplicate Subject ID and {{form_structure.secondaryId}} pair(s)
+						.main-error There are duplicate Subject ID, {{form_structure.secondaryId}} pairs. You may not have duplicate or blanks ID pairs
+					else
+						.main-instructions We found {{remaining_duplicate_subjects}} duplicate Subject ID(s)
+						.main-error There are duplicate Subject IDs. You may not have duplicate or blanks IDs
+					.main-error Please correct them below
+				import-state-machine class="state-machine-wrapper" state_step=5 fileName=fileName shortFileName=shortFileName
+				.body
+					div class=form_structure.isManyToOne:tables-wrapper-mto:tables-wrapper
+						.subject-table-wrapper
+							table.subject-table
+								tr
+									th.line-number
+									th.page-header title="Subject ID" Subject ID
+								each row in current_duplicates
+									tr class=row.ignored:ignored:active-duplicate
+										td.content.line-number 
+											div Line {{row.line}}
+										td.content.id
+											div style="padding: 0;"
+												Ember.TextField value=row.sub
+
+						if form_structure.isManyToOne
+							.secondary-table-wrapper
+								table.secondary-table
+									tr 
+										th.page-header 
+											div style="max-width: 95px; text-overflow: ellipsis; overflow: hidden;" title=form_structure.secondaryId {{form_structure.secondaryId}}
+									each row in current_duplicates
+										tr class=row.ignored:ignored:active-duplicate
+											td.content.id
+												div style="padding: 0;"
+													Ember.TextField value=row.sec
+
+						.data-table-wrapper
+							table.data-table
+								tr
+									each head in headers_without_subject_or_secondary
+										th.page-header.data-header title=head {{head}}
+								each row in current_duplicates
+									tr class=row.ignored:ignored:active-duplicate
+										each value in row.data
+											td.content 
+												div title=value {{value}}
+						.delete-table-wrapper
+							table.delete-table
+								tr
+									th.line-number.delete#delete-all-duplicates click="deleteAllDuplicates" Delete All
+								each row in current_duplicates
+									tr class=row.ignored:ignored:active-duplicate
+										td.content.line-number
+											div	
+												if row.ignored
+													.undo click="undoDeleteDuplicateRow row" Undo
+												else
+													.delete click="deleteDuplicateRow row" Delete
+
+
+				.buttons-area
+					button.button.cancel-query.left click="backToData" Cancel
+					if more_duplicates
+						if has_next_dup
+							button.button.primary.right click="nextDuplicateSubject true" Next
+						button.button.main.right click="saveAndNextDuplicateSubject" Save
+					else
+						button.button.main.right style="margin-right: 0px;" click="saveAndNextDuplicateSubject" Save & Finish Import
+					if has_prev_dup
+						button.button.primary.left click="nextDuplicateSubject false" Previous
+					else
+						button.button.primary.left click="nextDuplicateSubject false" Go Back
+					if show_error
+						.error-message.main-error
+
+		if final_confirm_state
+			.final-confirm-state
+				.advice-text
+					.main-instructions Your almost done with the import process and are ready to clean and query your data
+				import-state-machine class="state-machine-wrapper" checkbox=true
+				.body
+					.main-info You imported {{final_num_rows}} rows and {{final_data_columns.length}} columns
+					.main-info Great job fixing {{total_errors}} errors!
+				.buttons-area  
+					button.button.main.left click="finalConfirm" Finish Import
+
+		if loadingState
+			.loading-state
+				.loading-image
+				.main-instructions We’re uploading your beautiful data, please wait up to {{time_to_upload}} minutes.

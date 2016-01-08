@@ -1,0 +1,313 @@
+@import "colors";
+@import "foundation/functions";
+
+
+.welcome-message {
+  margin: rem-calc(30) rem-calc(0);
+  background-image: image-url("person.png");
+  background-size: rem-calc(50);
+  background-repeat: no-repeat;
+  background-position: 18px center;
+  padding: rem-calc(10) rem-calc(0) rem-calc(10) rem-calc(60+18);
+  display: inline-block;
+    h6{
+      font-family: 'Open Sans';
+      font-weight: 200;
+      font-size: 19px;
+      color: $lc-sidenav-item-text-color;
+      line-height: 23px;
+      margin: 0;
+    }
+}
+
+.collapse-sidebar-button {
+  width: 22px;
+  height: 25px;
+  background-repeat: no-repeat;
+  background-position-y: 50%;
+  margin-right: 6px;
+  margin-top: 0px;
+  cursor: pointer;
+  z-index: 11;
+  margin-left: 108px;
+  position: fixed;
+}
+
+.condensed-sidebar-left {
+  width: 50px;
+  .side-content {
+    position: relative;
+    z-index: 10;
+    float: right;
+    margin-right: 0px;
+    width: 50px; 
+    .welcome-message {
+      visibility: hidden;
+    }
+    .collapse-sidebar-button {
+      background-image: image-url("expand-arrow.svg");
+      margin-left: 0px;
+      background-color: #5c6270;
+      background-size: 15px 9px;
+      background-position-x: 18px;
+      width: 50px;
+    }
+    .side-nav{
+      margin-top: 19px;
+      li a.active {
+        /* here is where we used to set the border for top 
+        and bottom of the side nav buttons */
+      }
+      li.nav-item {
+        &.full {
+          display: none;
+        }
+        height: 55px; 
+        margin: 0;
+        padding: rem-calc(10) 0;
+        background-repeat: no-repeat;
+        background-size: rem-calc(207) rem-calc(3);
+        background-position: right bottom;
+        margin-bottom: 25px;
+        color: #CCCCCC;
+
+        .nav-link {
+          background-size: rem-calc(20) rem-calc(20);
+          background-repeat: no-repeat;
+          padding: 1.8rem rem-calc(0) rem-calc(5) 2.3rem;
+          background-position: center;
+          &:hover, &:focus { }
+          &.build-icon { }
+          &.populate-icon { }
+          &.deploy-icon { }
+          &.query-icon { }
+          &.files-icon { }
+          &.export-icon { }
+          &.projects-icon {
+            background-image: image-url("projects.png");
+            background-size: 19px 19px;
+            height: 19px;
+          }
+          &.team-icon {
+            background-image: image-url("team.svg");
+            background-size: 31px 18px;
+            height: 19px;
+          }
+          &.import-icon {
+            background-image: image-url("data-eye.svg");
+            background-size: 26px 20px;
+            height: 19px;
+          }
+
+          &.settings-icon {
+            background-image: image-url("forms.svg");
+            background-size: 17px 23px;
+            height: 19px;
+          }
+          &.view-data-icon {
+            background-image: image-url("view-data.svg");
+            background-size: 24px 21px;
+            height: 19px;
+          }
+          &.team-icon.active {
+            background-image: image-url("team-active.svg")
+          }
+          &.import-icon.active {
+            background-image: image-url("data-eye-active.svg")
+          }
+          &.settings-icon.active {
+            background-image: image-url("forms-active.svg")
+          }
+          &.view-data-icon.active {
+            background-image: image-url("view-data-active.svg")
+          }
+        }
+      }
+    }
+  }
+}
+
+.left-column.pushed-down, .left-column-projects.pushed-down{
+  top: 120px;
+}
+
+.side-nav li a:not(.button):hover {
+  color: $lc-medium-gray;
+}
+
+svg {
+  fill: currentColor;
+}
+
+.full-sidebar-left{
+  .side-content {
+    position: relative;
+    z-index: 10;
+    width: 130px;
+    float: right;
+    margin-right: 0px;
+    .welcome-message {
+      visibility: visible;
+    }
+    .collapse-sidebar-button {
+      background-image: image-url("collapse-arrow.svg");
+      background-color: #5c6270;
+      background-size: 15px 9px;
+      background-position-x: 3px;
+    }
+    
+    .side-nav {
+      font-weight: bold;
+
+      li a:not(.button) {
+        color: $lc-medium-gray;
+      }
+
+      li {
+        font-size: 15px;
+        color: $lc-medium-gray;
+      }
+
+      li a.active {
+        font-weight: bold;
+        color: $lc-light-blue;
+      }
+      li.nav-item {
+        &.empty{
+          display: none;
+        }
+        .formsText {
+        }
+        .teamText, .dataText {
+        }
+        .importText {
+        }
+
+        height: 100px;
+        margin: 0;
+        padding: rem-calc(10) 0;
+        background-repeat: no-repeat;
+        background-size: rem-calc(207) rem-calc(3);
+        background-position: right bottom;
+        text-transform: uppercase;
+        .nav-link {
+          width: 100%;
+          text-align: center;
+          display: inline-block;
+          background-size: rem-calc(20) rem-calc(20);
+          background-repeat: no-repeat;
+          background-position: 35px;
+          margin-top: 25px;
+          padding-top: 22px;
+
+          &.disabled, &[disabled] {
+            opacity: 0.3;
+            &:hover, &:focus {
+              cursor: default;
+              text-color: $lc-sidenav-item-text-color;
+            }
+          }
+          &.active {
+            color: $lc-light-blue;
+          }
+
+          &.build-icon {
+            background-image: image-url("hammer-2.png");
+          }
+          &.populate-icon {
+            background-image: image-url("pencil-2.png");
+          }
+          &.deploy-icon {
+            background-image: image-url("cloud-download-2.png");
+          }
+          &.query-icon {
+            background-image: image-url("plus-2.png");
+          }
+          &.files-icon {
+            background-image: image-url("cloud-download-2.png");
+          }
+          &.export-icon {
+            background-image: image-url("export-2.png");
+            background-size: 18px;
+          }
+
+
+          &.team-icon {
+            background-image: image-url("team.svg");
+            background-size: 31px 18px;
+            background-position: 49px 5px;
+            outline-width: 0px;
+          }
+          &.import-icon {
+            background-image: image-url("data-eye.svg");
+            background-position: 52px 2px;
+            background-size: 26px 20px;
+            outline-width: 0px;
+          }
+          &.settings-icon {
+            background-image: image-url("forms.svg");
+            background-size: 17px 23px;
+            background-position: 56px 3px;
+            outline-width: 0px;
+            padding-top: 26px;
+          }
+          &.projects-icon {
+            background-image: image-url("projects.png");
+            background-size: 19px 19px;
+            padding-left: 28px+20px;
+            background-position: 20px;
+          }
+          &.view-data-icon {
+            background-image: image-url("view-data.svg");
+            background-size: 24px 21px;
+            background-position: 53px 0px;
+            height: 50px;
+            outline-width: 0px;
+          }
+          &.team-icon.active {
+            background-image: image-url("team-active.svg");
+          }
+          &.import-icon.active {
+            background-image: image-url("data-eye-active.svg");
+          }
+          &.settings-icon.active {
+            background-image: image-url("forms-active.svg");
+          }
+          &.view-data-icon.active {
+            background-image: image-url("view-data-active.svg");
+          }
+        }
+      }
+    }
+  }
+}
+
+.main-content {
+  margin-left: -45px;
+}
+
+[tooltip]:before {
+  content: attr(tooltip);
+  position: fixed;
+  opacity: 0;
+  width: auto;
+
+  cursor: pointer;
+  padding: 7px;
+  font-size: 15px;
+  text-align: left;
+  font-weight: bold;
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+[tooltip]:hover:before {
+    opacity: 1;
+    
+    background: $lc-darker-blue;
+
+    margin-top: -2px;
+    margin-left: 43px;
+    width: auto;
+    height: 40px;    
+}

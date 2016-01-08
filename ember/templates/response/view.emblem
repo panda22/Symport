@@ -1,0 +1,65 @@
+.form-response
+  .row.form-header
+    .small-12.columns
+      if model.formStructure.isManyToOne
+        h3.current-subject VIEWING SUBJECT ID → {{model.subjectID}} - {{model.shortSecondaryId}}
+      else
+        h3.current-subject VIEWING SUBJECT ID → {{model.subjectID}}
+  .row
+    .small-6.columns
+      if newSubject
+        if model.formStructure.isManyToOne
+          h6 This is a new Subject ID and Secondary ID in this project
+        else
+          h6 This is a new Subject ID in this project
+      else
+        h6 {{parentModel.lastUpdatedString}}
+    .small-6.columns
+      if canEnterData
+        button.button.right click="edit" Edit Response
+
+  if displayedAnswers.length
+    question-search-bar text="Search for Question"
+       drop-down isEditable=true val=curSearchString inputOptions=questionSearchArray
+  each answer in displayedAnswers
+    .row
+      .small-12.columns
+         answer-editor id=answer.question.id answer=answer editing=false qBuilderPreview=false
+  else
+    .no-question-response-state
+  if isPaging
+    .row.question-pagination
+      .small-6.column
+        .page-display
+          ' Showing {{curPageInfo.firstQuestionName}} through
+          ' {{curPageInfo.lastQuestionName}} of
+          ' {{paginationInfo.lastQuestionName}}
+      .small-6.column
+        .page-links
+          ul.pagination
+            if paginationInfo.firstPage.isCurPage
+              li.paginate_button.unavailable
+                a
+                  | &lt;&lt; First
+            else
+              li.paginate_button
+                a click="changePage paginationInfo.firstPage"
+                  | &lt;&lt; First
+            each page in paginationInfo.pages
+              li.paginate_button class={page.isCurPage:current}
+                a click="changePage page"
+                  | {{page.firstQuestionName}}-{{page.lastQuestionName}}
+            if paginationInfo.lastPage.isCurPage
+              li.paginate_button.unavailable
+                a Last >>
+            else
+              li.paginate_button
+                a click="changePage paginationInfo.lastPage" Last >>
+  .row
+    .small-12.columns.right
+      .alternate-form-select
+        .text Go To
+        .dropdown
+          Ember.Select prompt="Select a form" content=otherForms value=jumpToForm optionLabelPath="content.name" optionValuePath="content" class="go-to-form"
+        .text Form
+

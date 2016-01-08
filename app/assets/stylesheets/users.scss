@@ -1,0 +1,641 @@
+@import "colors";
+@import "foundation/functions";
+
+.page-content {
+  .account {
+    &.update {
+      .header-box {
+        margin-top: -50px;
+        h2 {
+          position: relative;
+          z-index: 11;
+        }
+      }
+    }
+    &.account-reset, &.account-sign-in {
+      margin-top: -50px;
+      .tabs {
+        margin-top: -75px !important;
+      }
+      .column {
+        max-width: 400px;
+        padding-left:15px;
+      }
+      .header-box {
+        .row {
+          .column {
+            max-width: 400px;
+            margin-top: 37px;
+            margin-bottom: -28px;
+          }
+        }
+      }
+    }
+
+
+    &.account-sign-up {
+      margin-top: -50px;
+      .header-box.create {
+        padding-left: 130px;
+        .tabs {
+          margin-left: 25px;
+        }
+      }
+      @media all and (max-width: 1023px){ /*skinny*/
+        .sign-up:not(.sign-up-invite) {
+          .inputs, .info-area {
+            width: 100%;
+          }
+          .inputs {
+            margin-bottom: 60px;
+          }
+          margin-top: 35px;
+          max-width: 695px;
+          padding-left: 20px;
+          padding-right: 20px;
+          margin-right: auto;
+          margin-left: auto;
+          .info-area {
+            .proof-content {
+              display: none;
+            }
+            .main-instructions {
+              margin-bottom: 35px;
+            }
+          }
+          .bottom-stuff {
+            .main-instructions {
+              margin-top: 30px;
+              margin-bottom: 20px;
+            }
+            .faq1, .faq2, .faq3, .faq4 {
+              margin-bottom: 35px;
+            }
+            .pic-and-text {
+              display: inline-block;
+              margin-right: 40px;
+            }
+            .pic-and-text.first {
+              margin-bottom: 55px;
+            }
+          }
+        }
+      }
+      @media all and (min-width: 1024px) { /*full*/
+        .sign-up:not(.sign-up-invite) {
+          margin-top: 50px;
+          padding-left: 10%;
+          padding-right: 20px;
+          .info-area {
+            width: 40%;
+            padding-top: 8px;
+            max-width: 680px;
+            margin-right: 60px;
+            .main-instructions {
+              margin-bottom: 40px;
+            }
+          }
+          .inputs {
+            width: 53%;
+            max-width: 550px;
+          }
+          .inputs, .info-area {
+            margin-bottom: 60px;
+            float: left;
+          }
+          .bottom-stuff {
+            .proof-content {
+              display: none;
+            }
+            .pic-and-text.first {
+              margin-bottom: 75px;
+            }
+            .faq1, .faq2, .faq3, .faq4 {
+              display: inline-block;
+              margin-bottom: 50px;
+              float: left;
+            }
+            .faq1, .faq3 {
+              width: 40%;
+              max-width: 680px;
+              margin-right: 60px;
+            }
+            .faq2, .faq4 {
+              width: 53%;
+              max-width: 680px;
+            }
+            .main-instructions {
+              margin-bottom: 40px;
+            }
+          }
+        }
+      }
+      .sign-up {
+        min-width: 500px;
+      }
+      .info-area {
+        line-height: 1.4;
+        .main-instructions {
+          font-size: 40px;
+          color: $lc-darker-black;
+        }
+      }
+      .proof-content {
+        .quote {
+          margin-bottom: 15px;
+        }
+        .pic-and-text {
+          margin-bottom: 24px;
+          * {
+            display: inline-block;
+          }
+          &.first {
+            margin-bottom: 40px;
+            .content {
+              vertical-align: top;
+              margin-top: 5px;
+              width: 363px;
+            }
+          }
+          .main-info {
+            width: 200px;
+            vertical-align: top;
+            margin-top: 12px;
+            margin-left: 36px;
+          }
+          
+          .picture {
+            width: 50px;
+            height: 50px;
+            background: image-url("barbara.png") no-repeat center;
+            background-size: 50px;
+            margin-right: 20px;
+          }
+          .image1 {
+            width: 45px;
+            height: 45px;
+            background: image-url("clean-icon.svg") no-repeat center;
+            background-size: 35px;
+          }
+          .image2 {
+            width: 45px;
+            height: 45px;
+            background: image-url("form-icon.svg") no-repeat center;
+            background-size: 33px 44px;         
+          }
+          .image3 {
+            width: 45px;
+            height: 45px;
+            background: image-url("sound-board-icon.svg") no-repeat center;
+            background-size: 33px 35px;
+          }
+          .image4 {
+            width: 45px;
+            height: 45px;
+            background: image-url("lock-icon.svg") no-repeat center;
+            background-size: 33px 40px;
+          }
+        }
+      }
+      .inputs {
+        box-shadow: 0 0 7px rgba(170,170,170,.5);
+        padding: 25px 25px; 
+        background-color: $lc-box-bg-color;
+        .ember-checkbox {
+          margin-bottom: 0;
+        }
+        .content {
+          margin-top: 15px;
+          margin-bottom: 20px;
+        }
+        h6 {
+          color: black;
+        }
+      }
+      .row, .column {
+        max-width: 100%;
+      }
+      .g-recaptcha {
+        margin-top: 12px;
+        margin-bottom: 12px;
+      }
+      .tabs {
+        margin-top: -76px !important;
+      }
+      .header-box {
+        &.create {
+          margin-left: 0px;
+        }
+        h2.topText {
+          padding-left: 0px !important;
+        }
+      }
+      .sub-instructions {
+        margin-bottom: 10px;
+        margin-left: 17px;
+      }
+      inputs[type='password'] {
+        width: 56%;
+      }
+      .bottom-stuff {
+        > * {
+          line-height: 1.4;
+        }
+        display: inline-block;
+        width: 100%;
+        .faqs {
+          .main-info {
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+
+
+
+
+    .resetPassword {
+      .header-box {
+        margin-top: -50px; 
+      }
+    }
+    .column {
+      max-width: 600px;
+      padding-left: 15px;
+      h2 {
+        padding-left: 0;
+      }
+    }
+    .header-box {
+      .row {
+        .column {
+          max-width: 600px;
+          padding-left: 15px;
+          margin-top: 38px;
+          h2 {
+            padding-left: 40px;
+            font-size: 28px;
+            color: $lc-dark-blue;
+            visibility: visible;
+          }
+        }
+      }
+    }
+
+    .profile input, .passwordConfirmationInvite {
+      width: 56.4%;
+    }
+
+    .ember-checkbox {
+      width: auto !important;
+      margin-right: 10px;
+      margin-bottom: 19px;
+    }
+
+    a.terms {
+      text-decoration: underline;
+    }
+
+    .sign-in input {
+      max-width: 323px;
+    }
+
+    input.password{
+      width: 100%;
+    }
+
+    .tabs {
+      margin-left: 37px;
+      margin-top: 44px;
+    }
+    .password {
+      display: inline-block;
+      padding-right: 10px;
+    }
+    .column.password {
+      padding-left: 0;
+    }
+    .password-indicator {
+      margin: 0;
+      display: inline-block;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .password-strength-widget{
+      position: absolute;
+      top: -45px;
+      margin-top: 0;
+    }
+    .row{
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 65.5rem;
+      .column {
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+    .body {
+      margin-top: rem-calc(15);
+      > .row {
+        .small-12.column > h6 {
+          margin-bottom: 0px;
+          margin-top: 0px;
+        }
+      }
+    }
+    .email-success {
+      background-image: image-url('big-check.png');
+      width: 600px;
+      height: 100px;
+      background-repeat: no-repeat;
+      background-size: 80px;
+      background-position: 10% 5%;
+      .email-success-inner {
+        width: 78%;
+        position: relative;
+        float: right;
+        h4 {
+          font-weight: bold;
+          font-size: 16px;
+        }
+      }
+    }
+    .reset-success {
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+    .forgot-password-body {
+      /*width: 95%;
+      .column {
+        max-width: 400px;
+        line-height: normal;
+      }*/
+      .forgot-pass-instructions {
+        line-height: 1.4;
+      }
+      label {
+        margin: 30px 0;
+        font-size: inherit;
+        font-weight: bold;
+      }
+      .error-italics {
+        font-style: italic;
+      }
+      .error {
+        p {
+          font-size: 100%;
+        }
+      }
+      .change-email-info {
+        .column {
+          padding: 5px 0px;
+          border-top: 1px solid $lc-medium-gray;
+          border-bottom: 1px solid $lc-medium-gray;
+          font-style: italic;
+          font-size: 12px;
+          line-height: 15px;
+          font-weight: 400;
+          max-width: 366px;
+        }
+      }
+    }
+
+    .reset-password-body {
+      .medium-6 {
+        padding: 0;
+      }
+      .reset-pass-direction {
+        /*padding-left: 40px;*/
+        margin-top: 30px;
+        margin-bottom: 25px;
+        font-weight: bold;
+      }
+      .password-indicator {
+        padding-left: 20px;
+        .password-strength-widget{
+          position: absolute;
+          top: -128px;
+          margin-top: 0;
+        }
+      }
+      .row{
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .reset-error-row {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+      .to-forgot-pass {
+        margin: auto;
+        background-color: $lc-blue-green
+      }
+    }
+    .action-row {
+      padding-top: 12px;
+      .send {
+        background-color: $lc-blue-green;
+        float: right;
+      }
+
+      .small-6.column.cancel-wrapper {
+        float: left;
+      }
+      .small-6.column.send-wrapper {
+        float: right;
+      }
+
+      .cancel-wrapper a{
+        position: relative;
+        top: 20px;
+      }
+      .cancel {
+        font-style: italic;
+        font-size: 14px;
+        font-weight: 400;
+        margin-top: 15px;
+        width: 80px;
+        float: left;
+        a {
+          position: relative;
+          top: 20px;
+        }
+      }
+      .forgot-link {
+        font-style: italic;
+        font-size: 14px;
+        font-weight: 400;
+        margin-top: 15px;
+        width: 210px;
+        float: left;
+      }
+    }
+  }
+}
+.affiliation-row-HIDE, .field-of-study-row-HIDE {
+	display: none;	
+}
+
+.password-strength-widget {
+  width: 100%;
+  h6 {
+    span, .mark {
+      float: left;
+    }
+    span {
+      margin-right: 4px;
+    }
+    .mark {
+      height: 14px;
+      width: 12px;
+      background-size: 90%;
+      background-position-y: 2px;
+      background-repeat: no-repeat;
+    }
+    margin-bottom: 6px;
+    font-size: 12px;
+    font-weight: 400;
+    background-repeat: no-repeat;
+    background-size: 9px 9px;
+    min-height: 12px;
+  }
+
+  .check {
+    background-image: image-url('small-check.png');
+  }
+  .x {
+    background-image: image-url('X.png');
+  }
+  .head {
+    margin-bottom: 8px;
+  }
+  .length {
+    background-position: 171px;
+  }
+  .lowcase {
+    background-position: 160px;
+  }
+  .upcase {
+    background-position: 170px;
+  }
+  .number {
+    background-position: 174px;
+  }
+  .match {
+    background-position: 104px;
+    margin-top: 18px;
+  }
+}
+
+.nikhil-and-dave {
+  background-image: image-url('nikhil-and-dave.jpg');
+  background-repeat: no-repeat;
+  width: 374px;
+  height: 300px;
+  margin-top: -50px;
+}
+
+
+.session-revalidate-head {
+  margin-top: -50px;
+}
+
+.session-revalidate-body {
+  /*padding-top:90px;*/
+  line-height: 1.4;
+  background-color: $lc-white;
+  .row {
+    padding-top: 20px;
+  }
+  label {
+    font-size: inherit;
+    font-weight: 800;
+  }
+  .action-row .small-12.column{
+    padding:0;
+    .small-6.column.sign-out-link {
+      font-style: italic;
+      float:left;
+    }
+    .small-6.column.sign-in-link {
+      float: right;
+      .button {
+        float:right;
+        background-color: $lc-blue-green;
+      }
+    }
+  }
+}
+
+.invite-field-row {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  .invite-message {
+    margin-bottom: 0px;
+  }
+
+  span.email {
+    text-decoration: underline;
+  }
+  .row {
+    padding-left: 15px;
+    padding-top: 15px;
+  }
+}
+
+.actions.invite-actions {
+  margin-top: 0;
+}
+
+@media all and (max-width: 637px) and (min-width: 0px){
+  .page-content {
+    .account {
+      h2 {
+        font-size: 22px !important;
+      }
+      .tabs {
+        margin-left: 154px;
+        width: 255px;
+      }
+      &.account-sign-up {
+        .tabs {
+          margin-left: 194px;
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 1295px) and (min-width: 1160px) {
+  .securityContainer {
+    max-width: 450px !important;
+    margin-left: -63px !important;
+  }
+  .password-strength-widget {
+    min-width: 200px;
+  }
+}
+
+@media all and (max-width: 1159px) and (min-width: 1055px) {
+  .securityContainer {
+    max-width: 400px !important;
+    margin-left: -13px !important;
+  }
+  .password-strength-widget {
+    min-width: 200px;
+  }
+}
+
+@media all and (max-width: 1054px) and (min-width: 0px) {
+  .securityContainer {
+    max-width: 214px !important;
+    margin-left: 37px !important;
+  }
+  .password-strength-widget {
+    min-width: 200px;
+  }
+}

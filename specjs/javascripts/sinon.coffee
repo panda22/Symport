@@ -1,0 +1,13 @@
+#= require sinon/lib/sinon.js
+#= require sinon/lib/sinon/spy.js
+#= require sinon/lib/sinon/call.js
+#= require sinon/lib/sinon/behavior.js
+#= require sinon/lib/sinon/stub.js
+#= require sinon/lib/sinon/mock.js
+#= require sinon/lib/sinon/collection.js
+#= require sinon/lib/sinon/assert.js
+#= require sinon/lib/sinon/sandbox.js
+#= require sinon/lib/sinon/test.js
+#= require sinon/lib/sinon/test_case.js
+#= require sinon/lib/sinon/match.js
+#= require sinon-qunit/lib/sinon-qunit.js

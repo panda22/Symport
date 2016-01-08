@@ -1,0 +1,10 @@
+.dialog.large
+  .header
+    h2 Error
+  .body
+    .alert 
+      p = message
+      p You will be redirected back to 'My Projects'.
+      p Please contact us at team@mntnlabs.com if this is unexpected.
+  .actions
+    button.button.main.right click="ok" OK

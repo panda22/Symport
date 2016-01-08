@@ -1,0 +1,7 @@
+.header-box
+  .row
+    .small-4.column
+      h2 = title
+  bread-crumbs
+  .row
+  = yield

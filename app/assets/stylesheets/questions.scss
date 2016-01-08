@@ -1,0 +1,190 @@
+@import "colors";
+@import "foundation/functions";
+
+input.zipcode {
+  width: 5rem;
+}
+
+.edit-answer-field {
+  .checkbox-option {
+    vertical-align: top;
+    margin-bottom: 10px;
+    text-indent: -20px;
+    padding-left: 20px;
+    input {
+      margin: 0px;  
+      margin-right:7px;
+    }
+  }
+
+  .radio-option {
+    display: inline-block;
+    margin-bottom: 10px;
+    text-indent: -20px;
+    padding-left: 20px;
+    input {
+      vertical-align: middle;
+      margin: 0px;  
+      margin-right:7px;
+    }
+  }
+}
+
+.preview-box {
+  background: $lc-box-bg-color;
+}
+
+.form-answer-box {
+  background: $lc-box-bg-color;
+}
+
+.select-input-combo{
+  height: 28px;
+  padding: 3px;
+  background-size: 13px;
+}
+
+.checkbox-option {
+  label {
+    display: inline-block;
+    text-indent: -20px;
+    padding-left: 20px
+  }
+  input:hover{
+    cursor: pointer;
+  }
+  .option-value:hover {
+    cursor: text;
+  }
+}
+
+
+
+.option-value{
+  cursor: text; 
+}
+
+.ember-radio-button-group {
+  input:hover{
+    cursor: pointer;
+  }
+}
+
+.form-answer-box {
+  .ember-text-area {
+    resize: vertical;
+  }
+  .email {
+    width: 50%;
+  }
+}
+
+.ember-radio-button-group, .checkbox-option {
+  .other-text {
+    margin-left: 23px;
+  }
+  .other-text.not-selected {
+    background-color: #dddddd;
+    color: #dddddd;
+  }
+  .other-text2 {
+    margin-left: 3px;
+  }
+}
+
+.page-break {
+  page-break-after: always;
+}
+
+#question-builder-left-side {
+  box-shadow: inset 0px 0px 10px 0px #C3C3C3;
+}
+
+#question-builder-right-side {
+  background: linear-gradient( 270deg, white, #EFEFEF 98% );
+  .conditionally-disabled-content {
+    .content-wrapper {
+      padding-left: 35px;
+    }
+  }
+}
+
+.conditionally-disabled-content {
+  .content-wrapper {
+    padding: 2rem;
+    padding-left: 52px;
+    margin-left: 12.5px;
+  }
+}
+
+.date-widget {
+  white-space: nowrap;
+  input[type="text"] {
+    width: rem-calc(100);
+
+  }
+  .date-entry {
+    display: inline-block;
+  }
+  button.button.open-calendar {
+    
+    background-color: $lc-input-decoration-color;
+    background-image: image-url("calendar.png");
+    background-size: rem-calc(24) rem-calc(24);
+    background-repeat: no-repeat;
+    background-position: rem-calc(4) rem-calc(4);
+    vertical-align: top;
+    margin: rem-calc(2);
+    padding: rem-calc(16);
+    &[disabled] {
+      // opacity: 0.3;
+      background-color: gray;
+    }
+  }
+}
+
+.content-wrapper {
+    button.button.open-calendar {
+        visibility: hidden;
+    }
+}
+
+.conditions-header, .condition-header {
+  color: $lc-text-black;
+}
+
+.select-question {
+  margin-bottom: 4px;
+}
+
+.logic-and-value {
+  margin-bottom: 4px;
+  white-space: nowrap;
+}
+
+.logic-and-value2 {
+  margin-bottom: 4px;
+  white-space: nowrap;
+}
+
+.question-type {
+  margin-bottom: 16px;
+}
+
+.question-instruction {
+  font-size: 12px;
+  font-family: "Open Sans";
+  margin-top: -10px;
+  float: left;
+  cursor: auto;
+}
+
+.checkbox-option, .radio-option{
+  margin-bottom: 10px;
+  text-indent: -20px;
+  padding-left: 20px;
+  input {
+    margin: 0px;  
+    margin-right:7px;
+  }
+}

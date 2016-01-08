@@ -1,0 +1,11 @@
+.dialog.medium.import.import-columns
+  .header
+    h2 Add All Columns
+
+  .body
+    .content By selecting this option Symport will add all the columns' data from your spreadsheet to your database. All data in these columns will be added as well.
+    .content Example Image
+    .image 
+
+  .actions
+    button.button.cancel click="closeDialog" Close

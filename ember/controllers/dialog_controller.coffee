@@ -1,0 +1,1 @@
+LabCompass.DialogController = Ember.ObjectController.extend()

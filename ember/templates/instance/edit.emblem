@@ -1,0 +1,120 @@
+if model.formStructure.isManyToOne
+  if model.subjectID
+    .row.select-instance-row
+      .small-12.column
+        .specify-subject-box
+          .left-side
+            .glass.gray
+              .view-and-enter-img
+            .instruction
+              .content for="subjectID" Begin Typing to Create or Select a {{shortSecondary}}
+              h6.sub-table-header Number of {{shortSecondary}} for this subject: {{instanceNames.length}}
+          .entry#instance-entry
+            .column.small-9
+              combo-box-instances tabindex="-1" value=newInstanceName action="selectSecondaryId" options=instanceNames allowCreate=true bottom=false
+            if model.secondaryId
+              .column.small-3
+                .row
+                  .small-12.column
+                    h6.rename-instance
+                      a.rename-instance click="renameInstance" Rename
+                .row
+                  .small-12.column
+                    h6
+                      a.delete-instance click="deleteResponse" Delete
+.form-response
+  if isDisplayed
+    .row.form-header
+      .small-12.columns
+        if model.formStructure.isManyToOne
+          h3.current-subject VIEWING SUBJECT ID {{model.subjectID}} → {{model.shortSecondaryId}}
+        else
+          h3.current-subject VIEWING SUBJECT ID {{model.subjectID}}
+      .small-6.columns
+        if newSubject
+          if model.formStructure.isManyToOne
+            h6 This is a new Subject ID and Secondary ID in this project
+          else
+            h6 This is a new Subject ID in this project
+        else
+          h6 {{parentModel.lastUpdatedString}}
+      .small-6.columns
+        .link.delete-link.right
+          a.delete tabindex="-1" click="deleteAllInstancesForSubject" Delete
+        .link.rename-link.right
+          if canRenameSubjectIDs
+            a.rename tabindex="-1" click="editSubjectID" Rename ID
+          else
+            a.disabled Rename ID
+    .row
+      .small-12.columns
+        .saveSlider
+          .saveButton id="savingButton"
+              if enabled
+                button.button.main.left click="saveResponse" Save
+          .viewingText.content
+            if model.formStructure.isManyToOne
+              | Viewing Subject ID {{model.subjectID}} → {{model.shortSecondaryId}}
+            else
+              | Viewing Subject ID {{model.subjectID}}
+          .error-notification class=isErrors:default:hide
+            |Error on Question:
+            each error in answerErrors
+              a click="goToError error.questionNumber error"
+                | {{error.questionNumber}}
+                | {{error.appendString}}
+          .flashSave
+            div class=showSaving:success:hide
+              | Saving ...
+            if model.formStructure.isManyToOne
+              div.success.hide#success-flash
+                | {{model.subjectID}} - {{model.shortSecondaryId}} Saved!
+            else
+              div.success.hide#success-flash
+                | {{model.subjectID}} Saved!
+          .alternate-form-select
+            .text Go To
+            .dropdown
+              Ember.Select prompt="Select a form" content=otherForms value=jumpToForm optionLabelPath="content.name" optionValuePath="content" id="go-to-form"
+            .text Form
+
+  if isDisplayed
+    if displayedAnswers.length
+      question-search-bar text="Search for Question" setPlaceholder=true
+         drop-down isEditable=true val=curSearchString inputOptions=questionSearchArray
+    each answer in displayedAnswers
+      .row
+        .small-12.columns
+          answer-editor id=answer.question.id answer=answer enabled=../enabled stickyFocus=true qBuilderPreview=false
+    else
+      .no-question-response-state
+    if isPaging
+      .row.question-pagination
+        .small-6.column
+          .page-display
+            ' Showing {{curPageInfo.firstQuestionName}} through
+            ' {{curPageInfo.lastQuestionName}} of
+            ' {{paginationInfo.lastQuestionName}}
+        .small-6.column
+          .page-links
+            ul.pagination
+              if paginationInfo.firstPage.isCurPage
+                li.paginate_button.unavailable
+                  a
+                    | &lt;&lt; First
+              else
+                li.paginate_button
+                  a click="changePage paginationInfo.firstPage"
+                    | &lt;&lt; First
+              each page in paginationInfo.pages
+                li.paginate_button class={page.isCurPage:current}
+                  a click="changePage page"
+                    | {{page.firstQuestionName}}-{{page.lastQuestionName}}
+              if paginationInfo.lastPage.isCurPage
+                li.paginate_button.unavailable
+                  a Last >>
+              else
+                li.paginate_button
+                  a click="changePage paginationInfo.lastPage" Last >>
+
+

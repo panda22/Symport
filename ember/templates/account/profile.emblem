@@ -1,0 +1,84 @@
+.account.update
+  .header-box
+    .row
+      .small-12.column
+        h2 Update Profile
+
+  .body.profile
+    if error
+      .row
+        .small-12.column.error
+          = error
+    .row
+      .small-12.column
+        h6
+          ' E-mail
+          p = email
+    .row
+      .small-12.column
+        h6
+          ' First name
+          if errors.firstName
+            each error in errors.firstName
+              .error = error
+          Ember.TextField value=firstName class="first-name-selector"
+    .row
+      .small-12.column
+        h6
+          ' Last name
+          if errors.lastName
+            each error in errors.lastName
+              .error = error
+          Ember.TextField value=lastName class="last-name-selector"
+    .row.affiliation-row
+      .small-12.column
+        h6
+          ' Affiliation
+          if errors.affiliation
+            each error in errors.affiliation
+              .error = error
+          Ember.TextField value=affiliation class="affil-selector"
+    .row.field-of-study-row
+      .small-12.column
+        h6
+          ' Field of study
+          if errors.fieldOfStudy
+            each error in errors.fieldOfStudy
+              .error = error
+          Ember.TextField value=fieldOfStudy class='field-selector'
+    .row
+      .small-12.column
+        h5 Change Password
+
+    .row
+      .small-12.column
+        h6
+          ' Current password
+          if errors.currentPassword
+            each error in errors.currentPassword
+              .error = error
+          Ember.TextField type="password" value=currentPassword class="pwd-selector"
+    .row
+      .small-12.column
+        .small-7.column.password
+          h6
+            ' New password
+            if errors.password
+              each error in errors.password
+                .error = error
+            Ember.TextField class="password" type="password" value=password
+        .small-5.column.password-indicator
+          password-strength-indicator password=password confirm=passwordConfirmation
+    .row
+      .small-12.column
+        h6
+          ' Confirm new password
+          if errors.passwordConfirmation
+            each error in errors.passwordConfirmation
+              .error = error
+          Ember.TextField type="password" value=passwordConfirmation
+
+    .row
+      .small-12.column
+        button.button.cancel click="goBack" Back
+        button.button.right.primary#save-update-profile click="save" Update Profile

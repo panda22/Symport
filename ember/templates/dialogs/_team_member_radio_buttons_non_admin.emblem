@@ -1,0 +1,39 @@
+.team-member-radio-buttons
+  .or-custom-header
+    h4 OR set custom permissions
+  .or-custom-box
+    label 
+      ' Form Creation
+      LabCompass.RadioButtonGroup value=editModel.formCreation disabled=disabled
+        label.yes-radio
+          view view.RadioButton value=true | Yes
+        label.no-radio
+          view view.RadioButton value=false | No
+
+    label 
+      ' View Identifying Information
+      <span data-tooltip data-width="215" aria-haspopup="true" class="tip-right tooltip-div" title="Selecting yes allows this team member to view data for questions marked as identifying information."></span>
+      LabCompass.RadioButtonGroup value=editModel.viewPersonallyIdentifiableAnswers disabled=disabled
+        label.yes-radio
+          view view.RadioButton value=true | Yes
+        label.no-radio
+          view view.RadioButton value=false | No
+
+    label 
+      ' Download Data
+      <span data-tooltip data-width="210" aria-haspopup="true" class="tip-right tooltip-div" title="Selecting yes allows this team member to download the project’s data"></span>
+      LabCompass.RadioButtonGroup value=editModel.export disabled=disabled
+        label.yes-radio
+          view view.RadioButton value=true | Yes
+        label.no-radio
+          view view.RadioButton value=false | No
+
+  //label
+    //.permission-audit-log
+    //  ' View Audit Log
+    //  <span data-tooltip aria-haspopup="true" class="tip-right tooltip-div" title="The Audit Log allows users to see a complete list of all changes made to this project (i.e all team members added, form questions created or deleted, and many more)"></span>
+    //  LabCompass.RadioButtonGroup value=editModel.auditLog disabled=disabled
+    //    label.radio-option-yes
+    //      view view.RadioButton value=true | Yes
+    //    label.radio-option-no
+    //      view view.RadioButton value=false | No

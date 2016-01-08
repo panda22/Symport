@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="74px" height="75px" viewBox="0 0 74 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Imported Layers Copy 6</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="82.2288889%" y1="-17.7455357%" x2="91.340512%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#16A090" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="New-Top-Bar" sketch:type="MSArtboardGroup" transform="translate(-407.000000, -648.000000)" stroke="url(#linearGradient-1)" stroke-width="10">
+            <path d="M476,651.660762 L432.224821,715.179809 L411,694.965524" id="Imported-Layers-Copy-6" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

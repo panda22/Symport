@@ -1,0 +1,14 @@
+.account
+  .header-box
+    .row
+      .small-12.medium-4.small-centered.column
+        h2 Session timed out
+
+  .body.timed-out
+    .row
+      .small-12.medium-4.small-centered.column
+        ' You have been signed out due to inactivity.
+        p
+    .row
+      .small-12.medium-4.small-centered.column
+        link-to "account.sign-in" class="button" | Sign In

@@ -1,0 +1,40 @@
+@import "colors";
+.combo-box {
+
+  input[type="text"] {
+    margin: 0;
+  }
+
+  .combo-list {
+    position: absolute;
+    border: 1px solid $lc-box-border-color;
+    background: white;
+    z-index: 10;
+
+    min-height: 2rem;
+    max-height: 20rem;
+    overflow-y: scroll;
+
+    .item {
+      padding: 0.5rem;
+      width: 100%;
+
+      &.current {
+        background: $lc-blue;
+        color: $lc-alt-text;
+      }
+    }
+
+  }
+
+  button.disclose {
+    margin-left: -1px;
+    background: $lc-box-bg-color;
+    border: 1px solid $lc-box-border-color;
+    width: 2.5rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    color: $lc-main-text;
+    font-size: 8pt;
+  }
+}

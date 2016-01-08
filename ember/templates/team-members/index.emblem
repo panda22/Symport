@@ -1,0 +1,103 @@
+page-header title="Team"
+
+.my-team-page.main-content
+  .row
+    .small-12.column
+      if userTeamPermissions.editTeamMember
+        .instructions Manage team member access below.
+      else
+        .instructions View team member information below.
+
+  .row
+    .small-12.column
+      button.button.plus-with-text.left click="addTeamMember" id="addTeamMemberButton" disabled=userTeamPermissions.disableAddTeamMember Add Team Member
+      if userTeamPermissions.editTeamMember
+        if userTeamPermissions.removeTeamMember
+          button.button.cloud-download-with-text.right style="width: auto" click="downloadTeamMemberBreakdown" Open Team Permission Report
+
+  .row
+    .small-12.column.grid-container.team-grid
+      table.grid
+        thead
+          tr
+            th style="padding-left: 14px; text-align: left;" Name Of User
+            th User Details & Permissions
+            .content
+              th User Expiration Date
+            if userTeamPermissions.removeTeamMember
+              th Remove User
+        tbody
+          each teamMember in teamMembers
+            tr{bind-attr class=":team-member teamMember.expired:expired:active"}
+              td
+                .row
+                  .small-12.column
+                    .user-admin-fullName.main-info
+                      teamMember.fullName
+                .row.tag-row
+                  .small-12.column
+                    if teamMember.administrator
+                      .user-admin-img
+                      .user-identifying-img            
+                      if teamMember.isPending
+                        .pendingTagSpace
+                          br    
+                          .user-pending-img
+                          if currentUserIsAdmin
+                            a.text-link click="reInviteUser teamMember" Re-Invite User
+                    else 
+                      if currentUserIsAdmin
+                        if teamMember.viewPersonallyIdentifiableAnswers
+                          .pendingCurrentAdmin
+                            .user-identifying-img
+                            if teamMember.isPending 
+                              .user-pending-img 
+                              if reinviteUserLoading
+                                a.text-link Re-Invite User
+                              else
+                                a.text-link click="reInviteUser teamMember" Re-Invite User
+                        else                        
+                          if teamMember.isPending 
+                            .user-pending-img 
+                            a.text-link click="reInviteUser teamMember" Re-Invite User
+                      else
+                        if teamMember.viewPersonallyIdentifiableAnswers
+                          .user-identifying-img
+                        if teamMember.isPending 
+                          .user-pending-img 
+              if userTeamPermissions.editTeamMember
+                td.text-center
+                  a.text-link click="editTeamMember teamMember" View and Edit
+              else
+                td.text-center
+                  a.text-link click="viewTeamMember teamMember" View
+              td
+                .text-center
+                  .content
+                    teamMember.expirationDateString
+              if userTeamPermissions.removeTeamMember
+                td.text-center
+                  a.delete.text-link click="confirmDeleteTeamMember teamMember" Remove
+  if emptyTeam
+    .row.no-team-members-row
+      .empty-team-state
+
+
+div id="myTeamJoyride"
+  ol class="joyride-list" data-joyride=""
+    li data-id="addTeamMemberButton" class="addTeamMemberJoyride1" data-button="Next" data-options="tip_location:left;prev_button:false;next_button:false;"
+      p.content Click the Add Team Member button to add a new team member.
+    li data-id="newUserInformation" data-button="Next" data-options="tip_location:bottom;prev_button:false;next_button:false;"
+      p.content Steve is going to be added to the project. Try altering his permissions before clicking Add Team Member.
+    li data-id="projectWide" data-button="Next" data-options="tip_location:bottom;prev_button:false;next_button:false;"
+      p.content Project Wide Permissions control a user's level of access across the entire project.  Decide whether they are an admin, or if they should be able to create forms, view identifying information, or download data.
+    li data-id="formWide" data-button="Next" data-options="tip_location:bottom;prev_button:false;next_button:false;"
+      p.content Form specific permissions help you control access to each specific form.  Choose whether a user can view data, enter/edit data, or make changes to each form in the project.   
+
+div id="helpJoyride"
+  ol class="joyride-list" data-joyride=""
+    li data-id="helpButton" data-button="Next" data-options="tip_location:bottom;prev_button:false;next_button:false;"
+      p.content If you need anything, you can find help here.
+    li data-button="Finish"
+      p.content Good Job! You have completed our onboarding and are ready to start your own project or join someone else's.
+      p.content :)

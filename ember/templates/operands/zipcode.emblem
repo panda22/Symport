@@ -1,0 +1,1 @@
+LabCompass.NumericField allowsDecimal=false class='zipcode' maxlength='5' value=view.condition.value disabled=view.disabled placeholder="12345"

@@ -1,0 +1,1 @@
+numerical-range-field class='edit-answer-field' value=answer.answer constraints=answer.question.config disabled=disabled

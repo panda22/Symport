@@ -1,0 +1,100 @@
+.dialog.large.data-export id="data-export-popup"
+  .row
+    .card-title
+      h2 Download Data as a CSV
+    if model.hasBlockedForms
+      .content
+        .permissionsText
+          | Some forms are not displayed because of your permissions.
+
+  .row.export-step
+    .downloadDataContainer
+      .row
+        .small-12.column
+          .page-header
+            .downloadDataText
+              p 1. Which forms' data would you like to download?
+      if showSelectAll
+        .row
+          .form-select-wrapper
+            .form-select.select-all
+              LabCompass.ActionableCheckbox id="selectAllExportForms" checked=allFormsSelected action="selectAllExportForms" class="selectAllCheckbox"
+              | Select All
+      .row
+        .form-select-wrapper
+          each queryForm in model.queriedForms
+            .form-select title=queryForm.formName
+              if queryForm.displayed
+                Ember.Checkbox id=queryForm.formID class="single-form-select" checked=queryForm.included
+                span {{queryForm.formName}}
+              else
+                input type="checkbox" disabled=true
+                span.grayed-out-form {{queryForm.formName}}
+                <span data-tooltip data-width="210" aria-haspopup="true" class="tip-right tooltip-div" title="You have not added any questions to this form, therefore there is no data to display. Add questions on the Build Form page."></span>
+  .row.export-step
+    .showAnswerContainer
+      .row
+        .page-header
+          .showAnswerText
+            p 2. Show the answer choices in the file as:
+      .content
+        .row
+          .small-12.column
+            label
+              LabCompass.RadioButtonGroup value=downloadOptions.useCodes
+                label.yes-radio
+                  view view.RadioButton class="default-checked" value=true |    Choice Codes (i.e 1, 2)
+                label.no-radio
+                  view view.RadioButton value=false |    Labels (i.e Male, Female)
+        .row
+          .small-12.column
+            .seperator
+          .small-12.column
+            .questionText
+              ' How do you want to code empty question answers:
+              Ember.TextField value=downloadOptions.emptyCode
+          .small-12.column
+            p.questionText
+              .secondTextBox
+                ' How do you want to code answers to questions not
+                br
+                ' shown due to conditional logic:
+                Ember.TextField value=downloadOptions.blockedCode
+          .small-12.column
+            .questionText
+              ' Would you like to give checkbox answers their own columns?
+              LabCompass.RadioButtonGroup value=downloadOptions.checkboxHorizontal
+                label.yes-radio
+                  view view.RadioButton value=true | Yes
+                label.no-radio
+                  view view.RadioButton value=false | No
+  .row.export-step
+    .phiContainer
+      .row
+        .small-12.column
+          .page-header
+            p
+              ' 3. Would you like to
+              u
+                |include
+              '
+              'identifying information in your file?
+      .row
+        .small-12.column
+          .content
+            label
+              if canViewPhi
+                LabCompass.RadioButtonGroup value=downloadOptions.includePhi
+                  label.yes-radio
+                    view view.RadioButton value=true | Yes, include
+                  label.no-radio
+                    view view.RadioButton value=false | No
+              else
+                .sub-error
+                   p You do not have permission to view identifying information.
+  .row.export-step
+    .actions
+      button.button.cancel click="closeDialog" Cancel
+      export-data classNames="button main right" action="confirmExport" exportLink=downloadLink disabled=false additionalFields=additionalFields query=model downloadOptions=downloadOptions
+        | Download Data
+

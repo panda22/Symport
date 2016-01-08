@@ -1,0 +1,19 @@
+span.time-duration
+  if view.compact
+    .compact
+      span H:
+      LabCompass.NumericField allowsDecimal=false class='hours-amount' maxlength='3' value=view.hours disabled=disabled
+      span M:
+      LabCompass.NumericField allowsDecimal=false class='minutes-amount' maxlength='4' value=view.minutes disabled=disabled
+      span S:
+      LabCompass.NumericField allowsDecimal=false class='seconds-amount' maxlength='6' value=view.seconds disabled=disabled
+  else
+    .div
+      span hours:
+      LabCompass.NumericField allowsDecimal=false class='hours-amount' maxlength='3' value=view.hours disabled=disabled
+    .div
+      span minutes:
+      LabCompass.NumericField allowsDecimal=false class='minutes-amount' maxlength='4' value=view.minutes disabled=disabled
+    .div
+      span seconds:
+      LabCompass.NumericField allowsDecimal=false class='seconds-amount' maxlength='6' value=view.seconds disabled=disabled

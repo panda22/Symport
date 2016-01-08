@@ -1,0 +1,7 @@
+ul.breadcrumbs
+  each crumb in breadCrumbs
+    li title=crumb.name class=crumb.isCurrent:current:
+      if crumb.linkable
+        link-to crumb.path tabindex="-1" aria-haspopup="true" data-options="show_on:large" title=crumb.name | {{crumb.formShortName}}
+      else
+        = crumb.formShortName

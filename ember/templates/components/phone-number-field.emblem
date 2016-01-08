@@ -1,0 +1,10 @@
+span.phone-number
+  LabCompass.NumericField class='area-code' maxlength='3' value=view.areacode disabled=disabled
+  LabCompass.NumericField class='phone-number-first-part' maxlength='3' value=view.phoneNumberFirstPart disabled=disabled
+  LabCompass.NumericField class='phone-number-second-part' maxlength='4' value=view.phoneNumberSecondPart disabled=disabled
+  if compact
+    span x
+    LabCompass.NumericField class='extension-code compact' value=view.extensionCode disabled=disabled
+  else
+    span Ext.
+    LabCompass.NumericField class='extension-code' value=view.extensionCode disabled=disabled

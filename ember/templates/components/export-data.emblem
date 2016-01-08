@@ -1,0 +1,4 @@
+yield
+form.hidden name="export-form" action=exportLink authenticity-token=authenticityToken method="POST" 
+  input name=csrfParam type="hidden" value=csrfValue
+  input name="X-LabCompass-Auth" type="hidden"

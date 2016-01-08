@@ -1,0 +1,13 @@
+.dialog.small.compatibility
+  .header
+    h2 Please Use Chrome
+
+  .body
+    p Symport works best with Google Chrome
+    br
+    p If you continue with your current browser, some features may not work correctly.
+    
+    a click="goToChromeDownload" Download Chrome here to ensure a great experience.
+  .actions
+    button.button.delete.left click="goToChromeDownload" Get Chrome
+    button.button.cancel.right click="closeDialog" Continue

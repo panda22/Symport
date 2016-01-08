@@ -1,0 +1,16 @@
+.dialog.small.create-project
+  .header
+    h2 Create a New Project
+  .body
+    ol
+      li.table-header
+        | Enter a project title. Projects organize your forms.
+        LabCompass.ActionContextTextField class="project-name" value=name takeFocus=true
+      each error in errors.name
+        p.sub-error = error
+      li.table-header
+        | Attribute Data to:
+        LabCompass.ActionContextTextField class="project-name" value=attribution action="saveProject" actionContext=content takeFocus=false
+  .actions
+    button.button.cancel click="closeDialog" Cancel
+    button.button.main.right click="saveProject this" Create

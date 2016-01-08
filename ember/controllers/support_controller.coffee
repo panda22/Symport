@@ -1,0 +1,1 @@
+LabCompass.SupportController = Ember.Controller.extend

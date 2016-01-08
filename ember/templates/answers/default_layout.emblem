@@ -1,0 +1,64 @@
+.row
+  .small-12.columns
+    if answer.question.hasDependency
+      .conditional-border.right
+        .conditional-info
+          | Shown Based on Conditional Logic
+    if answer.question.isDependency
+      .conditional-border.right
+        .conditional-info
+          | Used in Conditional Logic
+div class={ :form-answer-box conditionallyDisabled:conditionally-disabled:not-conditionally-disabled }
+  .prompt-row
+    /class={answer.errors.answer:error-heading:no-error-heading answer.answer:filled-in-heading:}  
+    .question-number-container
+      if conditionallyDisabled
+        .question-number.clickable-div id=answer.question.questionNumber click="toggleDisplayWhenConditionallyDisabled"
+          if showQuestionWhenConditionallyDisabled
+            | ▼
+          else
+            | ►
+      else
+        .question-number id=answer.question.questionNumber
+          = answer.question.questionNumber
+    .answer-prompt-container
+      .prompt
+        = answer.question.prompt
+  .conditionally-disabled-content
+    .content-wrapper
+      .row
+        /.small-1.columns
+        .small-11.columns
+          if answer.question.description
+            .description 
+              = answer.question.description
+      .row
+        /.small-1.columns
+        .small-11.columns
+          yield
+      if answer.isInvalid
+        if answer.hasInvalidOther
+          .row
+            .small-11.columns
+              | enter the answer to {{answer.invalidOtherVariableName}}
+              Ember.TextField value=answer.tempOtherVal
+      if answer.isInvalid
+        .row
+          .small-11.columns.sub-error
+            | {{answer.errorMessage}}
+          if answer.displayInvalidOptions
+            if answer.tempConfig.selections.content
+              .small-11.columns.sub-error
+                ul
+                  each option in answer.tempConfig.selections.content
+                    li.sub-error {{option.value}}
+      else
+        each error in answer.errors.answer
+          .row
+            /.small-1.columns
+            .small-11.columns.sub-error.padding = error
+        else
+          if answer.errorMessage
+            .row
+              .small-11.columns.sub-error.padding = answer.errorMessage
+

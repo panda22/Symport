@@ -1,0 +1,4 @@
+if view.isLongField
+  LabCompass.AutosizeTextArea class='edit-answer-field' disabled=disabled value=answer.answer qBuildPreview=qBuildPreview
+else
+  Ember.TextField class='edit-answer-field' disabled=disabled value=answer.answer

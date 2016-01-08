@@ -1,0 +1,22 @@
+.dialog.small
+  .header
+    h2 Remove Team Member
+
+  .body
+    p
+      ' Are you sure you want to remove team member: 
+      span {{fullName}}
+      |?
+    p This can't be undone. If you proceed you will lose ALL permissions settings for this team member.
+
+    each error in errors.email
+      p.error = error
+    each error in errors.administrator
+      p.error = error
+
+  .actions
+
+    button.button.cancel click="closeDialog" Cancel
+    button.button.delete.right click="deleteTeamMember this" Remove
+
+

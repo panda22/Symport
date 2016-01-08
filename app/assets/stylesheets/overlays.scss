@@ -1,0 +1,169 @@
+@import "colors";
+.overlay-progressions {
+	min-width: 750px;
+	margin-top: 90px;
+	.overlay0 {
+		background: image-url("overlay-0.jpg") no-repeat top center;
+		height: 707px;
+		background-size: contain;
+		box-shadow: 5px 5px 5px #A6A6A6;
+		border: 2px solid #A6A6A6;
+		max-width: 1240px;
+	}
+	.overlay1 {
+		background: image-url("overlay-1.jpg") no-repeat top center;
+		height: 707px;
+		background-size: contain;
+		box-shadow: 5px 5px 5px #A6A6A6;
+		border: 2px solid #A6A6A6;
+		max-width: 1240px;
+	}
+	.overlay2 {
+		background: image-url("overlay-2.jpg") no-repeat top center;
+		height: 707px;
+		background-size: contain;
+		box-shadow: 5px 5px 5px #A6A6A6;
+		border: 2px solid #A6A6A6;
+		max-width: 1240px;
+	}
+	.overlay3 {
+		background: image-url("overlay-3.jpg") no-repeat top center;
+		height: 707px;
+		background-size: contain;
+		box-shadow: 5px 5px 5px #A6A6A6;
+		border: 2px solid #A6A6A6;
+		max-width: 1240px;
+	}
+	.overlay4 {
+		background: image-url("overlay-4.jpg") no-repeat top center;
+		height: 707px;
+		background-size: contain;
+		box-shadow: 5px 5px 5px #A6A6A6;
+		border: 2px solid #A6A6A6;
+		max-width: 1240px;
+	}
+	.overlay5 {
+		background: image-url("overlay-5.jpg") no-repeat top center;
+		height: 707px;
+		background-size: contain;
+		box-shadow: 5px 5px 5px #A6A6A6;
+		border: 2px solid #A6A6A6;
+		max-width: 1240px;
+	}
+	.overlay6 {
+		background: image-url("overlay-6.jpg") no-repeat top center;
+		height: 707px;
+		background-size: contain;
+		box-shadow: 5px 5px 5px #A6A6A6;
+		border: 2px solid #A6A6A6;
+		max-width: 1240px;
+	}
+	.image-col {
+		margin-bottom: 25px;
+	}
+	.head {
+		margin-top: 50px;
+	}
+	.align-left {
+		text-align: left;
+		padding-top: 15px;
+	}
+	.align-right {
+		padding-top: 15px;
+		text-align: right;
+		padding-right: 20px;
+	}
+	.buttons {
+		float: none !important;
+		margin-bottom: 10px;
+		max-width: 1240px;
+	}
+	.skip-link {
+		text-decoration: underline;
+		cursor: pointer;
+	}
+	.back-col {
+		min-height: 1px;
+	}
+	h6 {
+		display: inline;
+	}
+}
+.importJoyride {
+	background-color: white;
+	height: auto;
+	width: 52% !important;
+	min-width: 993px;
+	.joyride-next-tip {
+		margin-top: 40px;
+		bottom: 17px;
+		width: 140px;
+		height: 75px;
+		font-size: 31px;
+		padding: 14px 2px 4px 2px;
+	}
+	.faux-dialog {
+		.header {
+			border-top-left-radius: 4px;
+			border-top-right-radius: 4px;
+			width: 100%;
+			background: #f2f2f2;
+			color: #58595b;
+			text-align: center;
+			padding: 1.25rem;
+			margin-bottom: .5rem;
+			h2 {
+				text-align: center;
+				margin-top: 0em;
+				font-size: 1.5rem;
+				font-weight: 200;
+				border-bottom: 0.1rem solid #bbbdbf;
+				padding-bottom: 0.5rem;
+				width: 75%;
+				display: inline-block;
+				font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+				font-weight: normal;
+				font-style: normal;
+				color: #58595b;
+				text-rendering: optimizeLegibility;
+				line-height: 1.4;
+			}
+		}
+		.content {
+			font-size: 1rem;
+			line-height: 1.4;
+			margin-left: 57px;
+			margin-right: 57px;
+		}
+		.overlay-progressions {
+			margin-top: 282px;
+			.importOverlay1 {
+				background: image-url("importOverlay1.png") no-repeat top center;
+				height: 242px;
+				background-size: contain;
+				width: 575px;
+				margin-top: -171px;
+				margin-left: 170px;
+			}
+			.importOverlay2 {
+				background: image-url("importOverlay2.png") no-repeat top center;
+				height: 325px;
+				width: 575px;
+				background-size: contain;
+				max-width: auto;
+				margin-top: -253px;
+				margin-left: 130px;
+			}
+			.importOverlay3 {
+				background: image-url("importOverlay3.png") no-repeat top center;
+				height: 304px;
+				width: 575px;
+				background-size: contain;
+				max-width: auto;
+				margin-top: -266px;
+				margin-bottom: -19px;
+				margin-left: 136px;
+			}
+		}
+	}
+}

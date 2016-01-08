@@ -1,0 +1,8 @@
+LabCompass.RadioButtonGroupOtherOption class='edit-answer-field' value=answer.answer disabled=disabled
+  each answer.question.config.selections
+    div  
+      label.radio-option
+        view view.RadioButton value=value allowsEmpty=true disabled=view.disabled tabindex=tabindex
+        = value
+      if otherOption
+        LabCompass.AutosizeTextArea class="other-text" disabled=view.disabled qBuildPreview=qBuildPreview

@@ -1,0 +1,114 @@
+.account.account-sign-up
+  if isError
+  		.header-box
+  			.row
+  				.small-12.column
+  					h2 Sorry! This Link is Invalid
+  		.body.reset-password-body
+  			.row.reset-error-row
+  				.small-12.column
+  					| Your invitation link may have expired.
+  			.row.reset-error-row
+  				.small-12.column
+  					| We apologize.
+  			.row.reset-error-row
+  				.small-12.column
+  					| Please contact your project administrator for a new invitation
+  			.row.reset-error-row
+  				.small-12.column
+  					' If you continue to see this message when trying create your
+  					' account contact us at support@mntnlabs.com.
+  else
+    .header-box
+      .row
+        .small-12.column style="text-align: center; width: 500px;"
+          h2.topText Finish Creating an Account
+
+    .body.sign-up.sign-up-invite style="width: 500px; margin-left: auto; margin-right: auto;"
+      if error
+        .row
+          .small-12.column.error
+            = error
+
+      .row
+        .small-12.column
+          h6
+            ' E-mail
+            if errors.email
+              each error in errors.email
+                .error = error
+            Ember.TextField class="email disabled" disabled="true" value=email
+      .row
+        .small-12.column
+          h6
+            ' First name
+            if errors.firstName
+              each error in errors.firstName
+                .error = error
+            Ember.TextField class="firstName" value=firstName
+      .row
+        .small-12.column
+          h6
+            ' Last name
+            if errors.lastName
+              each error in errors.lastName
+                .error = error
+            Ember.TextField class="lastName" value=lastName
+
+      .row
+        .small-12.column
+          h6
+            ' Phone Number
+            if errors.phoneNumber
+              each error in errors.phoneNumber
+                .sub-error = error
+            Ember.TextField class="phone" value=phoneNumber
+
+      .row.affiliation-row-HIDE
+        .small-12.column
+          h6
+            ' Affiliation
+            if errors.affiliation
+              each error in errors.affiliation
+                .error = error
+            Ember.TextField class="affiliation" value=affiliation
+      .row.field-of-study-row-HIDE
+        .small-12.column
+          h6
+            ' Field of study
+            if errors.fieldOfStudy
+              each error in errors.fieldOfStudy
+                .error = error
+            Ember.TextField class="fieldOfStudy" value=fieldOfStudy
+      .row
+        .small-12.column.neg-password
+          .small-7.column.password
+            h6
+              ' Password
+              if errors.password
+                each error in errors.password
+                  .error = error
+              Ember.TextField class="password test-pwd-selector" type="password" value=password
+          .small-5.column.password-indicator
+            password-strength-indicator password=password confirm=passwordConfirmation
+
+
+        .small-12.column
+          h6
+            ' Password confirmation
+            if errors.passwordConfirmation
+              each error in errors.passwordConfirmation
+                .error = error
+            Ember.TextField class="passwordConfirmationInvite" type="password" value=passwordConfirmation
+      .row
+        .small-12.column
+          h6
+            if errors.eula
+              .sub-error.larger = errors.eula
+            .content
+              Ember.Checkbox checked=eulaCheck id="eulaCheckbox" type="checkbox" | I have read and agree to the 
+              a.terms href="http://www.symportresearch.com/privacy/" target="_blank" Terms of Service and Privacy Policy
+
+      .row
+        .small-12.column
+            button.button.main click="signUp" Create an Account

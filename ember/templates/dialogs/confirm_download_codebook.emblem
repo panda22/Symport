@@ -1,0 +1,60 @@
+.dialog.large.codebook-export id="data-export-popup"
+  .row
+    .card-title
+      h2 Download Project Codebook
+      .content.top A codebook is also known as a metadata file or a data dictionary.
+
+  .row.export-step
+    .downloadDataContainer
+      .row
+        .small-12.column
+          .page-header
+            .downloadDataText
+              p 1. Which forms' data would you like to download?
+      if showSelectAll
+        .row
+          .form-select-wrapper
+            .form-select.select-all
+              LabCompass.ActionableCheckbox id="selectAllExportForms" checked=allFormsSelected action="selectAllExportForms" class="selectAllCheckbox"
+              | Select All
+      .row
+        .form-select-wrapper
+          each queryForm in model.queriedForms
+            .form-select title=queryForm.formName
+              if queryForm.displayed
+                Ember.Checkbox id=queryForm.formID class="single-form-select" checked=queryForm.included
+                span {{queryForm.formName}}
+              else
+                input type="checkbox" disabled=true
+                span.grayed-out-form {{queryForm.formName}}
+                <span data-tooltip data-width="210" aria-haspopup="true" class="tip-right tooltip-div" title="You have not added any questions to this form, therefore there is no data to display. Add questions on the Build Form page."></span>
+
+  .row.export-step
+    .showAnswerContainer
+      .row
+        .page-header
+          .showAnswerText
+            p 2. Include export data codes
+      .content
+        .row
+          .small-12.column
+            .questionText
+              ' How do you want to code empty question answers: 
+              Ember.TextField value=emptyCode
+          .small-12.column
+            .questionText
+              .secondTextBox
+                ' How do you want to code answers to questions not
+                br 
+                ' shown due to conditional logic:
+                Ember.TextField value=closedCode
+  
+  .row.export-step
+    .actions
+      .row
+        .small-12.column
+          button.button.cancel click="closeDialog" Cancel
+          export-data action="codebookDownloaded" target="_blank" classNames="button main right" exportLink=codebookLink additionalFields=additionalCodeBookFields empty_code=emptyCode closed_code=closedCode forms=model time=time date=date
+            | Download Codebook 
+
+

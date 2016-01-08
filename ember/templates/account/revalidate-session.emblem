@@ -1,0 +1,30 @@
+.account
+  .header-box.session-revalidate-head
+    .row
+      .small-12.column
+        h2 We’ve logged you out due to inactivity
+  .session-revalidate-body
+    br
+    .row
+      .small-12.column
+        ' In order to protect you and your data, Symport will
+        ' automatically log you out after 15 minutes of inactivity.
+        ' Any changes on the page were not saved.
+    .row
+      .small-12.column
+        ' Thank you for understanding.
+    .row
+      .small-12.column
+        label
+          ' Enter your password to resume
+          Ember.TextField type="password" value=password action="signBackIn"
+    if isError
+      .row
+        .small-12.column.error
+          = errorMessage
+    .row.action-row
+      .small-12.column
+        .small-6.column.sign-out-link
+          link-to "account.sign-in" | Sign Out
+        .small-6.column.sign-in-link
+          button.button.primary click="signBackIn" Sign In

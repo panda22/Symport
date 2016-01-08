@@ -1,0 +1,13 @@
+.dialog.small
+  .header
+    h2 Unsaved Progress
+
+  .body
+    p Are you sure you want to go back to column mapping? If you do you will lose all formatting and erorr resolution of your data.
+
+  .actions
+
+    button.button.cancel click="closeDialog" Resume Import
+    button.button.main.right.confirm-leave click="confirmGoBackCompletedToMapping" Go Back
+
+

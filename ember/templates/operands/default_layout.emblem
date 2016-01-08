@@ -1,0 +1,14 @@
+.row
+  .small-5.columns
+    .logic-and-value
+      | 2. Logic
+  .logic-and-value2
+    .small-7.columns
+      | 3. Value
+
+.row
+  .small-5.columns
+    LabCompass.highlightParentSelect highlightParentDepth=10 class='logic-selector' content=supportedOperators optionLabelPath="content.display" optionValuePath="content.operator" value=view.condition.operator disabled=disabled
+  .small-7.columns
+    .condition-value
+      yield

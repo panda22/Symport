@@ -1,0 +1,43 @@
+.form-structure-container id=id style=style
+  .row
+    .small-6.column
+      .form-structure-info
+        h3.form-name = name
+        .info.last-edited Last Edited: {{formattedLastEdited}}
+        .info.entries Entries: {{responsesCount}}
+      .form-structure-links
+        a.settings data-dropdown=hoverId data-options="is_hover:true;" Form Settings
+        ul id=hoverId class="f-dropdown" data-dropdown-content=""
+          li 
+            if userPermissions.buildForm
+              .link.rename-link
+                a.secondary click="editSecondaryId" Secondary ID Settings
+            else
+              .link.rename-link
+                a.secondary.disabled Secondary ID Settings
+          li 
+            if userPermissions.renameForm
+              .link.rename-link
+                a.rename click="renameFormStructure" Rename
+            else
+              .link.rename-link
+                a.rename.disabled Rename
+          li        
+            if userPermissions.deleteForm
+              .link.delete-link
+                a.delete click="confirmDeleteFormStructure" Delete
+            else
+              .link.delete-link
+                a.delete.disabled Delete
+    .small-1.column
+    .small-5.column.formButtons
+      if userPermissions.canOnlyViewData
+        button.button.pencil-with-text click="viewFormResponses" disabled=userPermissions.disableViewData View Form Data
+      else
+        button.button.pencil-with-text click="viewFormResponses" disabled=userPermissions.disableViewData Enter/Edit Data
+      
+      .row
+        .small-6.column
+          button.button.hammer-with-text.left click="editFormStructure" disabled=userPermissions.disableBuildForm Build Form
+        .small-6.column
+          button.button.cloud-download-with-text.left click="export" disabled=userPermissions.disableDownloadFormData Download Data

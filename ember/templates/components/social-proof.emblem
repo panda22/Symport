@@ -1,0 +1,17 @@
+.proof-content
+  .main-info.quote "Now that we have [our data] in Symport, I'm no longer worried about data disappearing or data being accidentally erased. Symport has made our data safe."
+  .pic-and-text.first
+    .picture 
+    .content Barbara Salem MS, MSW, Clinical Research Coordinator, General Surgery, University of Michigan Health System
+  .pic-and-text 
+    .image1
+    .main-info Clean and Format Data 
+  .pic-and-text
+    .image2
+    .main-info.tall Collect New Data Online
+  .pic-and-text
+    .image3
+    .main-info Manage User Access
+  .pic-and-text
+    .image4
+    .main-info Protect Sensitive Data

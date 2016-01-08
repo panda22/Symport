@@ -1,0 +1,60 @@
+if hasError
+	.row
+		.small-12.column
+			.param-error Please complete the query parameter fields highlighted in red.
+.row.query-params
+	.small-12.column
+		.small-3.column.query-form-selector id=ids.form
+			p
+				span {{param.sequenceNum}}
+				span A. Form
+			.selector-wrapper class=param.errors.formName:single-param-error:default
+				.extra-wrapper
+					drop-down class="placeholder" placeholder="Please Select..." isEditable=false val=param.formName inputOptions=formNames
+					each error in param.errors.formName
+						p.sub-error.queryParams = error
+		.small-3.column.query-question-selector id=ids.question focusOut="focusOutQuestion"
+			p
+				span {{param.sequenceNum}}
+				span B. Variable
+			.selector-wrapper class=param.errors.questionName:single-param-error:default
+				.extra-wrapper
+					drop-down placeholder="Please Select..." isEditable=true inputOptions=questionVarNames val=param.questionName
+					each error in param.errors.questionName
+						p.sub-error.queryParams = error
+		.small-2.column.query-operator-selector id=ids.operator
+			p
+				span {{param.sequenceNum}}
+				span C. Logic
+			.selector-wrapper class=param.errors.operator:single-param-error:default
+				.extra-wrapper
+					drop-down placeholder="Please Select..." isEditable=false inputOptions=operandDisplays val=param.operator
+					each error in param.errors.operator
+						p.sub-error.queryParams = error
+		.small-3.column.query-answer-selector id=ids.value focusOut="setAnswer"
+			p
+				span {{param.sequenceNum}}
+				span D. Value
+			if isTypeSet
+				if isManyToOneField
+					if isManyToOneCount
+						.extra-wrapper
+							.selector-wrapper class=param.errors.value:single-param-error:default
+								Ember.TextField value=answer.answer
+					else
+						.extra-wrapper
+							.selector-wrapper class=param.errors.value:single-param-error:default
+								drop-down inputOptions=isManyToOneOptions val=param.questionName isEditable=true val=answer.answer
+				else
+					.extra-wrapper
+						.selector-wrapper class=param.errors.value:single-param-error:default
+							answer-editor answer=answer enabled=true class=curQuesType editing=true stickyFocus=false qBuilderPreview=false queryAnswer=true
+			else
+				.extra-wrapper
+					.selector-wrapper class=param.errors.value:single-param-error:default
+						Ember.TextField
+			each error in param.errors.value
+				p.sub-error.queryParams = error
+		.small-1.column
+			a click="deleteQuery param.sequenceNum"
+				.cancel-query-param

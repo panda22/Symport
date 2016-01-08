@@ -1,0 +1,42 @@
+page-header title=myHeader
+  .row
+    .small-12.column
+      dl.tabs
+        dd
+          link-to "responses" tabindex="-1" | Form View
+        dd.active
+          link-to "form.grid" tabindex="-1" | Grid View
+
+
+.form-responses-grid-page.main-content
+  if noLongerLoading
+    .row
+      .small-9.column
+        .instructions View data for - {{name}}
+      .small-3.column
+        button.button.cloud-download-with-text.left disabled=userPermissions.disableDownloadFormData click="export" Download Data
+        /TODO:set disabled for button
+    .row.grid-view-row
+      .small-2.column
+        .filter-text Show
+        Ember.Select value=pageLength content=pageLengthOptions
+      .small-5.column
+        .filter-text
+          | Sort:
+        .drop-down-container.sort-variable-drop-down
+          drop-down isEditable=false val=curSortVariable inputOptions=header inputOptionValue="value" boundVal="curSortVariable"
+        .filter-text
+          | by
+        .drop-down-container.sort-type-drop-down
+          drop-down isEditable=false inputOptions=sortTypes val=curSortType boundVal="curSortType"
+      .small-4.column
+        .filter-text
+          | Filter
+        Ember.Select value=filterRowType content=filterRowTypes
+        Ember.TextField value=subjectFilterText
+  else
+    h2 {{loadingText}}
+  .row class={noLongerLoading:default:hide}
+    .small-12.column
+      .table-wrapper
+        table#main-data-table

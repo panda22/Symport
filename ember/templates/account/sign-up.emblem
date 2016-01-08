@@ -1,0 +1,128 @@
+.account.account-sign-up
+  .header-box.create
+    .row
+      .small-12.column
+        h2 Welcome To Symport
+    .row
+      .small-12.column
+        dl.tabs
+          dd
+            link-to "account.sign-in" | Log In
+          dd.active
+            link-to "account.sign-up" | Create an Account
+
+  .body.sign-up
+    .info-area
+      .main-instructions Collaborative Cloud Databases for Research Teams, Free for as Long as You Want
+      social-proof
+    .inputs
+      .row 
+        .small-12.column.left
+          .main-instructions Create an Account
+          .content We will never disclose any data or personal information
+      .row
+        .small-12.column.left
+          h6
+            ' E-mail
+            if errors.email
+              each error in errors.email
+                .sub-error = error
+            Ember.TextField class="email" value=email autofocus=""
+      .row
+        .small-12.column.left
+          h6
+            ' First name
+            if errors.firstName
+              each error in errors.firstName
+                .sub-error = error
+            Ember.TextField class="firstName" value=firstName
+      .row
+        .small-12.column.left
+          h6
+            ' Last name
+            if errors.lastName
+              each error in errors.lastName
+                .sub-error = error
+            Ember.TextField class="lastName" value=lastName
+      .row
+        .small-12.column
+          h6
+            ' Company Password
+            if errors.betaPassword
+              .sub-error = errors.betaPassword
+            Ember.TextField class="beta-password" type="text" value=betaPassword
+
+      .row.affiliation-row-HIDE
+        .small-12.column.left
+          h6
+            ' Affiliation
+            if errors.affiliation
+              each error in errors.affiliation
+                .sub-error = error
+            Ember.TextField class="affiliation" value=affiliation
+      .row.field-of-study-row-HIDE
+        .small-12.column
+          h6
+            ' Field of study
+            if errors.fieldOfStudy
+              each error in errors.fieldOfStudy
+                .sub-error = error
+            Ember.TextField class="fieldOfStudy" value=fieldOfStudy
+      .row
+        .small-12.column.neg-password.left
+          .small-7.column.password
+            h6
+              ' Password
+              if errors.password
+                each error in errors.password
+                  .sub-error = error
+              Ember.TextField class="password test-pwd-selector" type="password" value=password
+          .small-5.column.password-indicator
+            password-strength-indicator password=password confirm=passwordConfirmation
+      
+      .row
+        .small-12.column.neg-password.left
+          .small-7.column.password
+            h6
+              ' Password confirmation
+              if errors.passwordConfirmation
+                each error in errors.passwordConfirmation
+                  .sub-error = error
+              Ember.TextField class="passwordConfirmation" type="password" value=passwordConfirmation
+
+      .row
+        .small-12.column.left
+          if errors.captcha
+            .sub-error = errors.captcha
+          div id="captcha" class="g-recaptcha" data-sitekey="6Lc7hQwTAAAAAI3JvTZjA0TehtLdPIK0PNf_1Siy"
+
+      .row
+        .small-12.column.left
+          h6
+            if errors.eula
+              .sub-error.larger = errors.eula
+            .content
+              Ember.Checkbox checked=eulaCheck id="eulaCheckbox" type="checkbox" | I have read and agree to the 
+              a.terms href="http://www.symportresearch.com/privacy/" target="_blank" Terms of Service and Privacy Policy
+
+      .row
+        .small-12.column.left
+            button.button.main click="signUp" Create an Account
+    .bottom-stuff
+      social-proof
+      .faqs
+        .main-instructions Answers to Your Questions
+        .row
+          .faq1
+            .main-info Can I store Protected Health Information (PHI) in Symport?
+            .content Yes. In order to store PHI there are some specific legal requirements and contracts to deal with. We'll need to sign a BAA with your institution, then you can move to a paid account and start storing PHI.
+          .faq2
+            .main-info What happens to my data if I end my subscription?
+            .content If you decide to discontinue your subscription at any point, you can export and download all of your data. We won't hold your data hostage, and we will help you make a smooth transition if Symport isn't for you.
+        .row
+          .faq3
+            .main-info Who owns my data?
+            .content We believe your data belongs to you and your institution and should be free from prying eyes. That's why Symport or Mountain Labs will never use any of your data without your express consent.
+          .faq4
+            .main-info What am I getting?
+            .content A subscription gives you access to Symport and all future features and updates. You'll also get secure data storage, daily backups, two free hours of training, and unlimited email support for free.

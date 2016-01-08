@@ -1,0 +1,35 @@
+.account.account-sign-in
+  .header-box
+    .row
+      .small-12.column
+        h2 Welcome To Symport
+    .row
+      .small-12.column
+        dl.tabs
+          dd.active
+            link-to "account.sign-in" | Log In
+          dd
+            link-to "account.sign-up" | Create an Account
+
+  .body.sign-in
+    .row
+      .small-12.column
+        label
+          ' E-mail
+          LabCompass.TextFieldAutoFocused class="email" value=email action="signIn"
+    .row
+      .small-12.column
+        label
+          ' Password
+          Ember.TextField type="password" value=password action="signIn"
+
+    if error
+      .row
+        .small-12.column.sub-error
+          = error
+
+    .row.action-row
+      .small-12.column
+        .forgot-link
+          link-to "account.forgot-password" | Forgot your password?
+        button.button.primary click="signIn" Log In

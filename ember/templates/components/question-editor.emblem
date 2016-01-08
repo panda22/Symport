@@ -1,0 +1,69 @@
+if editing
+  .form-question-builder#whole-question-builder
+    .modalContainer 
+      .small-6.column.left-side#question-builder-left-side 
+        .question-builder-field
+          if isNew
+            h3 Add a Question to your Form
+          else
+            h3 Edit Form Question
+        
+        div id="questionBuilderJoyride"
+          ol class="joyride-list" data-joyride=""
+            li data-id="questionBuilderJoyride1" data-button="Next" data-options="tip_location:bottom;prev_button:false;next_button:false;scrollSpeed:0;"
+              p.content Every question you add must have a Prompt.  A prompt is the phrasing of the question in your form.
+              p.content Hint: Oops, we realized there's no way to contact these patients.  Try adding an email question now.
+            li data-id="questionBuilderJoyride2" data-button="Next" data-options="tip_location:bottom;prev_button:false;next_button:false;scrollSpeed:0;"
+              p.content Your variable name will display in the first row of any column containing this question's data.
+              p.content Hint: Most variable names are short and closely related to the question.
+              p.content
+                i Please add a variable name now.
+            li data-id="questionBuilderJoyride3" data-button="Next" data-options="tip_location:bottom;prev_button:false;next_button:false;scrollSpeed:0;"
+              p.content 
+                ' If responses to this question might contain identifying information or protected health information (PHI), 
+                i
+                  |mark the question as Identifying Information. 
+
+        .question-builder-field id="questionBuilderJoyride1"
+          label Question Prompt:
+          LabCompass.AutosizeTextArea cantResize=true takeFocus=true highlightParentDepth=0 class="no-bot-marg question-prompt question-field-input" value=question.prompt
+          each error in question.errors.prompt
+            /.error = error
+            question-error errorString=error questionObject=question
+        
+        .question-builder-field
+          label Question Type:
+          /if isNew
+          LabCompass.highlightParentSelect highlightParentDepth=0 content=questionTypes value=question.type optionLabelPath="content.name" optionValuePath="content.type" placeholder="Please Select ..." class="question-type"
+          /else
+          /  LabCompass.highlightParentSelect highlightParentDepth=0 disabled=true content=questionTypes value=question.type optionLabelPath="content.name" optionValuePath="content.type" class="question-type"
+          if typeHint
+            = typeHint
+           
+        .question-builder-field
+          .row.question-ordering-row
+            .small-12.column.ordering-column
+              label Question Ordering:
+              LabCompass.QuestionSequencing otherQuestions=otherQuestions question=question
+            / if isHeaderType
+            /   .small-12.column.ordering-column
+            /     label Question Ordering:
+            /     LabCompass.QuestionSequencing otherQuestions=otherQuestions question=question
+            / else
+            /   .small-8.column.ordering-column
+            /     label Question Ordering:
+            /     LabCompass.QuestionSequencing otherQuestions=otherQuestions question=question
+            /   .small-4.column.display-number-column
+            /     label Display Number:
+            /     LabCompass.highlightParentTextField highlightParentDepth=2 value=question.displayNumber maxlength="5"
+            /     each error in question.errors.displayNumber
+            /       question-error errorString=error questionObject=question
+
+        LabCompass.QuestionEditorTypeSpecificFields question=question isNew=isNew
+      .small-6.column.right-side#question-builder-right-side
+        label Preview
+        .preview-box.center
+          answer-editor answer=fakeAnswer enabled=true qBuilderPreview=true tabindex="-1"
+else
+  .form-question
+    answer-editor answer=fakeAnswer enabled=false qBuilderPreview=false

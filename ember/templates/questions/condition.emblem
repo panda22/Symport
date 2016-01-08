@@ -1,0 +1,39 @@
+.conditions
+  .andClass
+    .row
+      .small-12.columns
+        h4.condition-header AND
+  if needsSecondaryStyling
+    .row.condition-row
+      .small-5.columns
+        .select-question
+          | 1. Select Question
+        LabCompass.highlightParentSelect highlightParentDepth=4 takeFocus=false class='select-condition-question' content=target.previousAnswerableQuestions value=dependsOnQuestion optionLabelPath="content.displayName"
+
+        each error in errors.dependsOn
+          .error = error
+      .small-6.columns
+      .small-1.columns  
+        button.button.remove.remove-condition tabindex="-1" click="removeCondition"
+    .row.condition-row
+      .small-12.columns
+        condition-editor question=dependsOnQuestion condition=model 
+  else 
+    .row.condition-row
+      .small-5.columns
+        .select-question
+          | 1. Select Question
+        LabCompass.highlightParentSelect highlightParentDepth=4 takeFocus=false class='select-condition-question' content=target.previousAnswerableQuestions value=dependsOnQuestion optionLabelPath="content.displayName"
+
+        each error in errors.dependsOn
+          .error = error
+      .small-6.columns
+        condition-editor question=dependsOnQuestion condition=model
+      .small-1.columns  
+        button.button.remove.remove-condition tabindex="-1" click="removeCondition"
+    
+  .row
+    .small-12.columns
+      each error in errors.value
+        .error = error
+      

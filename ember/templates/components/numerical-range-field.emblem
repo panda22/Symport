@@ -1,0 +1,7 @@
+if compact
+  LabCompass.NumericField class='number-entry' value=value disabled=disabled allowsDecimal=true allowsSigns=true
+else
+  .row
+    .small-12.columns
+      LabCompass.NumericField class='number-entry' value=value disabled=disabled allowsDecimal=true allowsSigns=true
+      .question-instruction = instructionString

@@ -1,0 +1,13 @@
+.dialog.small.enteredit
+  .header
+    h2 Unsaved Changes
+
+  .body
+    p Are you sure you want to leave this page? If you do all the changed and unsaved data for subject {{subjectID}} in {{formStructure.name}} will not be saved
+
+  .actions
+
+    button.button.cancel click="closeDialog" Cancel
+    button.button.main.right.confirm-leave click="confirmLeave" Leave Data Entry
+
+

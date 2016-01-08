@@ -1,0 +1,20 @@
+.question-builder-field-type-specific
+  .num-range-box
+    label Set Accepted Numerical Range:
+    .row
+      .small-3.columns.left
+        label Minimum Value:
+        LabCompass.NumericField allowsDecimal=true allowsSigns=true highlightParentDepth=3 class='no-bot-marg min-range option-value' value=question.config.minValue
+        each error in question.errors.numericConfigMin
+          question-error errorString=error questionObject=question
+      .small-3.columns.left
+        label.max Maximum Value:
+        LabCompass.NumericField allowsDecimal=true allowsSigns=true highlightParentDepth=3 class='no-bot-marg max-range option-value' value=question.config.maxValue
+        each error in question.errors.numericConfigMax
+          question-error errorString=error questionObject=question
+    .precisionContainer
+      .row
+        .small-5.columns
+          label.has-tooltip Minimum Precision:
+          <span data-tooltip data-width="290" aria-haspopup="true" class="tip-right tooltip-div" title="Your selection indicates the number of decimal places required for a response."></span>
+          LabCompass.highlightParentSelect highlightParentDepth=4 class='no-bot-marg precision option-value' content=view.precisionValues value=question.config.precision optionLabelPath="content.name" optionValuePath="content.value" 

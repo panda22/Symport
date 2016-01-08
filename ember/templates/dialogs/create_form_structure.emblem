@@ -1,0 +1,48 @@
+.dialog.small.create-form
+  if isSecondaryIdSettings
+    .header
+      h2 Enter Details About Your Secondary IDs
+    .body
+      ol
+        li.table-header 
+          | What do you want to call your Secondary IDs?
+          p.content.examples
+            | Examples are visit date, adverse effect, or tissue sample
+          Ember.TextField class="secondary-id" value=model.secondaryId
+        each error in errors.secondaryId
+          p.sub-error = error
+        li.table-header 
+          | How do you want to sort your Secondary IDs when viewing your data in a table?
+          LabCompass.RadioButtonGroup class="sorting" value=model.isSecondaryIdSorted disabled=false
+            label.yes-radio
+              view view.RadioButton value=false | By Date Created
+            label.no-radio
+              view view.RadioButton value=true | Alphabetically 0-9
+  else
+    .header
+      h2 Create New Form
+    .body
+      ol
+        li.table-header 
+          | Enter your form name below
+          LabCompass.ActionContextTextField class="form-name" placeholder="e.g. Demographics" value=name takeFocus=true
+          each error in errors.name
+            p.sub-error = error
+        li.table-header 
+          | Enter your form description below (optional)
+          LabCompass.AutosizeTextArea value=description
+            p.sub-error = error
+        li.table-header 
+          | Do you wish to use a Secondary ID?
+          p.content 
+            | Secondary IDs are used when collecting data for a single form 
+            | multiple times per subject. Examples are longitudinal data collection or 
+            | patients having multiple visits/lab samples.
+          LabCompass.RadioButtonGroup value=model.isManyToOne disabled=false
+            label.yes-radio
+              view view.RadioButton value=true | Yes
+            label.no-radio
+              view view.RadioButton value=false | No
+  .actions
+    button.button.cancel click="closeDialog" Cancel
+    button.button.main.right click="create" Create Form

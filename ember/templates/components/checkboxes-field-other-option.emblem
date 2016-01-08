@@ -1,0 +1,7 @@
+each options
+  .checkbox-option
+    label
+      view view.option selectedValues=view.selectedValues value=value disabled=view.disabled option_value=value tabindex=tabindex
+      = value
+    if otherOption
+      LabCompass.AutosizeTextArea class="other-text2 other-text" disabled=view.disabled tabindex=tabindex

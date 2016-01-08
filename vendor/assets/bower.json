@@ -1,0 +1,13 @@
+{
+  "name": "dsl-generated dependencies",
+  "dependencies": {
+    "ember-qunit": "latest",
+    "moment": "latest",
+    "moment-timezone": "latest",
+    "sinon": "latest",
+    "sinon-qunit": "latest",
+    "datatables": "~1.10.5",
+    "dataTables.foundation": "http://cdn.datatables.net/plug-ins/f2c75b7247b/integration/foundation/dataTables.foundation.css",
+    "datatables-plugins": "~1.10.5"
+  }
+}

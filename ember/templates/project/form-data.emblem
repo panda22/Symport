@@ -1,0 +1,172 @@
+page-header title="Data"
+.form-data.main-content
+  / ***************************************************************************
+  / above grid actions
+  / ***************************************************************************
+  .row.grid-actions-row class={ blockGridActions:disabled }
+    .small-7.column
+      .main-instructions Set data formats and clean below
+    .small-5.column
+      if activeModel
+        if activeModel.formStructure.userPermissions.enterData
+          a.import-graphic.right click="import activeModel.formStructure" disabled=false Import
+        else
+          a.import-graphic.right  disabled=true class="disabled" Import
+      else
+        a.import-graphic.right click="import" disabled=false Import
+      a.download-graphic.right data-dropdown="form-download-dropdown" data-options="is_hover:false;" disabled=blockGridActions class={ blockGridActions:disabled } Download Data
+      ul id="form-download-dropdown" class="f-dropdown" data-dropdown-content=""
+        li
+          if activeModel.formStructure.userPermissions.downloadFormData
+            a.secondary click="export" Download Data
+          else
+            a.disabled Download Data
+        li
+          if activeModel.formStructure.userPermissions.downloadFormData
+            a.secondary click="codebook" Download Codebook
+          else
+            a.disabled Download Codebook
+  .row.grid-control-row class={ blockGridActions:disabled }
+    .custom-section.sort-section
+      .grid-control-text.content
+        ' Sort
+      drop-down class="control-input" isEditable=true val=curSortVariable inputOptions=variableNames disabled=blockGridActions
+      .grid-control-text.content
+        ' by
+      drop-down class="placeholder control-input" placeholder="Please Select..." isEditable=true val=curSortType inputOptions=sortMenuItems inputOptionValue="title" disabled=blockGridActions
+    .custom-section.search-section
+      .grid-control-text.content
+        ' Filter
+      drop-down class="placeholder control-input" placeholder="Please Select..." isEditable=true val=curFilterVariable inputOptions=filterVariableNames disabled=blockGridActions
+      Ember.TextField class="filter-text control-input" value=tempCurFilterString disabled=blockGridActions
+
+    .custom-section.error-section
+      if model.length
+        if activeModel.answerErrors.hasNoErrors
+          .no-errors-graphic.main-info
+            | No Errors
+        else
+          .error-content click="openDataCleanup"
+            .error-bubble
+              | {{activeModel.answerErrors.numActiveErrors}}
+            | Fix Errors
+  / ***************************************************************************
+  / form tabs
+  / ***************************************************************************
+  .row.tab-row
+    .small-12.column
+      each tab in tabHandler.formTabs
+        .form-tab.table-header
+          if tab.isActiveTab
+            .active-form-tab.tab-type style=tab.colorStyle
+              .form-settings-graphic.left data-dropdown="form-settings-dropdown" data-options="is_hover:false;"
+              ul id="form-settings-dropdown" class="f-dropdown" data-dropdown-content=""
+                li
+                  if activeModel.formStructure.userPermissions.buildForm
+                    .link.settings-link
+                      a.secondary click="editSecondaryId" Secondary ID Settings
+                  else
+                    .link.settings-link
+                      a.secondary.disabled Secondary ID Settings
+                li
+                  if activeModel.formStructure.userPermissions.renameForm
+                    .link.rename-link
+                      a.rename click="renameFormStructure" Rename
+                  else
+                    .link.rename-link
+                      a.rename.disabled Rename
+                li
+                  if activeModel.formStructure.userPermissions.deleteForm
+                    .link.delete-link
+                      a.delete click="confirmDeleteFormStructure" Delete
+                  else
+                    .link.delete-link
+                      a.delete.disabled Delete
+              if tab.canView
+                .form-tab-content.left {{tab.name}}
+              else
+                .form-tab-content.left.disabled {{tab.name}}
+          if tab.isInactiveTab
+            if tab.canView
+              if allFormsLoaded
+                .inactive-form-tab.tab-type click="goToForm tab.name" style=tab.colorStyle
+                  .form-tab-content
+                    a {{tab.name}}
+              else
+                .inactive-form-tab.tab-type.waiting style=tab.colorStyle
+                  .form-tab-content
+                    a {{tab.name}}
+            else
+              .inactive-form-tab.tab-type style=tab.colorStyle
+                .form-tab-content
+                  a.disabled {{tab.name}}
+          if tab.isAddNewTab
+            if project.userPermissions.createForms
+              .add-new-form-tab.tab-type click="addForm"
+                .form-tab-content.content
+                  a.create-new-link Create New
+            else
+              .add-new-form-tab.tab-type
+                .form-tab-content.content
+                  a.create-new-link.disabled Create New
+      .empty-tab class={ tabHandler.isWiderThanGrid:no-border }
+      if tabHandler.tabArrowsEnabled
+        .tab-arrows
+          if tabHandler.tabArrowHasAdd
+            if project.userPermissions.createForms
+              .add-new-form-tab.tab-type click="addForm"
+                .form-tab-content.content
+                  a.create-new-link Create New
+            else
+              .add-new-form-tab.tab-type
+                .form-tab-content.content
+                  a.create-new-link.disabled Create New
+          .tab-arrow.left-tab-arrow class={ tabHandler.canScrollTabsLeft:enabled:disabled } click="scrollTabsLeft"
+          .tab-arrow.right-tab-arrow class={ tabHandler.canScrollTabsRight:enabled:disabled } click="scrollTabsRight"
+
+  / ***************************************************************************
+  / grid
+  / ***************************************************************************
+  .row.grid-row
+    .small-12.column
+      .outer-grid-container
+        .grid-container.left-pane.left
+          #left-grid
+        .grid-spacer
+        .grid-container.right-pane.left
+          #right-grid
+
+        / ***************************************************************************
+        / blocked grid
+        / ***************************************************************************
+        if isGridBlocked
+          .grid-blocked.main-error
+            if model.length
+              if isLoadingRequest
+                .grid-background-graphic.grid-loading-background
+                  .blocked-foreground.grid-loading.main-instructions Loading Data...
+              if activeModel.hasNoData
+                .grid-background-graphic.no-data-background
+                  .blocked-foreground.no-data-options
+                    .form-graphic
+                    .no-data-links
+                      .no-data-text
+                        | Oh No! We noticed that you don't have any data in your table.
+                      .no-data-buttons
+                        .no-data-button
+                          if activeModel.formStructure.userPermissions.enterData
+                            button.button.import-graphic.left click="import activeModel.formStructure" Import Existing Data
+                          else
+                            button.button.disabled.import-graphic.left Import Existing Data
+                        .no-data-button
+                          if activeModel.formStructure.userPermissions.buildForm
+                            button.button.import-graphic.left click="buildForm activeModel.formStructure" Build Form To Capture Data
+                          else
+                            button.button.disabled.import-graphic.left Build Form To Capture Data
+              if hasNoFilterResults
+                .blocked-foreground.no-filter-results No Results Found
+            else
+              .no-forms-graphic
+      .subject-count class={ subjectCountHidden:hide }
+        | Showing {{displayedRows}} rows out of {{totalRows}} total.
+

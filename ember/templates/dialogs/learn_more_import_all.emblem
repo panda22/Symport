@@ -1,0 +1,13 @@
+.dialog.medium.import.import-all
+  .header
+    h2 Add all new rows and columns and update existing data
+
+  .body
+    .content By selecting this option Symport will add all new rows and columns.
+    .content If you have existing columns you will be able to pair them with columns in the spreadsheet you are importing.
+    .content Existing data will be replaced with the data from your spreadsheet. Blank data in your spreadsheet will not overwrite data in Symport.
+    .content Example Image
+    .image
+
+  .actions
+    button.button.cancel click="closeDialog" Close

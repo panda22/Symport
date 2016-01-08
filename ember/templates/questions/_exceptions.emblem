@@ -1,0 +1,159 @@
+if regularExceptions
+  .question-builder-field
+    .exceptions-builder-field
+      .table-header Codes for Missing, Unknown, Skipped, or other values:
+      .content.help {{help}}
+      
+      .row
+        .small-12.columns
+          each error in question.errors.exceptions
+            /.error = error
+            question-error errorString=error questionObject=question 
+
+      each exception in question.exceptions
+        .row.answer-choice-row
+          .small-12.large-6.column
+            .content.value-input {{ie_text}}
+            LabCompass.highlightParentTextField class="content" highlightParentDepth=3 value=exception.value class="exception-value"
+          .small-12.large-6.column
+            .small-11.column.no-padding
+              .content.label-input B. Label(i.e Missing)
+              LabCompass.ActionContextTextField highlightParentDepth=4 class="exception-label" value=exception.label action="addException" takeFocus=false
+            .small-1.column.no-padding
+              if exception.isNew
+                button.button.remove.old-x.exception tabindex="-1" click="removeException exception"
+              else
+                if exception.hasData 
+                  <span data-tooltip data-width="215" aria-haspopup="true" class="tip-right x-exception-tooltip" title="You cannot delete this code because data has been collected in this form."></span>
+                else
+                  if exception.usedInCondition
+                    <span data-tooltip data-width="215" aria-haspopup="true" class="tip-right x-exception-tooltip" title="You cannot delete this code because it is used in conditional logic."></span>
+                  else
+                    button.button.remove.old-x.exception tabindex="-1" click="removeException exception"
+        .row
+          .small-12.large-6.column
+            each error in exception.errors.value
+              question-error errorString=error questionObject=question
+          .small-12.large-6.column
+            .small-11.column.no-padding
+              each error in exception.errors.label
+                question-error errorString=error questionObject=question
+            .small-1.column.no-padding
+      .row.exception-buttons
+        button.button.plus-with-text.add-option.left tabindex="-1" click="addException" Add Code
+
+if dateException
+  .question-builder-field
+    .exceptions-builder-field
+      .table-header Codes for Missing, Unknown, Skipped, or other values:
+      .content.help Use the button Add Code below to allow for the entry of 99/99/9999 etc. into answer fields.
+    
+      .row
+        .small-12.columns
+          each error in question.errors.exceptions
+            /.error = error
+            question-error errorString=error questionObject=question      
+
+      each exception in monthExceptions
+        .row.answer-choice-row
+          .small-12.large-6.column
+            .content.value-input A. Set Month Code(i.e 99)
+            LabCompass.highlightParentTextField highlightParentDepth=3 value=exception.value class="exception-value month-exception-value"
+          .small-12.large-6.column
+            .small-11.column.no-padding
+              .content.label-input B. Label(i.e Missing)
+              LabCompass.ActionContextTextField highlightParentDepth=4 class="exception-label" value=exception.label action="addMonthException" takeFocus=false
+            .small-1.column.no-padding
+              if exception.isNew
+                button.button.remove.old-x.exception tabindex="-1" click="removeException exception"
+              else
+                if exception.hasData 
+                  <span data-tooltip data-width="215" aria-haspopup="true" class="tip-right x-exception-tooltip" title="You cannot delete this code because data has been collected in this form."></span>
+                else
+                  if exception.usedInCondition
+                    <span data-tooltip data-width="215" aria-haspopup="true" class="tip-right x-exception-tooltip" title="You cannot delete this code because it is used in conditional logic."></span>
+                  else
+                    button.button.remove.old-x.exception tabindex="-1" click="removeException exception"
+        .row
+          .small-12.large-6.column
+            each error in exception.errors.value
+              question-error errorString=error questionObject=question
+          .small-12.large-6.column
+            .small-11.column.no-padding
+              each error in exception.errors.label
+                question-error errorString=error questionObject=question
+            .small-1.column.no-padding
+
+      .row.exception-buttons#end-of-month-exceptions
+        button.button.plus-with-text.add-option.left tabindex="-1" click="addMonthException" Add Month Code
+      
+      .large-blue-line-spacer
+      
+      each exception in dayExceptions
+        .row.answer-choice-row
+          .small-12.large-6.column
+            .content.value-input A. Set Day Code(i.e 99)
+            LabCompass.highlightParentTextField highlightParentDepth=3 value=exception.value class="exception-value day-exception-value"
+          .small-12.large-6.column
+            .small-11.column.no-padding
+              .content.label-input B. Label(i.e Missing)
+              LabCompass.ActionContextTextField highlightParentDepth=4 class="exception-label" value=exception.label action="addDayException" takeFocus=false
+            .small-1.column.no-padding
+              if exception.isNew
+                button.button.remove.old-x.exception tabindex="-1" click="removeException exception"
+              else
+                if exception.hasData 
+                  <span data-tooltip data-width="215" aria-haspopup="true" class="tip-right x-exception-tooltip" title="You cannot delete this code because data has been collected in this form."></span>
+                else
+                  if exception.usedInCondition
+                    <span data-tooltip data-width="215" aria-haspopup="true" class="tip-right x-exception-tooltip" title="You cannot delete this code because it is used in conditional logic."></span>
+                  else
+                    button.button.remove.old-x.exception tabindex="-1" click="removeException exception"
+        .row
+          .small-12.large-6.column
+            each error in exception.errors.value
+              question-error errorString=error questionObject=question
+          .small-12.large-6.column
+            .small-11.column.no-padding
+              each error in exception.errors.label
+                question-error errorString=error questionObject=question
+            .small-1.column.no-padding
+
+      .row.exception-buttons#end-of-day-exceptions
+        button.button.plus-with-text.add-option.left tabindex="-1" click="addDayException" Add Day Code
+
+      .large-blue-line-spacer
+      
+      each exception in yearExceptions
+        .row.answer-choice-row
+          .small-12.large-6.column
+            .content.value-input A. Set Year Code(i.e 9999)
+            LabCompass.highlightParentTextField highlightParentDepth=3 value=exception.value class="exception-value year-exception-value"
+          .small-12.large-6.column
+            .small-11.column.no-padding
+              .content.label-input B. Label(i.e Missing)
+              LabCompass.ActionContextTextField highlightParentDepth=4 class="exception-label" value=exception.label action="addYearException" takeFocus=false
+            .small-1.column.no-padding
+              if exception.isNew
+                button.button.remove.old-x.exception tabindex="-1" click="removeException exception"
+              else
+                if exception.hasData 
+                  <span data-tooltip data-width="215" aria-haspopup="true" class="tip-right x-exception-tooltip" title="You cannot delete this code because data has been collected in this form."></span>
+                else
+                  if exception.usedInCondition
+                    <span data-tooltip data-width="215" aria-haspopup="true" class="tip-right x-exception-tooltip" title="You cannot delete this code because it is used in conditional logic."></span>
+                  else
+                    button.button.remove.old-x.exception tabindex="-1" click="removeException exception"
+        .row
+          .small-12.large-6.column
+            each error in exception.errors.value
+              question-error errorString=error questionObject=question
+          .small-12.large-6.column
+            .small-11.column.no-padding
+              each error in exception.errors.label
+                question-error errorString=error questionObject=question
+            .small-1.column.no-padding
+
+      .row.exception-buttons#end-of-year-exceptions
+        button.button.plus-with-text.add-option.left tabindex="-1" click="addYearException" Add Year Code
+

@@ -1,0 +1,5 @@
+.question-sequencing
+  if isFormatting
+    LabCompass.EnhancedSelect highlightParentDepth=6 id='sequence-dropdown' content=view.sequenceOptions value=view.sequenceNumber optionLabelPath="content.label" optionValuePath="content.value" optionDisabledPath="content.disabled" class="no-bot-marg ordering-widget"
+  else
+    LabCompass.EnhancedSelect highlightParentDepth=4 id='sequence-dropdown' content=view.sequenceOptions value=view.sequenceNumber optionLabelPath="content.label" optionValuePath="content.value" optionDisabledPath="content.disabled" class="no-bot-marg ordering-widget"

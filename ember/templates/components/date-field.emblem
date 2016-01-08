@@ -1,0 +1,10 @@
+if mobileNot
+	.date-widget
+	  Ember.TextField class="date-entry" value=value disabled=disabled
+	  button.button.open-calendar disabled=disabled
+	.question-instruction i.e. mm/dd/yyyy
+else
+	.date-widget
+	  Ember.TextField class="date-entry" value=value disabled=disabled
+	.question-instruction i.e. mm/dd/yyyy
+

@@ -1,0 +1,22 @@
+.dialog.large.onboarding
+  .body
+    h2.started Get Started {{session.user.firstName}}
+    
+    .small-12
+      .small-6.left
+        p Play with a sample database
+        button.button.main.left click="sampleOutcome" Sample Patient Outcomes Database
+        button.button.main.left click="sampleVisit" Sample Patient Visits Database
+      .small-6.right
+        p.right Or start building your own research database
+        button.button.main.right click="importOwnDb" Import Your Own Database 
+        button.button.manualBuild.right click="manualBuild" Skip Importing, build a form and collect data manually.
+
+    .small-12
+      .small-6.left
+        p.help Need Help? Contact us at team@mntnlabs.com for assistance
+      .small-6.right
+        .nikhil-and-dave
+
+
+

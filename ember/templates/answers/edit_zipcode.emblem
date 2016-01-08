@@ -1,0 +1,2 @@
+LabCompass.NumericField class='edit-answer-field zipcode' maxlength='5' allowsDecimal=false value=answer.answer disabled=disabled
+.question-instruction Enter a 5 digit zipcode

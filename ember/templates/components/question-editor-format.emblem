@@ -1,0 +1,82 @@
+if editing
+  .form-question-builder#whole-question-builder
+    .modalContainer
+      .small-6.column.left-side#question-builder-left-side
+        .question-builder-field
+          h3 Edit Details & Set Data Format
+        .question-builder-field id="questionBuilderJoyride2"
+          label Column Header/Variable Name:
+          LabCompass.VariableNameField highlightParentDepth=0 class="no-bot-marg question-variable-name question-field-input" value=question.variableName
+          each error in question.errors.variableName
+            question-error errorString=error questionObject=question
+        .question-builder-field id="questionBuilderJoyride3"
+          .small-12
+            .identifyingInformationContainer
+              label.has-tooltip Identifying Information:
+              <div data-tooltip data-width="350" aria-haspopup="true" class="tip-right tooltip-div" title="If you select yes, the responses to this question will be hidden from those users who cannot view Identifying Information."></div>
+              .phiContainerFormBuilder
+                LabCompass.RadioButtonGroup value=question.personallyIdentifiable
+                  label.yes-radio
+                    view view.RadioButton highlightParentDepth=5 defaultChecked=question.personallyIdentifiable class="no-bot-marg" value=true | Yes
+                  label.no-radio
+                    view view.RadioButton highlightParentDepth=5 class="no-bot-marg" value=false | No
+                each error in question.errors.personallyIdentifiable
+                  question-error errorString=error questionObject=question
+        .question-builder-field
+          label Data/Question Type:
+          LabCompass.highlightParentSelect highlightParentDepth=0 content=questionTypes value=question.type optionLabelPath="content.name" optionValuePath="content.type" placeholder="Please Select ..." class="question-type"
+          if typeHint
+            .content.type-hint {{typeHint}}
+        if showFormat
+          .question-builder-field
+            label Data Format
+            .content.format-text {{formatText}}
+            LabCompass.highlightParentSelect highlightParentDepth=0 content=formatList value=formatObject optionLabelPath="content.display" optionValuePath="content" placeholder="Please Select ..." class="question-format"
+
+        LabCompass.QuestionEditorTypeSpecificFields question=question isNew=isNew isFormatting=true
+
+        .question-builder-field.question-details-heading
+          .toggle-details.expando class={ detailsShown:open:closed } click="toggleDetails"
+            a Show more question details
+          if detailsShown
+            .expanded-section
+              .question-details
+                .row.spacing-row
+                  .small-12.column
+                    label Question Prompt:
+                    LabCompass.AutosizeTextArea cantResize=true takeFocus=true highlightParentDepth=4 class="no-bot-marg question-prompt question-field-input" value=question.prompt
+                    each error in question.errors.prompt
+                      question-error errorString=error questionObject=question
+                .row.question-ordering-row.spacing-row
+                  .small-12.column.ordering-column
+                    label Question Ordering:
+                    LabCompass.QuestionSequencing otherQuestions=otherQuestions question=question isFormatting=true
+                .row.spacing-row
+                  .small-12.column
+                    label Question Hint (Optional):
+                    LabCompass.AutosizeTextArea highlightParentDepth=4 class="no-bot-marg question-description" value=question.description
+
+        .question-builder-field.question-conditions-heading
+          .toggle-conditions.expando class={ conditionsShown:open:closed } click="toggleConditions"
+            a Conditional Logic
+          if conditionsShown
+            .expanded-section
+              .conditions-container
+                = partial "questions/conditions"
+
+        if showExceptions
+          .question-builder-field.question-exceptions-heading
+            .toggle-exceptions.expando class={ exceptionsShown:open:closed } click="toggleExceptions"
+              a Codes for Missing, Unknown, Skipped or Other Values
+            if exceptionsShown
+              .expanded-section
+                .exceptions-container
+                  = partial "questions/exceptions"
+
+      .small-6.column.right-side#question-builder-right-side
+        label Preview
+        .preview-box.center
+          answer-editor answer=fakeAnswer enabled=true qBuilderPreview=true tabindex="-1"
+else
+  .form-question
+    answer-editor answer=fakeAnswer enabled=false qBuilderPreview=false

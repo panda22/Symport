@@ -1,0 +1,73 @@
+page-header title="Preview Form"
+  .row
+    .small-12.column
+      dl.tabs
+        dd
+          link-to "form.build" | Build Form
+        dd.active
+          link-to "form.preview" | Preview Form
+
+.form-structure.main-content.form-response.preview
+  .row
+    .small-12.columns
+      .saveSlider
+        .saveButton id="savingButton"
+          button.button.main.left click="saveFakeResponse" Save
+        .viewingText.content
+          if model.formStructure.isManyToOne
+            | Viewing Subject ID {{model.subjectID}} → {{model.shortSecondaryId}}
+          else
+            | Viewing Subject ID {{model.subjectID}}
+        .error-notification class=isErrors:default:hide
+          |Error on Question:
+          each error in answerErrors
+            a click="goToError error.questionNumber error"
+              | {{error.questionNumber}}
+              | {{error.appendString}}
+        .flashSave
+          div class=showSaving:success:hide
+            | Saving ...
+          div.success.hide#success-flash
+            | Save Successful!
+  .row
+    .small-12.column
+      h2 {{name}} Preview
+  if displayedAnswers.length
+    .row
+      .small-12.column
+        question-search-bar text="Search for Question" setPlaceholder=true
+           drop-down isEditable=true val=curSearchString inputOptions=questionSearchArray
+  each answer in displayedAnswers
+    .row
+      .small-12.columns
+        answer-editor id=answer.question.id answer=answer qBuilderPreview=false
+  else
+    .empty-questions-preview-state
+  if isPaging
+    .row.question-pagination
+      .small-6.column
+        .page-display
+          ' Showing {{curPageInfo.firstQuestionName}} through
+          ' {{curPageInfo.lastQuestionName}} of
+          ' {{paginationInfo.lastQuestionName}}
+      .small-6.column
+        .page-links
+          ul.pagination
+            if paginationInfo.firstPage.isCurPage
+              li.paginate_button.unavailable
+                a
+                  | &lt;&lt; First
+            else
+              li.paginate_button
+                a click="changePage paginationInfo.firstPage"
+                  | &lt;&lt; First
+            each page in paginationInfo.pages
+              li.paginate_button class={page.isCurPage:current}
+                a click="changePage page"
+                  | {{page.firstQuestionName}}-{{page.lastQuestionName}}
+            if paginationInfo.lastPage.isCurPage
+              li.paginate_button.unavailable
+                a Last >>
+            else
+              li.paginate_button
+                a click="changePage paginationInfo.lastPage" Last >>

@@ -1,0 +1,19 @@
+.dialog.small
+  .header
+    h2 Delete Question
+
+  .body
+    p
+      ' Are you sure you want to delete the question
+      span "{{prompt}}"
+      |?
+    p This can't be undone. If you proceed you will lose ALL of the responses for this question.
+    if isDependency
+      p This question is used as a condition by another question. If you proceed you will lose ALL conditions that refer to this question.
+
+  .actions
+
+    button.button.cancel click="closeDialog" Cancel
+    button.button.delete.right click="deleteQuestion this" Delete Question
+
+

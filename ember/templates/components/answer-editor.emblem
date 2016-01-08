@@ -1,0 +1,2 @@
+div{bind-attr class=":form-answer enabled:edit:preview"}
+  LabCompass.AnswerTypeSpecificUI answer=answer editing=editing enabled=enabled stickyFocus=stickyFocus qBuilderPreview=qBuilderPreview

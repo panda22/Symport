@@ -1,0 +1,545 @@
+@import "colors";
+@import "foundation/functions";
+
+#subject-id-input-box-2 {
+  margin-bottom: 58px;
+}
+
+.form-response {
+  margin-top: rem-calc(30);
+
+  &.preview {
+    .empty-questions-preview-state {
+      background-image: image-url("empty-questions-preview-state.png");
+      background-repeat: no-repeat;
+      background-size: 661px 183px;
+      height: 350px;
+      margin-left: 10px;
+    }
+    margin-bottom: 42px;
+  }
+
+  .question-search-row {
+    margin-top: 7px;
+    margin-bottom: 15px;
+    padding-left: 0;
+    margin-left: 0;
+    .search-text {
+      padding-top: 5px;
+      margin-left: 0;
+    }
+    .search-bar {
+      margin-left: 12px;
+    }
+    .main-info {
+      display: block;
+      float: left;
+      margin-left: 0px;
+      margin-top: 4px;
+    }
+  }
+
+  .success {
+    padding: rem-calc(10);
+    border: 0.1rem solid $lc-create-or-save-color;
+    border-radius: 3px;
+    width: auto;
+    height: auto;
+    overflow: auto;
+    word-wrap: break-word;
+    min-width: 115px;
+  }
+  .form-header {
+
+    .delete-link {
+      margin-right: 15px;
+      margin-left: 50px;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+    .rename-link {
+      font-size: 14px;
+      margin-bottom: 5px;
+      a {
+        &.rename {
+          color: $lc-blue;
+          opacity: 1;
+        }
+      }
+    }
+    h6 {
+      font-size: 14px;
+      margin-top: -3px;
+      margin-bottom: 5px;
+      display: inline-block;
+    }
+    .current-subject {
+      font-size: 22px;
+    }
+    .saved-icon {
+      display: inline-block;
+      height: 14px;
+      background: image-url("green-save-disk.svg") no-repeat center;
+      width: 14px;
+      margin-right: 10px;
+    }
+  }
+  .button.main.right {
+      margin-right: 37px;
+  }
+}
+
+.error-notification {
+  color: $lc-error-notification;
+  border: 4px solid $lc-error-notification;
+  min-width: rem-calc(270);
+  min-height: rem-calc(47);
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+  padding:0;
+  a {
+    color: $lc-error-notification;
+    font-size: 15px;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+/*.bottom-id-box-row {
+  display: none;
+}*/
+.select-instance-row {
+  margin-bottom: 30px !important;
+  margin-top: -30px !important;
+  position: relative;
+  .specify-subject-box {
+    height: auto;
+    margin-bottom: 0;
+    margin-top: 0;
+    box-shadow: inset 0px 14px 20px -2px #DADADA;
+  }
+  .left-side {
+    margin-top: -4px;
+  }
+  .combo-box {
+    margin-top: -6px;
+  }
+  .sub-table-header {
+    margin-top: 4px;
+  }
+}
+
+.manyToOneBoxShadow {
+  box-shadow: 0px 4px 21px 4px $lc-medium-gray;
+}
+
+.specify-subject-box {
+  margin-top: rem-calc(30);
+  background: $lc-box-bg-color;
+  height: 85px;
+  padding: 18px 0px;
+  position: relative;
+  &.bottom-box {
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+  .left-side {
+    display: inline-block;
+    width: 415px;
+    .glass {
+      display: inline-block;
+      height: 36px;
+      background: image-url("mag-glass.svg") no-repeat center;
+      width: 36px;
+      margin: 0px 15px;
+      &.gray {
+        background: image-url("mag-glass-gray.svg") no-repeat center;
+        background-position-y: 3px;
+      }
+    }
+    .instruction {
+      label {
+        font-size: 16px;
+        color: black;
+      }
+      h6 {
+        margin-bottom: 0;
+      }
+      display: inline-block;
+    }
+  }
+  .entry {
+    margin-top: 6px;
+    position: absolute;
+    display: inline-block;
+    &#instance-entry {
+      .combo-box {
+        margin-left: -15px;
+      }  
+    }
+
+
+    a.rename-instance {
+      color: $lc-blue;
+      opacity: 0.65;
+    }
+    a.delete-instance {
+      color: $lc-red;
+      opacity: 0.65;
+    }
+    h6.rename-instance {
+      margin-top: -9px;
+      margin-bottom: 0px;
+    }
+  }
+  .error { 
+    margin-left: 375px;
+    margin-top: -10px;
+  }
+}
+
+.form-answer {
+  .prompt-row {
+    .question-number-container {
+      float: left;
+      padding: rem-calc(12);
+      background-color: $lc-informational-color;
+      .question-number {
+        margin: auto;
+        font-weight: bold;
+        font-align: center;
+      }
+
+    }
+    .answer-prompt-container {
+      padding: rem-calc(12);
+      padding-left: rem-calc(52);
+      margin-left: 12.5px;
+      background-color: $lc-box-bg-color;
+      .prompt {
+        font-weight: bold;
+        line-height: 1.4;
+      }
+    }
+
+    .empty-saved-heading.no-error-heading {
+      background:$lc-empty-saved-heading;
+    }
+
+    .filled-in-heading.no-error-heading {
+      background:$lc-filled-in-heading;
+    }
+
+    .filled-in-heading.error-heading {
+      background:$lc-error-heading;
+    }
+  }
+
+  .answer-prompt-row {
+    width: 100%;
+    display: inline-block;
+  }
+  .header, .page-break.preview, .form-answer-box {
+    border: 0.1rem solid $lc-box-border-color;
+    margin-bottom: 1rem;
+  }
+
+  .form-answer-box {
+    &.with-green-shadow {
+      border-color: #00a99d;
+      -webkit-box-shadow: 0 0 5px #00a99d;
+      -moz-box-shadow: 0 0 5px #00a99d;
+      box-shadow: 0 0 5px #00a99d;
+    }
+    &.with-gray-shadow {
+      border-color: $lc-dark-gray;
+      -webkit-box-shadow: 0 0 5px $lc-dark-gray;
+      -moz-box-shadow: 0 0 5px $lc-dark-gray;
+      box-shadow: 0 0 5px $lc-dark-gray;
+    }
+  }
+
+  .header {
+    &.with-green-shadow {
+      border-color: #00a99d;
+      -webkit-box-shadow: 0 0 5px #00a99d;
+      -moz-box-shadow: 0 0 5px #00a99d;
+      box-shadow: 0 0 5px #00a99d;
+    }
+    &.with-gray-shadow {
+      border-color: $lc-medium-gray;
+      -webkit-box-shadow: 0 0 5px $lc-medium-gray;
+      -moz-box-shadow: 0 0 5px $lc-medium-gray;
+      box-shadow: 0 0 5px $lc-medium-gray;
+    }
+  }
+
+  .header, .page-break.preview {
+    padding: 1rem;
+    font-weight: bold;
+  }
+
+  &.preview input[disabled] {
+    background-color: white;
+    margin-right: 7px;
+  }
+
+  p {
+    margin-bottom: 0.5rem;
+  }
+
+  .header {
+    background: $lc-form-header-color;
+    border-radius: 3px;
+  }
+
+  .page-break.preview {
+    background: $lc-locked-color;
+    border-radius: 3px;
+  }
+
+  .conditionally-disabled {
+    label {
+      color: $lc-medium-gray;
+    }
+    color: $lc-medium-gray;
+    .question-number {
+      color: $lc-main-text;
+    }
+  }
+
+  .conditional-border {
+    border: 0.1rem solid $lc-box-border-color;
+    border-bottom: none;
+    padding: 0.5rem;
+  }
+
+  .conditional-info {
+    padding-left: rem-calc(18);
+    margin-right: rem-calc(18);
+    color: $lc-light-text;
+    background-image: image-url("check-2.png");
+    background-repeat: no-repeat;
+    background-size: 12px;
+    background-position: 2px;
+
+  }
+
+  .form-answer-box {
+/*     border-radius: 5px; */
+
+
+    &.not-conditionally-disabled {
+      &:hover, &:focus {
+        /* border: 0.1rem solid $lc-input-decoration-color; */
+      }
+    }
+
+  }
+}
+
+.time-of-day {
+  .hours, .minutes {
+    width: 3rem;
+    display: inline;
+  }
+  .col-span {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .am-pm {
+    width: 4rem;
+    display: inline;
+    margin-left: 10px;
+  }
+}
+
+.time-duration {
+  .div{
+    display: inline-block
+  }
+  .hours-amount, .minutes-amount, .seconds-amount {
+    width: 3rem;
+    display: inline;
+    margin-left: 7px; 
+    margin-right: 14px;
+  }
+}
+
+.phone-number {
+  .area-code, .phone-number-first-part {
+    width: 3rem;
+    display: inline;
+  }
+
+  .phone-number-second-part {
+    width: 4rem;
+    display: inline;
+  }
+
+  .extension-code {
+    width: 7rem;
+    display: inline;
+    &.compact {
+      width: 3rem;
+    }
+  }
+}
+
+.description {
+  //font-size: 75%;
+  margin-bottom: rem-calc(5); 
+  line-height: 1.4;
+}
+
+.error {
+  font-size: 75%;
+  color: red;
+}
+
+$dropdown-width: 180px;
+$full-goto-button-width: 300px;
+
+.alternate-form-select {
+  background-color: $lc-primary-action-color;
+  padding: rem-calc(8);
+  width: 310px;
+  float: right;
+  .text, .dropdown {
+    display: inline-block;
+  }
+  .text {
+    color: $lc-alt-text;
+    margin-left:7px;
+  }
+  .dropdown select {
+    width: $dropdown-width;
+    margin: 0;
+    margin-left: rem-calc(8);
+    margin-right: rem-calc(8);
+  }
+  .ember-select {
+    width: 115px;
+    height: 33px;        
+  }
+}
+
+.alternate-form-select-view-only {
+  background-color: $lc-primary-action-color;
+  padding: rem-calc(8);
+  .text, .dropdown {
+    display: inline-block;
+  }
+  .text {
+    color: $lc-alt-text;
+    margin-left:7px;
+  }
+  .dropdown select {
+    width: $dropdown-width;
+    margin: 0;
+    margin-left: rem-calc(8);
+    margin-right: rem-calc(8);
+  }
+}
+
+.form-responses-form-page.main-content, .form-structure.main-content {
+  > *
+    {-webkit-overflow-scrolling: touch;}
+  margin-bottom: 50px;
+  .row {
+    max-width: none;
+  }
+  .saveSlider {
+    //display: none;
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    min-width: 740px;
+    bottom: 0px;
+    z-index: 98;
+    padding-top: 0px;
+    opacity: 0.6;
+    .viewingText {
+      position: absolute;
+      margin-left: 100px;
+      margin-top: 18px;
+      visibility: visible;
+    }
+    &:hover {
+      opacity: 1;
+    }
+
+    .error-notification {
+      margin-left: 100px;
+      position: fixed;
+      margin-bottom: 8px;
+      padding: 5px;
+      min-width: 11.875rem;
+      min-height: 1.75rem;
+      bottom: 0;
+      border: 2px solid $lc-red
+    }
+
+    .flashSave, .success, .hide {
+      margin-bottom: 7px;
+      max-width: 150px;
+      min-width: 115px;
+      width: auto;
+      position: fixed;
+      max-width: 649px;
+      bottom: 0px;
+      margin-left: 49px;
+    }
+
+    .success {
+      color: $lc-green;
+      border: 2px solid $lc-green;
+      margin-bottom: 5px;
+    }
+
+    button.button.main {
+      height: 50px;
+      width: 80px;
+      padding-left: 19px;
+      border-radius: 0px;
+      margin-bottom: 0px;
+    }
+    .alternate-form-select {
+      height: 50px;
+      width: 250px;
+      border-radius: 0px;
+      float: right;
+      .ember-select {
+        width: 115px;
+        height: 33px;        
+      }
+    }
+  }
+}
+
+.form-structure.main-content {
+  .saveSlider {
+    display: block;
+  }
+}
+
+// Media Query Ranges
+$large-range: (64.063em, 90em);
+$screen: "only screen";
+$large-up: "#{$screen} and (min-width:#{lower-bound($large-range)})";
+
+@media #{$large-up} {
+  .alternate-form-select {
+    .dropdown select {
+      width: $dropdown-width;
+    }
+  }
+}
+
+
+
+

@@ -1,0 +1,13 @@
+.dialog.small.import
+  .header
+    h2 Unsaved Progress
+
+  .body
+    p Are you sure you want to leave this page? If you do you will lose all your import progress
+
+  .actions
+
+    button.button.cancel click="closeDialog" Resume Import
+    button.button.main.right.confirm-leave click="confirmLeave" Leave
+
+

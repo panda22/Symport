@@ -1,0 +1,152 @@
+.dialog.xlarge.data-cleanup-modal
+  .row.info-section
+    .clean-up-info-box
+      .instructions Fix {{curErrorList.length}} errors in this column
+      .question-details
+        .prompt.content
+          | Question Prompt: {{curQuestion.prompt}}
+        .var-name.content
+          | Variable Name/Column Header: {{curQuestion.variableName}}
+    .error-count-box
+      .error-counts.sub-content
+        .num-questions {{numQuestions}}
+        .count-text Questions With Errors
+        .num-total-errors {{model.answerErrors.numActiveErrors}}
+        .count-text Total Errors Remain
+  .row.question-tips-row.main-error
+    .small-12.column
+      .res-tip-one {{resTip1}}
+    .small-12.column
+      .res-tip-two {{resTip2}}
+  if curQuestion.exceptions.content
+    .row.question-exceptions-row.main-error
+      .small-12.column.question-exceptions
+        | Codes for missing, unknown, skipped, or other values are provided below
+      if isDateType
+        .small-4.column.exception-month-values
+          .row
+            .small-12.column Month
+          .row
+            .small-12.column
+              each exception in monthExceptions
+                .exception-value
+                  | {{exception.value}} - {{exception.label}}
+        .small-4.column.exception-day-values
+          .row
+            .small-12.column Day
+          .row
+            .small-12.column
+              each exception in dayExceptions
+                .exception-value
+                  | {{exception.value}} - {{exception.label}}
+        .small-4.column.exception-year-values
+          .row
+            .small-12.column Year
+          .row
+            .small-12.column
+              each exception in yearExceptions
+                .exception-value
+                  | {{exception.value}} - {{exception.label}}
+      else
+        each exception in curQuestion.exceptions.content
+          .small-2.column.exception-values
+            .exception-value
+              | {{exception.value}} - {{exception.label}}
+
+  .row
+    .small-12.column
+      .error-table-wrapper
+        table.mapping-grid-head
+          .header-wrapper
+            thead class={ isManyToOne:many-to-one-header:one-to-one-header }
+              tr
+                th.subject-id-header.main-info Subject ID
+                if isManyToOne
+                  th.secondary-id-header.main-info Secondary ID
+                th.answer-header
+                  .find-and-replace-wrapper
+                    .answer-title.main-info
+                      | Answer
+                    .content
+                      | Find
+                    Ember.TextField value=findValue
+                    .content
+                      | Replace
+                    LabCompass.ActionContextTextField value=replaceValue action="findAndReplace"
+                    button.button.find-and-replace-button click="findAndReplace" ➔
+              /  TODO: uncomment below for ignore errors
+              /  th.ignore-header
+              /    if ignoreAllSet
+              /      a.undo-ignore-all click="undoIgnoreAll" Undo Ignore All
+              /    else
+              /      a.ignore-all click="ignoreAll" Ignore All
+        .body-wrapper
+          table.mapping-grid-body
+            tbody class={ isManyToOne:many-to-one-body:one-to-one-body }
+              each errorObj in curErrorList
+                tr class={ errorObj.isActive:active-row:ignored-row }
+                  td.subject-id-cell {{errorObj.subjectID}}
+                  if isManyToOne
+                    td.secondary-id-cell {{errorObj.secondaryId}}
+                  td.answer-cell
+                    .row
+                      if errorObj.isActive
+                        if isCheckboxType
+                          if hasOtherVariable
+                            .small-6.column
+                              LabCompass.AutosizeTextArea class=errorObj.responseID value=errorObj.answer
+                            .small-6.column
+                              .content.left Enter the answer to "{{otherVariableName}}"
+                              Ember.TextField value=errorObj.otherAnswer
+                          else
+                            .small-12.column
+                              LabCompass.AutosizeTextArea class=errorObj.responseID value=errorObj.answer
+                        else
+                          if hasOtherVariable
+                            .small-6.column
+                              Ember.TextField class=errorObj.responseID value=errorObj.answer
+                            .small-6.column
+                              .content.left Enter the answer to "{{otherVariableName}}"
+                              Ember.TextField value=errorObj.otherAnswer
+                          else
+                            .small-12.column
+                              Ember.TextField class=errorObj.responseID value=errorObj.answer
+                      else
+                        if isCheckboxType
+                          if hasOtherVariable
+                            .small-6.column
+                              LabCompass.AutosizeTextArea disabled=true class=errorObj.responseID value=errorObj.answer
+                            .small-6.column
+                              .content.left Enter the answer to "{{otherVariableName}}"
+                              Ember.TextField disabled=true value=errorObj.otherAnswer
+                          else
+                            .small-12.column
+                              Ember.TextField class=errorObj.responseID value=errorObj.answer
+                        else
+                          if hasOtherVariable
+                            .small-6.column
+                              Ember.TextField disabled=true class=errorObj.responseID value=errorObj.answer
+                            .small-6.column
+                              .content.left Enter the answer to "{{otherVariableName}}"
+                              Ember.TextField disabled=true value=errorObj.otherAnswer
+                          else
+                            .small-12.column
+                              LabCompass.AutosizeTextArea class=errorObj.responseID value=errorObj.answer
+                /  TODO: uncomment below for ignore errors
+                /  td.ignore-cell
+                /    if errorObj.isActive
+                /      a.ignore-answer click="ignoreAnswer errorObj" ignore
+                /    else
+                /      a.undo-ignore click="undoIgnore errorObj" undo
+  .row.action-row-spacer
+  .row.action-row
+    .small-12.column
+      button.button.left.cancel-query click="close" Close
+      if moreThanOneQuestion
+        button.button.left.navigation click="previousQuestion" Previous
+      if moreThanOneQuestion
+        button.button.right.navigation click="nextQuestion" Next
+      button.button.right.main click="save" Save
+      .save-notification.button.right class={ showSaved:default:hide }
+        | {{fixedErrorCount}} Errors Saved!
+

@@ -1,0 +1,139 @@
+@import "colors";
+@import "foundation/functions";
+
+.form-responses-grid-page {
+  .small-2.column {
+    margin-left: 13px;
+  }
+
+  .small-4.column {
+    margin-right: 13px;
+  }
+
+  .row.response-grid-row {
+    padding-right: 34px;
+  }
+  margin-left: rem-calc(15);
+  .grid-container {
+    padding-left: 0px;
+    margin-left: 20px;
+    width: 100%;
+  }
+  .search-box {
+    margin-top: rem-calc(30);
+    background-color: $lc-box-bg-color;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 5px;
+  }
+
+  table.grid {
+    th, td {  border: 1px solid rgba(88, 89, 91, 0.5); }
+    td {
+      background: white;
+    }
+    .view-as-form-column {
+      max-width: 80px;
+    }
+    .subject-id-column {
+      text-align: left;
+      max-width: 100px;
+      word-wrap: break-word;
+    }
+    .filled-perc-column {
+      max-width: 80px;
+      text-align: center;
+    }
+  }
+}
+
+.grid-container {
+  overflow: auto;
+}
+
+.no-question-response-state {
+  background-image: image-url("empty-questions-response-state.png");
+  background-repeat: no-repeat;
+  background-size: 481px 143px;
+  background-position-x: center;
+  height: 450px;
+  margin-left: auto;
+  margin-right: auto  
+}
+
+.my-team-page {
+  .empty-team-state {
+    background-image: image-url("empty-team-state.png");
+    background-repeat: no-repeat;
+    background-size: 619px 139px;
+    background-position-x: center;
+    height: 450px;
+    margin-left: auto;
+    margin-right: auto
+  }
+  table.grid {
+    th {
+      &.user-name-header {
+        text-align: left;
+        padding-left: 15px;
+      }
+      padding-left: 24px;
+    }
+
+
+    tr:nth-child(even) {
+      background: $lc-gray;
+    }
+    tr:nth-child(odd) {
+      background: white;
+    }
+    tr.expired {
+      td { background-color: $lc-locked-color; }
+    }
+  }
+  .row {
+    max-width: none;
+  }
+}
+
+
+
+table.grid {
+  width: 100%;
+  
+  border-spacing: 0;
+  border-collapse: collapse;
+
+  td {
+    font-size: 16px;
+    color: $lc-text-black;
+    font-family: Open Sans;
+    font-weight: 200;
+    /*background: white;*/
+
+    &.conditionally-disabled {
+      background: $lc-locked-color;
+    }
+  }
+
+  th {
+
+    font-size: 16px;
+    color: $lc-text-black;
+    font-family: Open Sans;
+    font-weight: 600;
+
+    min-width: rem-calc(125);    
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(230, 231, 232, 0.7)); 
+    background-color: #f5f5f6; 
+    
+    text-align: center;
+    &.conditionally-disabled {
+      background: $lc-locked-color;
+    }
+  }
+}
+
+#main-data-table_info.dataTables_info.card-details {
+  margin-left: -1px;
+}

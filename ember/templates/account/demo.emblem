@@ -1,0 +1,32 @@
+.account
+  .header-box
+    .row
+      .small-12.medium-4.small-centered.column
+        h2 Sign In
+
+  .body.sign-in
+    .row
+      .small-12.medium-4.small-centered.column
+        label
+          ' E-mail
+          Ember.TextField value=email disabled=true action="signIn"
+    .row
+      .small-12.medium-4.small-centered.column
+        label
+          ' Password
+          Ember.TextField type="password" disabled=true value=password action="signIn"
+
+        h5 This is a public demo account that may NOT be used to enter or store proteced health information (PHI) and/or other sensitive data.
+
+
+    if error
+      .row
+        .small-12.medium-4.small-centered.column.error Our demo's availability seems to have changed. Please contact team@mntnlabs.com
+
+
+
+    	
+
+    .row
+      .small-12.medium-4.small-centered.column
+        button.button.primary.right click="signIn" Sign Into Demo

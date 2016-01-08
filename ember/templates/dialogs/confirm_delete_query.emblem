@@ -1,0 +1,11 @@
+.dialog.small.delete-query
+  .header
+    h2 Delete Query
+  .body
+    p
+      | Are you sure you want to delete the query {{name}}?
+    p
+      | This can't be undone and all team members will lose access.
+  .actions
+    button.button.cancel click="closeDialog" Cancel
+    button.button.delete.right click="confirmDeleteQuery model" Delete Query

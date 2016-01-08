@@ -1,0 +1,109 @@
+page-header title="Data"
+	.row
+		.small-12.column
+			dl.tabs
+				dd.active
+					link-to "view-and-query.saved-queries" tabindex="-1" id="qBuilder" | Query
+				dd
+					link-to "view-and-query.view" tabindex="-1" | View Data
+.project-grid-wrapper.queryParamsPage
+	if noDataError
+		.no-data-wrapper
+			.row
+				.small-12.column.text-center.no-content-text {{noDataError}}
+	else
+		.row.title
+			.small-8.column
+				if model.id
+					.page-title
+						| Edit your query parameters below
+					.sub-instructions.queryName
+						| {{model.name}}
+					.content.saved-string
+						| {{model.lastUpdatedString}}
+				else
+					.page-title
+						| Follow the steps below to query your data
+				p.phi-notification class=hasBlockedPhi:default:hide
+					| Due to your permissions, you do not have access to PHI data.
+			.small-4.column.back
+				button.button.right.back-with-text click="goBackToSavedQueries" Back
+		.row.query-step
+			.small-12.column
+				h3 id="buildQueryInfo"
+					| 1. Which forms’ data would you like to view?
+				.checkboxContainer
+					if showSelectAll
+						.form-select-wrapper
+							.form-select.select-all
+								LabCompass.ActionableCheckbox id="selectAllForms" checked=allFormsSelected action="selectAllForms" controller=this
+								/ Ember.Checkbox id="selectAllForms" checked=allFormsSelected
+								| Select All
+					.form-select-wrapper
+						each form in model.queriedForms
+							.form-select title=form.formName
+								if form.displayed
+									Ember.Checkbox class="singleFormSelect" id=formID checked=form.included
+									/ LabCompass.ActionableCheckbox id=form.id action="enableForm" param=form checked=form.isChecked class="singleFormSelect"
+									| {{form.formName}}
+								else
+									input type="checkbox" disabled=true
+									span.grayed-out-form {{form.formName}}
+									<span data-tooltip data-width="210" aria-haspopup="true" class="tip-right tooltip-div" title="You have not added any questions to this form, therefore there is no data to display. Add questions on the Build Form page."></span>
+		.row.query-step
+			.small-12.column
+				h3
+					| 2. What are the query parameters?
+				button.button.plus-with-text.left click="addQueryParam" Add Query Parameter
+			each error in errorMessages
+				.row.query-error-row
+					.small-12.column
+						.sub-error {{error}}
+			.row.query-row
+				each param in model.queryParams
+					.param-wrapper
+						query-builder parentController=this forms=forms param=param action="deleteQuery" isTypeSet=false
+					if param.isLast
+						.nothing
+					else
+						.row.conjunction
+							.small-12.column {{querySeparator}}
+			if isMoreThan1Param
+				.row.query-row.conjunction-picker
+					.small-6.column
+						drop-down class="placeholder" placeholder=queryConjunctionViewSelected isEditable=false inputOptions=queryConjunctionViews val=queryConjunctionViewSelected
+		.row.query-end-spacer
+		.row.query-row
+			.sorting-text
+				| You may sort your data after the query has been run.
+		.row.query-action-row
+			.small-12.column
+				.right.query-action
+					button.button.right.submit-query click="submitQuery" View Query Results
+				if hasParamErrors
+					.right.query-action
+						.query-page-error
+							.error-text Please correct the errors above
+				.right.query-action
+					if model.id
+						button.button.main click="saveQuery" Save Edits
+					else
+						button.button.main click="saveQuery" Save Query Parameters
+				if isSaved
+					.right.query-action
+						.query-saved-tag
+							| Saved!
+				.right.query-action
+					button.button.right.cancel-query click="cancelQuery" Clear
+
+
+
+div id="queryBuildingJoyride"
+	ol class="joyride-list" data-joyride=""
+		li data-id="buildQueryInfo" class="firstOne" data-options="tip_location:top;prev_button:false;next_button:false;"
+			p.content 
+				i To build a query, choose the forms whose data you would like to view, then build the query parameters to filter your data.
+		li data-id="value-1" class="secondOne" data-options="tip_location:top;prev_button:false;next_button:false;"
+			p.content Try building a query that searches for all of the records which indicate satisfaction with their visit.
+			p.content Hint: The query is almost ready to run.
+							

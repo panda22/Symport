@@ -1,0 +1,425 @@
+@import "colors";
+@import "foundation/functions";
+
+$button-lightness-factor: 65%;
+
+.button {
+  border-radius: $lc-button-border-radius;
+  background: $lc-blue;
+  padding: 0 32px;
+}
+
+.no-radius {
+  border-radius: 0;
+}
+
+.button.main {
+  height: 60px;
+  color: $lc-alt-text;
+  background: $lc-create-or-save-color;
+  font-family: "Open Sans";
+  font-size: rem-calc(20);
+}
+
+.button.delete {
+  height: 60px;
+  background: $lc-red;
+  border: 1px solid $lc-red;
+}
+
+.button.cancel {
+  background: $lc-cancel-color;
+  height: 60px;
+  color: $lc-main-text;
+
+  border: 0.1rem solid $lc-main-text;
+}
+
+.add-team-member {
+  .button.cancel.big-dialog {
+    margin-left: 0px;
+    margin-top: 20px;
+  }
+  .button.main.right.big-dialog {
+    margin-right: 0px;
+    margin-top: 20px;
+  }
+}
+
+.button.cancel.big-dialog {
+  margin-left: 1rem;
+}
+
+.button.main.right.big-dialog {
+  margin-right: 1rem;
+}
+
+.button.white {
+  color: $lc-main-text;
+  background: rgba(1,1,1,0);
+  background-repeat: no-repeat;
+  background-size: 24px;
+  background-position: 2px;
+  height: 60px;
+
+  min-width: rem-calc(28);
+  min-height: rem-calc(28);
+
+  margin-top: rem-calc(27);
+  margin-bottom: rem-calc(27);
+  border: 0.1rem solid $lc-locked-color;
+
+  padding: 0;
+  padding-left: rem-calc(28);
+
+}
+
+
+
+.button.plus {
+  @extend .button.white;
+  background-image: image-url("plus-3.png");
+  background-size: 16px;
+  background-color: $lc-create-or-save-color-alt;
+  background-position: 0.4rem;
+  border-radius: 4px;
+  color: $lc-create-or-save-color;
+  border: 2px solid $lc-create-or-save-color;
+  // &:hover {
+  //   background-color: $lc-create-or-save-color-focus;
+  // }
+}
+
+.button.back {
+  @extend .button.white;
+  background-image: image-url("back.svg");
+  background-size: 16px;
+  background-color: $lc-create-or-save-color-alt;
+  background-position: 0.4rem;
+  border-radius: 4px;
+  color: $lc-main-text;
+  border: 1px solid $lc-main-text;
+}
+
+.button.primary {
+  height: 60px;
+}
+
+.button.team {
+  @extend .button.white;
+  background-image: image-url("team.png");
+}
+
+.button.image-with-text {
+  padding-right: 1.5rem;
+  padding-left: 3.0rem;
+  margin: rem-calc(28) 0;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  background-position: 1rem;
+  min-height: rem-calc(60);
+}
+
+.button.plus-with-text {
+  @extend .button.plus;
+  @extend .button.image-with-text;
+  background-size: 18px;
+}
+
+.button.light-plus-with-text {
+  @extend .button.plus;
+  @extend .button.image-with-text;
+  background-size: 18px;
+  opacity: .6;
+  min-height: 2.35rem;
+  max-height: 2.35rem;
+  height: 2.35rem;
+  &:hover{
+    opacity: 1;
+  }
+}
+
+.button.light-plus-with-text-no-border {
+  @extend .button.plus;
+  @extend .button.image-with-text;
+  background-size: 18px;
+  opacity: 1;
+  height: 2.35rem;
+  min-height: 2.35rem;
+  border: none;
+  margin: 0;
+}
+
+.button.light-plus-with-text-no-border-no-image {
+  @extend .button.plus;
+  @extend .button.image-with-text;
+  background-size: 18px;
+  opacity: 1;
+  height: 2.35rem;
+  min-height: 2.35rem;
+  border: none;
+  margin: 0;
+  background: white;
+  padding-left: 15px;
+  padding-right: 15px;
+  &[disabled] {
+    background: white;
+    opacity: 1;
+    color: $lc-medium-gray;
+  }
+}
+
+.button.back-with-text {
+  @extend .button.back;
+  @extend .button.image-with-text;
+  background-size: 18px;
+}
+
+.button.team-with-text {
+  @extend .button.team;
+  @extend .button.image-with-text;
+}
+
+.button.settings {
+  @extend .button.white;
+  background-image: image-url("settings-2.png");
+  border: 1px solid $lc-main-text;
+}
+
+.button.settings-with-text {
+  @extend .button.settings;
+  @extend .button.image-with-text;
+  border: 1px solid $lc-main-text;
+
+}
+
+.button.hammer {
+  @extend .button.white;
+  background-image: image-url("hammer-2.svg");
+  background-color: white;
+  border: 1px solid $lc-primary-action-color;
+  color: $lc-primary-action-color;
+  background-size: 40px 30px;
+}
+
+.button.hammer-with-text {
+  @extend .button.hammer;
+  @extend .button.image-with-text;
+
+  width: 100%;
+}
+
+.button.pencil {
+  background-repeat: no-repeat;
+  background-size: 50px 45px;
+  background-position: 20px center;
+  background-image: image-url("pencil-2.png");
+  background-color: $lc-primary-action-color;
+
+  width: 100%;
+  min-height: rem-calc(80);
+
+  margin-top: rem-calc(27);
+  margin-bottom: 0;
+
+  padding: rem-calc(24);
+  padding-left: rem-calc(60);
+  font-size: rem-calc(20);
+}
+
+.button.pencil-with-text {
+  @extend .button.pencil;
+  @extend .button.image-with-text;
+  background-image: image-url("white-pen.svg");
+
+}
+
+.button.cloud-download {
+  @extend .button.white;
+  background-color: white; 
+  border: 1px solid $lc-primary-action-color;
+  background-image: image-url("cloud-download-2.png");
+  color: $lc-primary-action-color;
+}
+
+.button.cloud-download-with-text {
+  @extend .button.cloud-download;
+  @extend .button.image-with-text;
+
+  width: 100%;
+}
+
+
+.button.cancel-query, .button.cancel-query:focus {
+  background-image: image-url("cancel-query.svg");
+  background-repeat: no-repeat;
+  background-size: 20px;
+  background-position-y: 19px;
+  background-position-x: 25px;
+  background-color: inherit;
+  color: inherit;
+  min-width: rem-calc(128);
+  height: rem-calc(60);
+  padding-left: 30px;
+  padding-right: 10px;
+  border: 1px solid $lc-darker-black;
+  border-radius: 5px;
+}
+
+.cancel-query:hover{
+  background-color:inherit;
+  color: inherit;
+}
+
+.button.codebook-download {
+  @extend .button.cloud-download;
+  @extend .button.image-with-text;
+  background-repeat: no-repeat;
+  background-size: 90px 88px;
+  background-position: -15px -14px;
+  background-image: image-url("downloadCodebook.svg")
+}
+
+
+.button {
+  &.remove {
+    background-color: transparent;
+    
+    &.remove-condition, &.new-x {
+      background-image: image-url("circle-x.svg");
+      &:hover {
+        background-image: image-url("circle-x-hover.svg");
+      }
+    }
+    
+    &.old-x {
+      background-image: image-url("circle-x.svg");
+      &:hover {
+        background-image: image-url("circle-x-hover.svg");
+      }
+    }
+
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    padding: 0;
+    margin-left: 5px;
+    margin-top: 18px;
+    &.exception {
+      margin-top: 19px;
+      margin-bottom: 0px;
+    }
+    width: 20px;
+    height: 28px;
+
+  }
+  &.rem-ans-choice {
+    margin-top: 0px;
+  }
+}
+
+
+.ember-radio-button-group {
+  label.yes-radio {
+    display: inline;
+    margin-right: 30px;
+    input{
+      margin-right: 2px;
+    }
+  }
+  label.no-radio {
+    display: inline;
+    input{
+      margin-right: 2px;
+    }
+  }
+}
+
+.button[disabled] {
+  background-image: image-url("locked.svg");
+  cursor: not-allowed;
+  background-size: 15px;
+  opacity: 0.5;
+  border-color: #cccccc;
+  background-repeat: no-repeat;
+
+  &:hover, &:active {
+    color:$lc-darker-gray;
+    background-color: white;
+  }
+}
+
+.joyride-content-wrapper {
+  .sub-instructions {
+    font-size: 18px;
+    color: white;
+  }
+  p.content {
+    color: white;
+    font-weight: 600;
+  }
+  .button {
+    background: #00a99c;
+  }
+}
+
+.importJoyride {
+  .joyride-next-tip {
+    float: right;
+    bottom: 10px;
+  }
+}
+
+.joyrideFirstModal {
+  top: 12% !important;
+  width: 550px !important;
+}
+
+.joyrideEnterEdit1 {
+  height: 150px !important;
+  margin-left: 40%;
+  .joyride-content-wrapper {
+    height: 0px;
+  }
+}
+
+.joyrideDownloadData {
+  height: 80px !important;
+  top: 6.5% !important;
+  .joyride-content-wrapper {
+    height: 80px !important;
+    .joyride-next-tip {
+      height: 0px;
+      top: -24px;
+    }
+  }
+}
+
+.joyrideDownloadData1 {
+  padding-bottom: 0px !important;
+  height: 240px !important;
+  top: 28% !important;
+  .joyride-next-tip {
+    height: 0px;
+    width: 0px;
+  }
+}
+
+.joyrideDownloadData2 {
+  height: 114px !important;
+}
+
+.addTeamMemberJoyride1 {
+  height: 80px;
+}
+
+.questionAddingTooltip {
+  height: 60px;
+}
+
+.qtip {
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  height: auto !important;
+}
+

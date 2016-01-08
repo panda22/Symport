@@ -1,0 +1,3 @@
+/.question-builder-field-type-specific 
+  /label Text Box Size:
+  /LabCompass.highlightParentSelect highlightParentDepth=0 class="no-bot-marg size option-value" content=view.textSizes value=question.config.size optionLabelPath="content.name" optionValuePath="content.value" disabled=view.disabled

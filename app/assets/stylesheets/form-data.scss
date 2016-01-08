@@ -1,0 +1,1005 @@
+@import "colors";
+@import "foundation/functions";
+
+.form-data-cleanup-bg {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.45098);
+  z-index: 99;
+  position: fixed;
+  top: 0;
+}
+
+.form-data.main-content {
+
+  .ui-widget {
+    font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  }
+
+  [ class *= "graphic" ] {
+    background-repeat: no-repeat;
+  }
+
+  /***********************************************************************************
+  * above grid actions
+  ***********************************************************************************/
+
+  .grid-actions-row {
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
+
+  .import-graphic {
+    background-image: image-url("grid-import-icon.svg");
+    padding-left: 30px;
+    font-size: 16px;
+    padding-bottom: 5px;
+    margin-top: 11px;
+    margin-left: 40px;
+    color: $lc-blue;
+    &.disabled {
+      background-image: image-url("side-bar-import.svg");
+    }
+  }
+
+  .download-graphic {
+    background-image: image-url("cloud-download-2.png");
+    background-size: 14%;
+    padding-left: 30px;
+    font-size: 16px;
+    padding-bottom: 5px;
+    margin-top: 11px;
+    color: $lc-blue;
+    &.disabled {
+      background-image: image-url("grid-gray-download-icon.png");
+    }
+  }
+
+
+  .grid-control-row {
+    margin-bottom: 20px;
+    .custom-section {
+      display: inline-flex;
+      float: left;
+      &.sort-section {
+        width: 42%;
+        padding-left: 15px;
+        padding-right: 20px;
+      }
+      &.search-section {
+        width: 42%;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      &.error-section {
+        width: 16%;
+        padding-left: 20px;
+        padding-right: 15px;
+        display: block;
+        .error-content {
+          min-width: 110px;
+        }
+      }
+    }
+    .no-errors-graphic {
+      color: $lc-green;
+      float: right;
+      background-image: image-url("grid-checkmark.svg");
+      background-position: 0px center;
+      background-size: 28px;
+      height: 25px;
+      padding-left: 30px;
+      padding-top: 5px;
+      position: relative;
+      float: right;
+    }
+    .grid-control-text {
+      margin-left: 5px;
+      margin-right: 5px;
+      margin-top: 7px;
+      text-align: center;
+      &:first-of-type {
+        margin-left: 0;
+      }
+    }
+    input.filter-text  {
+      height: 28px;
+      max-width: 40%;
+      margin-left: 10px;
+    }
+  }
+
+  .error-content {
+    float: right;
+    cursor: pointer;
+    color: $lc-red;
+    position: relative;
+    float: right;
+    .error-bubble {
+      padding-left: 3px;
+      font-size: 14px;
+      padding-top: 6px;
+      margin-right: 10px;
+    }
+  }
+  .error-bubble {
+    padding-top: 4px;
+    padding-left: 3px;
+    font-size: 14px;
+    padding-right: 4px;
+    border-radius: 15px;
+    display: inline-block;
+    background-color: rgba(255, 29, 37, 0.6);
+    color: $lc-white;
+    font-weight: 600;
+    height: 25px;
+    min-width: 25px;
+    text-align: center;
+  }
+
+  .disabled {
+    cursor: default;
+    color: $lc-medium-gray;
+  }
+
+  .subject-count {
+    z-index: 10;
+    background-color: $lc-white;
+    margin-top: 10px;
+  }
+  .grid-row, .tab-row {
+    max-width: none;
+  }
+  .outer-grid-container {
+    height: 500px;
+
+    /***********************************************************************************
+    * overlay
+    ***********************************************************************************/
+    .grid-blocked {
+      position: absolute;
+      height: 101%;
+      width: 100%;
+      //background-color: $lc-white;
+      padding-right: 58px;
+
+      z-index: 1;
+
+      .grid-background-graphic{
+        width: 100%;
+        height: 100%;
+        &.grid-loading-background {
+          background-color: rgba(0, 0, 0, 0.2);
+        }
+        &.no-data-background {
+          background-color: $lc-white;
+        }
+        //background-image: image-url("grid-cells-background.svg");
+        //background-repeat: inherit;
+        //background-size: 800px;
+      }
+
+      .blocked-foreground {
+        position: relative;
+        height: 50%;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        top: 30px;
+        text-align: center;
+        &.grid-loading {
+          width: 240px;
+          color: $lc-darker-black;
+          height: 100px;
+          top: 35%;
+          background-color: white;
+          padding-top: 32px;
+          border: 1px solid $lc-medium-gray;
+          //box-shadow: inset -7px -7px 6px -7px rgba(170, 170, 170, 0.5), inset 7px 7px 6px -7px rgba(170, 170, 170, 0.5);
+          background-image: linear-gradient(-180deg, #FFFFFF 0%, #FAFAFA 100%);
+          box-shadow: inset 0px 1px 4px rgba(112, 112, 112, 0.5);
+        }
+        &.no-data-options {
+          border: 1px solid #cccccc;
+          box-shadow: 0px 0px 4px 0px rgba(170, 170, 170, 0.5);
+          padding-top: 30px;
+          height: 220px;
+          width: 810px;
+        }
+      }
+
+      .no-filter-results {
+        color: $lc-red;
+        height:100%;
+        width:100%;
+        background-color: $lc-white;
+        top: 0px;
+      }
+
+      .no-data-options {
+        .form-graphic {
+          width: 20%;
+          height: 100%;
+          float: left;
+          background-image: image-url("grid-import-layers.svg");
+          background-position: right 0;
+        }
+        .no-data-links {
+          width:80%;
+          height: 100%;
+          float: left;
+          margin-top: 20px;
+          .no-data-text {
+            width: 100%;
+            float: left;
+            text-align: left;
+            margin-left: 40px;
+            opacity: .6;
+          }
+          .no-data-buttons {
+            width: 100%;
+            height: 60%;
+            min-width: 620px;
+            .no-data-button {
+              margin-right: 10px;
+              float: left;
+              .button {
+                background-color: $lc-white;
+                border-color: $lc-blue;
+                color: $lc-blue;
+                border-width: 1px;
+                background-position: left 10px center;
+                padding-left: 30px;
+                padding-right: 5px;
+                min-width: 260px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                fon-size: 14px;
+                font-size: 16px;
+                margin-top: 30px;
+                height: 60px;
+              }
+            }
+          }
+        }
+      }
+
+      .no-forms-graphic {
+        background-color: $lc-white;
+        width: 100%;
+        height: 100%;
+        background-image: image-url("grid-no-data.png");
+        background-size: 75%;
+        background-position: 90px 0;
+        background-size: 716px;
+      }
+    }
+
+    /***********************************************************************************
+    * SlickGrid
+    ***********************************************************************************/
+    .grid-spacer {
+      background-color: $lc-medium-gray;
+      width: 4px;
+      position: absolute;
+      height: 200px;
+    }
+    .grid-container {
+      .slick-header {
+
+        .slick-header-columns {
+          border-bottom: 1px solid $lc-medium-gray;
+          margin-bottom: -3px;
+          .slick-header-column {
+            background-image: image-url("grid-down-triangle.svg");
+            background-repeat: no-repeat;
+            background-position: right 5px center;
+            border-right: 1px solid $lc-medium-gray;
+            height: 40px;
+            padding-top: 10px;
+            background-color: $lc-light-gray;
+            padding-right: 20px;
+            padding-left: 10px;
+            border-bottom: 1px solid #cccccc;
+            //margin-right:3px;
+            // need to copy .table-header style here
+            font-size: rem-calc(14);
+            color: $lc-darker-black;
+            font-weight: 600;
+            .slick-header-menubutton {
+              background-color: transparent;
+              width: 100%;
+            }
+          }
+          .slick-header-column:first-of-type {
+            border-left: 1px solid $lc-medium-gray;
+          }
+        }
+
+      }
+      ul.sort-menu {
+        position: absolute;
+        z-index: 10;
+        list-style-type: none;
+
+        &.sort-menu-item {
+          cursor: pointer;
+        }
+      }
+
+      .slick-row.odd {
+        background-color: $lc-light-gray;
+      }
+
+      .slick-row.highlighted {
+        background-color: $lc-lightest-blue;
+      }
+
+      .slick-cell {
+        padding-top: 3px;
+        border-bottom: 1px solid $lc-medium-gray;
+        border-right: 1px solid $lc-medium-gray;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 14px;
+        &.active {
+          border: 3px solid $lc-light-blue;
+          padding-top: 2px;
+        }
+      }
+
+      .cell-error {
+        background-color: rgba(255, 29, 37, .3)
+
+      }
+      .filler-cell {
+        background-color: #dddddd;
+      }
+
+      .conditionally-blocked-cell {
+        background-color: $lc-medium-gray;
+        border-right: 1px solid $lc-white;
+        border-bottom: 1px solid $lc-white;
+      }
+
+      &.left-pane {
+        height: 500px;
+        width: 30%;
+        position: absolute;
+        .slick-viewport::-webkit-scrollbar {
+          width: 0 !important
+        }
+        .slick-header-column:last-of-type {
+          //border-right-width: 0;
+          //border-right:4px solid $lc-medium-gray;
+        }
+        .slick-row {
+          //border-right:3px solid $lc-medium-gray;
+        }
+        .slick-cell:first-of-type {
+          border-left: 1px solid $lc-medium-gray;
+        }
+      }
+
+      &.right-pane {
+        height: 500px;
+        width: 70%;
+        position: absolute;
+        left: 30%;
+        //.slick-header-column:first-of-type, .slick-row {
+        //  border-left: 4px solid $lc-medium-gray !important;
+        //}
+        //.slick-cell {
+        //  margin-left: -4px;
+        //}
+      }
+      #left-grid, #right-grid {
+        height: 100%;
+        [ class *= "column" ] {
+          float: none;
+        }
+      }
+      .loading-more {
+        height: 60px;
+        padding-top: 20px;
+        font-size: 18px;
+        padding-left: 20px;
+        position: absolute;
+        bottom: 0;
+        z-index: 10;
+        background-color: $lc-white;
+        width: 100%;
+      }
+      #right-grid {
+        padding-right: 7px;
+      }
+
+      /***********************************************************************************
+      * drop-down header menu
+      ***********************************************************************************/
+
+      .slick-header-menu {
+        font-size: 14px;
+        padding: 0px;
+        background: $lc-white;
+        border: 1px solid $lc-medium-gray;
+        box-shadow: 2px 2px 3px 0px rgba(185,185,185,0.50);
+        z-index: 10;
+        min-width: 140px;
+      }
+      .error-bubble {
+        font-size: 14px;
+        padding-left: 3px;
+        padding-top: 4px;
+        margin-right: 7px;
+        margin-left: -5px;
+        margin-top: -2px;
+      }
+
+      .edit-item {
+        color: $lc-blue;
+      }
+      .format-item {
+        color: $lc-green;
+      }
+      .delete-item {
+        color: $lc-red;
+      }
+
+      .slick-header-menuitem {
+        padding: 2px 4px;
+        border: 1px solid transparent;
+        border-radius: 3px;
+        height: 40px;
+        &:hover {
+          padding: 2px 4px;
+          background-color: $lc-light-gray;
+        }
+
+        .slick-header-menucontent {
+          width: 100%;
+          .custom-menu-item {
+            position: relative;
+            top: -5px;
+            cursor: pointer;
+            height: 40px;
+            &.needs-all-data {
+              cursor: progress;
+            }
+          }
+          .header-menu-errors {
+            color: $lc-error-notification;
+            text-decoration: underline;
+          }
+          .open-sort-menu {
+            background-image: image-url("grid-right-triangle.svg");
+            background-position: 95% 0;
+            background-repeat: no-repeat;
+            cursor: default;
+          }
+          .slick-header-menuicon {
+            display: none;
+          }
+        }
+      }
+
+      .slick-header-menuitem-disabled {
+        border-color: transparent !important;
+        background: inherit !important;
+      }
+    }
+
+    ul.sort-menu {
+      font-size: 14px;
+      padding: 0px;
+      background: $lc-white;
+      border: 1px solid $lc-medium-gray;
+      box-shadow: 2px 2px 3px 0px rgba(185,185,185,0.50);
+      min-width: 100px;
+      z-index: 10;
+      overflow: hidden;
+      white-space: nowrap;
+      position: absolute;
+      margin: 0;
+      width: 190px;
+      cursor: pointer;
+      li.sort-menu-item {
+        height: 40px;
+        padding-left: 15px;
+        padding-top: 10px;
+        &:hover {
+          background-color: $lc-light-gray;
+        }
+      }
+    }
+  }
+
+  /***********************************************************************************
+  * form tabs
+  ***********************************************************************************/
+
+  .tab-row {
+    text-overflow: ellipsis;
+    .column {
+      display: flex;
+      padding-right: 44px;
+      .empty-tab {
+        flex: 1;
+        height: 40px;
+        //border-bottom: 1px solid $lc-medium-gray;
+        box-shadow: inset 0 -7px 6px -7px rgba(170, 170, 170, 0.5);
+        &.no-border {
+          border: none;
+        }
+      }
+
+      .add-new-form-tab {
+        color: $lc-green;
+        cursor: pointer;
+        height: 100%;
+        .form-tab-content {
+          background-image: image-url("grid-plus-sign.svg");
+          background-repeat: no-repeat;
+          padding-left: 20px;
+          text-align: center;
+          margin-top: 13px;
+          height: 100%;
+          color: $lc-green;
+          a {
+            color: inherit;
+          }
+        }
+      }
+
+      .tab-arrows {
+        position: absolute;
+        z-index: 1;
+        right: 44px;
+        height: 41px;
+        margin-top: -2px;
+        background-color: $lc-white;
+        display: inherit;
+        box-shadow: -2px 2px 2px 0px $lc-medium-gray;
+
+        padding-left: 18px;
+        padding-top: 2px;
+        width: 190px;
+        .tab-arrow {
+          height: 100%;
+          width: 28px;
+          background-repeat: no-repeat;
+          background-position: right center;
+          &.enabled {
+            cursor: pointer;
+          }
+        }
+        .left-tab-arrow.enabled {
+          background-image: image-url("grid-left-triangle.svg");
+        }
+        .left-tab-arrow.disabled {
+          background-image: none;
+        }
+        .right-tab-arrow.enabled {
+          background-image: image-url("grid-right-triangle.svg");
+        }
+        .right-tab-arrow.disabled {
+          background-image: none;
+        }
+        // with arrows
+        .add-new-form-tab {
+          width: 110px;
+          .form-tab-content {
+            background-position: 0 0;
+            color: $lc-green;
+            a {
+              color: inherit;
+            }
+          }
+        }
+      }
+      .form-tab {
+        height: 40px;
+        width: 180px;
+        float: left;
+        margin: auto;
+
+        .tab-type {
+          height: 100%;
+          width: 100%;
+        }
+
+        .form-tab-content {
+          text-align: center;
+          margin-top: 10px;
+          text-overflow: ellipsis;
+          -o-text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          height: 100%;
+
+          a {
+            color: inherit;
+          }
+        }
+        .active-form-tab {
+          height: 42px;
+          margin-top: -2px;
+          border-top: 5px solid;
+          border-left: 1px solid $lc-medium-gray;
+          border-right: 1px solid $lc-medium-gray;
+          box-shadow: 2px -2px 6px 0px rgba(146, 146, 146, 0.5);
+          background-color: $lc-light-gray;
+          border-top-left-radius: 12px;
+          border-top-right-radius: 12px;
+          .form-settings-graphic {
+            width: 20px;
+            height: 100%;
+            background-image: image-url("grid-settings-icon.svg");
+            background-position: 0;
+            cursor: pointer;
+            margin-left: 10px;
+            padding-left: 25px;
+          }
+          .form-tab-content {
+            max-width: 132px;
+          }
+          #form-settings-dropdown {
+            font-weight: 400;
+            .settings-link a {
+              color: $lc-darker-black;
+            }
+            .rename-link a {
+              color: $lc-blue;
+            }
+            .delete-link a {
+              color: $lc-red;
+            }
+
+          }
+        }
+        .inactive-form-tab {
+          padding-left: 10px;
+          padding-right: 10px;
+          border-top-left-radius: 12px;
+          border-top-right-radius: 12px;
+          cursor: pointer;
+          border-top: 3px solid;
+          border-left: 1px solid $lc-medium-gray;
+          border-right: 1px solid $lc-medium-gray;
+          border-bottom: 1px solid $lc-medium-gray;
+          box-shadow: inset 0 -7px 6px -7px rgba(170, 170, 170, 0.5);
+          &.waiting {
+            cursor: progress;
+            a {
+              cursor: progress;
+            }
+          }
+        }
+        //with no arrows
+        .add-new-form-tab {
+          //border-bottom: 1px solid #cccccc;
+          box-shadow: inset 0 -7px 6px -7px rgba(170, 170, 170, 0.5);
+          height: 30px;
+          .form-tab-content {
+            background-position: 35px 2px;
+            padding-top: 2px;
+          }
+        }
+
+        /***********************************************************************************
+        * form tab colors
+        ***********************************************************************************/
+        .color-0 {
+          border-top-color: #31AFF1;
+        }
+        .color-1 {
+          border-top-color: #DC2004;
+        }
+        .color-2 {
+          border-top-color: #278D0C;
+        }
+        .color-3 {
+          border-top-color: #A82598;
+        }
+        .color-4 {
+          border-top-color: #000000;
+        }
+        .color-5 {
+          border-top-color: #FDA1E4;
+        }
+        .color-6 {
+          border-top-color: #0A2C62;
+        }
+        .color-7 {
+          border-top-color: #781312;
+        }
+        .color-8 {
+          border-top-color: #FCAB9D;
+        }
+        .color-9 {
+          border-top-color: #C82868;
+        }
+        .color-10 {
+          border-top-color: #C82868;
+        }
+        .color-11 {
+          border-top-color: #31AFF1;
+        }
+      }
+    }
+  }
+
+  .no-visibility {
+    visibility: hidden;
+    height: 0;
+  }
+}
+
+
+/***********************************************************************************
+* clean data dialog
+***********************************************************************************/
+
+.data-cleanup-modal {
+  line-height: 1.4;
+  min-width: 768px;
+  //padding-left: 20px;
+  //padding-right: 20px;
+  .row {
+    max-width: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 20px;
+  }
+
+  .row > .column {
+    padding-left: 0;
+  }
+
+  .question-tips-row {
+    margin-top: 0;
+  }
+
+  .info-section {
+    padding-left: 20px;
+    height: 100px;
+    display: flex;
+    margin-bottom: 15px;
+    .clean-up-info-box {
+      height: 100%;
+      flex: 1;
+      .instructions {
+        margin-top: 0;
+      }
+      .question-details {
+        .prompt {
+          margin-top: 15px;
+        }
+        .var-name {
+          margin-top: 10px;
+        }
+      }
+    }
+
+    .error-count-box {
+      height: 100%;
+      background-color: $lc-light-gray;
+
+      width: 160px;
+      padding-left: 10px;
+        .num-questions, .num-total-errors {
+          padding-top: 10px;
+        }
+    }
+  }
+
+  .error-table-wrapper {
+    .ignore-all, .ignore-answer {
+      color: $lc-alert-color;
+    }
+    .undo-ignore-all, .undo-ignore {
+      color: $lc-blue;
+      text-decoration: underline;
+    }
+
+    table {
+      width: 100%;
+      border: none;
+      border-collapse: collapse;
+      tr {
+        border-bottom: 1px solid $lc-medium-gray;
+      }
+      td {
+        border: none;
+        padding-top: 3px;
+        padding-bottom: 3px;
+      }
+      input, textarea {
+        margin: 0;
+      }
+      tr td:last-of-type, tr th:last-of-type {
+        text-align: right;
+        padding-right: 20px;
+      }
+    }
+    .mapping-grid-head {
+      margin-bottom: 0;
+
+      th {
+        background-color: $lc-white;
+      }
+      .find-and-replace-wrapper {
+        display: flex;
+        .content, .button {
+          margin-left: 20px;
+        }
+        .content, .answer-title {
+          padding-top: 9px;
+        }
+        .content {
+          margin-right: 3px;
+        }
+        input {
+          height: 30px;
+        }
+        .find-and-replace-button {
+          padding: 0;
+          height: 30px;
+          width: 150px;
+          margin-bottom: 0;
+          background-color: $lc-green;
+        }
+      }
+
+      .many-to-one-header {
+        .subject-id-header {
+          width: 15%;
+        }
+        .secondary-id-header {
+          width: 15%;
+        }
+
+        .answer-header {
+          width: 70%;
+        }
+        // TODO: remove above and uncomment below for ignore errors
+        /*.answer-header {
+          width: 55%;
+        }
+        .ignore-header {
+          width: 15%;
+        }*/
+      }
+      .one-to-one-header {
+        .subject-id-header {
+          width: 20%;
+        }
+
+        .answer-header {
+          width: 80%;
+        }
+        // TODO: remove above and uncomment below for ignore errors
+        /*.answer-header {
+          width: 60%;
+        }
+        .ignore-header {
+          width: 20%;
+        }*/
+      }
+    }
+
+    .body-wrapper {
+      //min-height: 300px;
+      max-height: 300px;
+      //overflow: visible;
+      overflow: auto;
+      .mapping-grid-body {
+        margin-bottom:0;
+        .ignored-row td {
+          color: $lc-medium-gray;
+        }
+        input {
+          padding-top: 0;
+          padding-bottom: 0;
+          height: 25px;
+        }
+        .active-row input, .active-row textarea {
+          border: 2px solid $lc-alert-color;
+        }
+        .answer-cell .row {
+          margin: 0;
+          padding: 0;
+        }
+        .many-to-one-body {
+          .subject-id-cell {
+            width: 15%;
+          }
+          .secondary-id-cell {
+            width: 15%;
+          }
+
+          .answer-cell {
+            width: 70%;
+            padding-bottom: 5px;
+            padding-top: 5px;
+          }
+          // TODO: remove above and uncomment below for ignore errors
+          /*.answer-cell {
+            width: 55%;
+          }
+          .ignore-cell {
+            width: 15%;
+          }*/
+        }
+        .one-to-one-body {
+          .subject-id-cell {
+            width: 20%;
+          }
+
+          .answer-cell {
+            width: 80%;
+          }
+          // TODO: remove above and uncomment below for ignore errors
+          /*.answer-cell {
+            width: 60%;
+          }
+          .ignore-cell {
+            width: 20%;
+          }*/
+        }
+      }
+    }
+  }
+  .action-row-spacer {
+    height: 60px;
+  }
+  .action-row {
+    position: absolute;
+    bottom: 0;
+    padding-right: 20px;
+    .button, .save-notification {
+      margin-bottom: 0;
+      &.right {
+        margin-left: 30px;
+      }
+      &.left {
+        margin-right: 30px;
+      }
+      &.navigation {
+        height: 60px;
+      }
+    }
+    .save-notification {
+      border: 2px solid #00a99c;
+      padding: 21px 22px 20px 22px;
+      color: #00a99c;
+      border-radius: 3px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-top: 9px;
+      background-color: $lc-white;
+      &.hide {
+        display: none;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

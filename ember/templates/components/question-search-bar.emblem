@@ -1,0 +1,5 @@
+.row.question-search-row
+  .main-info
+    | {{text}}
+  .search-bar 
+    yield

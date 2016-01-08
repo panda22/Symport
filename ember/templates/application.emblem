@@ -1,0 +1,68 @@
+nav class="top-bar" data-topbar='' role="navigation"
+  ul.title-area id="titleArea"
+    li.name
+      link-to "index" tabindex="-1" 
+        .symport-logo
+  section.top-bar-section
+    ul.right
+      if session.isAuthenticated
+        if session.user.stepsRemain
+          li.full.has-dropdown.start-list id="getting-started"
+            a style="color: #00a99c;" Getting Started
+            .num-steps {{session.user.remSteps}}
+            if session.user.done
+              ul.dropdown style="width: 110px"
+                .done-check
+                .content style="text-align: center;" Great Job!
+            else
+              ul.dropdown style="width: 238px;"
+                li.create class=session.user.create:complete
+                  .icon
+                  .content Create a Project
+                li.import class=session.user.import:complete
+                  .icon
+                  .content Upload a Dataset
+                li.format class=session.user.format:complete
+                  .icon
+                  .content Set a Column's Data Format
+                li.clean class=session.user.clean:complete
+                  .icon
+                  .content Clean a Data Point
+                li.invite class=session.user.invite:complete
+                  .icon
+                  .content Add a Team Member
+        li.full
+          link-to "projects.index" tab-index="-1" class="projectsButton" | My Projects
+        li.full id="helpButton"
+          a click="goToHelp" Help
+        li.full.has-dropdown 
+          link-to "account.profile" | {{session.user.firstName}}
+          ul.dropdown 
+            li
+              link-to "account.profile" class="projectsButton" tabindex="-1"  | Update Profile
+            li
+              link-to "account.sign-out" class="bottom-element" tabindex="-1"  | Sign Out
+        li.has-dropdown
+          link-to "index" | Menu
+          ul.dropdown
+            li
+              link-to "projects.index" tab-index="-1" class="projectsButton" | My Projects
+            li
+              a click="goToHelp" Help
+            li
+              link-to "account.profile" tabindex="-1"  | Update Profile
+            li
+              link-to "account.sign-out" class="bottom-element" tabindex="-1"  | Sign Out
+      else
+        li
+          a click="goToHelp" Help
+  h2 id="barText" 
+  .loadingContainer
+    .loadingText
+      .table-header Loading...
+
+.page-content
+  outlet
+
+#appDialog
+  outlet dialog

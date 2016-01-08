@@ -1,0 +1,81 @@
+/* style guide colors (use here only) */
+$lc-darker-blue: #2d3e50;
+$lc-dark-blue: #0078a0;
+$lc-blue: #638cd3;
+$lc-light-blue: #82bbe6;
+$lc-lighter-blue: #d2e2f2;
+$lc-green: #00a99c;
+$lc-gray: #f2f2f2;
+$lc-blue-green: rgba(0,169,157,1);
+$lc-medium-gray: #cccccc;
+$lc-light-gray: #f0f3f4;
+$lc-dark-gray: #bbbdbf;
+$lc-darker-gray: #888a8c;
+$lc-title-black: #808080;
+$lc-text-black: #58595b;
+$lc-darker-black: #4d4d4d;
+$lc-white: #ffffff;
+$lc-red: #ff1d25;
+$lc-lightest-blue: #e7edf8;
+
+
+/* semantic colors (use in other scss files) */
+$tabs-active-bg-color: $lc-white;
+$tabs-hover-bg-color: $lc-white;
+$lc-opaque-build-form-border: rgba(88, 89, 91, .2);
+$lc-instructions-colors: $lc-darker-black;
+$lc-active-highlight-color: $lc-white;
+$lc-focus-button-color: $lc-light-blue;
+$lc-primary-header-color: $lc-blue;
+$lc-primary-action-color: $lc-blue;
+$lc-primary-action-color-alt: $lc-light-blue;
+$lc-primary-action-color-disabled: $lc-lighter-blue;
+$lc-alt-row-color: rgba(99, 140, 211, 0.15);
+$lc-alert-color: $lc-red;
+$lc-alert-color-alt: $lc-white;
+$lc-success-color: $lc-green;
+$lc-input-decoration-color: $lc-green;
+$lc-create-or-save-color: $lc-blue-green;
+$lc-create-or-save-color-alt: $lc-white;
+$lc-create-or-save-color-focus: $lc-gray;
+$lc-informational-color: $lc-medium-gray;
+$lc-box-bg-color: $lc-gray;
+$lc-region-bg-color: $lc-gray;
+$lc-sidenav-bg-color: $lc-light-gray;
+$lc-sidenav-item-text-color: $lc-title-black;
+$lc-sidenav-item-div-color: $lc-medium-gray;
+$lc-sidenav-hover-color: $lc-darker-black;
+$lc-project-and-form-box-title-color: $lc-darker-black;
+$lc-header-bg-color: $lc-light-gray;
+$lc-locked-color: rgba(255, 29, 37, 0.1);
+$lc-box-border-color: $lc-dark-gray;
+$lc-form-header-color: $lc-lighter-blue;
+$lc-main-text: $lc-text-black;
+$lc-alt-text: $lc-white;
+$lc-light-text: $lc-darker-gray;
+$lc-cancel-color: $lc-white;
+$lc-project-side-bar: rgba(0, 51, 102, 1);
+$lc-error-notification: rgba(255, 29, 37, 1);
+$lc-error-heading: rgba(255, 29, 37, 0.3);
+$lc-filled-in-heading: rgba(90, 191, 155, 0.5);
+$lc-empty-saved-heading: rgba(99, 140, 211,  0.28);
+
+/* Main colors from style guide: */
+
+$lc-border-radius: 4px;
+$lc-button-border-radius: 3px;
+
+/* Colors for view and query table headers */
+$lc-grid-color-none: #cccccc;
+$lc-grid-color-0: #394ca0;
+$lc-grid-color-1: #41b4a1;
+$lc-grid-color-2: #57a5b4;
+$lc-grid-color-3: #543c68;
+$lc-grid-color-4: #88cce2;
+$lc-grid-color-5: #a7a9ab;
+$lc-grid-color-6: #231f20;
+$lc-grid-color-7: #93c0cc;
+$lc-grid-color-8: #d35364;
+$lc-grid-color-9: #668bc7;
+$lc-grid-color-10: #9dd3b6;
+

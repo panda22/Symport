@@ -1,0 +1,19 @@
+.overlay-progressions
+  .small-12.column.head
+  	h2 Welcome! Here's a quick introduction to Symport
+  .small-12.column.image-col
+    .overlay0#image
+  .small-12.column.buttons
+    .small-2.column.back-col
+      if notFirstPage
+        button.button.cancel click="lastPage" Back
+    .small-4.column.align-left
+      h6.skip-link click="skip" I already know all of this - Skip
+    .small-4.column.align-right
+      h6 slide #{count} of 7
+    .small-2.column
+      if notLastPage
+        button.button.main.right click="nextPage" Next
+      else
+        button.button.main.right click="nextPage" Done!
+       

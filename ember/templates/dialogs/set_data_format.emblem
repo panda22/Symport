@@ -1,0 +1,13 @@
+.dialog.xlarge.question-editor-modal
+
+  question-editor-format question=model editing=isEditing isNew=isNew otherQuestions=otherQuestions isFormatting=true formatObject=formatObject
+
+  .actions
+    .small-2.column
+      button.button.cancel style="margin-top: 20px; margin-left: -15px; margin-bottom: -14px;" tabindex="-1" click="closeDialog" Cancel
+    .save-wrapper.small-10.column
+      .small-5.column
+        button.button.main.right style="margin-top: 20px; margin-right: -32px; min-width: 191px;" click="sendSaveQuestion this"
+          | Save Question
+      .small-7.column
+        .error-notification.hidden style="" Please correct the errors in the question builder on the left

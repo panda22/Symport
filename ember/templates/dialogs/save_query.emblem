@@ -1,0 +1,25 @@
+.dialog.medium.save-query-params
+  .header
+    h2 Save Query Parameters
+  .body
+    if isNewQuery
+      ol
+        li.table-header
+          | Please name your query.
+          Ember.TextField value=model.name
+          each error in errors.name
+            .sub-error.moreBottom = error
+        li.table-header
+          | Who can view/edit this query?
+          p.content
+            ' Only the creator (you) and the admins will be able to
+            ' edit permissions, delete, and rename queries.
+          LabCompass.RadioButtonGroup value=model.isShared
+            label.yes-radio
+              view view.RadioButton value=false |      Just Me
+            .space
+            label.no-radio
+              view view.RadioButton value=true |      Everyone
+  .actions
+    button.button.cancel click="closeDialog" Cancel
+    button.button.main.right click="confirmSaveQuery" Save Settings

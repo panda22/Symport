@@ -1,0 +1,8 @@
+.dialog.small.import-csv-error
+  .header
+    h2 Were sorry, we can only accept .CSVs right now.
+  .body
+    p.csv-info click="csvHelp" Please click here for more information on converting excel files into a .CSV 
+   
+  .actions
+    button.button.main.right click="closeDialog" Okay

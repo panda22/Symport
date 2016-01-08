@@ -1,0 +1,5 @@
+span.time-of-day
+  LabCompass.NumericField allowsDecimal=false class='hours' maxlength='2' value=view.hours disabled=disabled
+  span.col-span :
+  LabCompass.NumericField allowsDecimal=false class='minutes' maxlength='2' value=view.minutes disabled=disabled
+  Ember.Select class="am-pm" content=view.ampmList value=view.ampmValue disabled=disabled

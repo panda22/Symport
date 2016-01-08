@@ -1,0 +1,67 @@
+.dialog.small.create-form
+  if isResponseRename
+    .header
+      h2 You have collected data
+    .body
+      p.table-header 
+        | Please name the {{editModel.secondaryId}} for this form’s responses.
+      LabCompass.ActionContextTextField class="form-name" value=newSecondaryIdNames action="renameResponses" selectOnFocus=true takeFocus=true
+      each error in editModel.errors.name
+        p.sub-error = error
+      p.content.collectedData
+        | If your {{editModel.secondaryId}}'s are not the same for all data that have 
+        | been collected, you may edit the secondary id in enter/edit data.
+    .actions
+      button.button.cancel click="closeDialog" Cancel
+      button.button.main.right click="renameResponses" Save
+  else
+    .header
+      h2 Secondary ID Settings
+    .body
+      ol
+        li.table-header
+          | Do you wish to use a Secondary ID?
+          p.content 
+            ' Secondary IDs are used when collecting data for a single form 
+            ' multiple times per subject. Examples are longitudinal data collection or 
+            ' patients having multiple visits/lab samples.
+          if model.manyToOneLock
+            p.sub-error
+              ' You must delete all data collected to change this from
+              ' yes to no
+          if model.manyToOneWarning
+            p.sub-error
+              ' If you switch to No you will lose all 
+              ' {{model.secondaryId}} information
+          if manyToOneLock
+            LabCompass.RadioButtonGroup class="yesNoSecondary" value=editModel.isManyToOne disabled=true
+              label.yes-radio
+                view view.RadioButton value=true | Yes
+              label.no-radio
+                view view.RadioButton value=false | No
+          else
+            LabCompass.RadioButtonGroup class="yesNoSecondary" value=editModel.isManyToOne disabled=false
+              label.yes-radio
+                view view.RadioButton value=true | Yes
+              label.no-radio
+                view view.RadioButton value=false | No
+          each error in editModel.errors.isManyToOne
+            p.error = error
+        if editModel.isManyToOne
+          li.table-header 
+            | What do you want to call your Secondary IDs?
+            p.content
+              | Examples are visit date, adverse effect, or tissue sample
+            Ember.TextField class="secondary-id" value=editModel.secondaryId
+          each error in editModel.errors.secondaryId
+            p.error = error
+          li.table-header 
+            | How do you want to sort your Secondary IDs when viewing your data in a table?
+            LabCompass.RadioButtonGroup class="sorting" value=editModel.isSecondaryIdSorted disabled=false
+              label.yes-radio
+                view view.RadioButton value=false | By Date Created
+              label.no-radio
+                view view.RadioButton value=true | Alphabetically 0-9
+    .actions
+      button.button.cancel click="closeDialog" Cancel
+      button.button.main.right click="create" Save Settings

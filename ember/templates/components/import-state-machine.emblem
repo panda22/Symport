@@ -1,0 +1,7 @@
+if checkbox
+	.check-box
+else
+	.state-machine-area
+		.step Step {{state_step}} of 4
+		.name Importing 
+		.name.n1.tip-left data-width="155" aria-haspopup=true data-tooltip=true title=fileName {{shortFileName}} 

@@ -1,0 +1,24 @@
+.row.collapse
+  if bottom
+    .small-11.column
+      .combo-list.hide style="bottom: 35px;"
+        each option in logic.short_options
+          LabCompass.ComboBoxOptionView option=option
+        if logic.partial_list
+          .ember-view.item.sub-content Only the first 300 subjects are shown. Type to filter list.
+      Ember.TextField tabindex="-1" maxLength="60" value=value id=formID
+
+    .small-1.column
+      button.button.postfix.disclose tabindex="-1" click=disclose ▼  
+  else
+    .small-11.column
+      Ember.TextField tabindex="-1" maxLength="60" value=value id=formID
+
+      .combo-list.hide
+        each option in logic.short_options
+          LabCompass.ComboBoxOptionView option=option
+        if logic.partial_list
+          .ember-view.item.sub-content Only the first 300 subjects are shown. Type to filter list.
+
+    .small-1.column
+      button.button.postfix.disclose tabindex="-1" click=disclose ▼

@@ -1,0 +1,33 @@
+page-header-project-home title=name
+.project.main-content
+  .row
+    .small-12.column
+      .form-structures
+        .row
+          .small-3.column.clearfix
+            button.button.plus-with-text.left click="addFormStructure" disabled=userPermissions.disableCreateForms Create a New Form
+          .small-6.column.clearfix
+            .sorting-projecttext-container
+              p Sort By:
+          .small-3.columns.clearfix
+            .sorting-container
+              Ember.Select class="sub-table-header.settings-with-text.right" content=listSorting value=listValue   
+
+        each form in sortedStructures
+          = render "form/list_view" form 
+        else
+          .empty-forms-state
+
+div id="formsJoyride"
+  ol class="joyride-list" data-joyride=""
+    li data-id="demoEnterEdit" data-options="tip_location:top;prev_button:false;next_button:false;"
+      p.content These are your forms.  Forms help you collect new records and organize existing data.  
+      p.content 
+        i To begin adding records, click Enter/Edit Data.
+
+div id="additionalOnboardingGlobal"
+  ol class="joyride-list" data-joyride=""
+    li data-button="Continue" data-options="prev_button:false;next_button:false;"
+      p.content Congratulations
+      p.content You're now free to explore the remaining features at your own will.  Be on the lookout for pulsing buttons that will help guide you through the tour:
+      p.content Hint: There are three left - Team, Import, and Build Form (located on the form card).

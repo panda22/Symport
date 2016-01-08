@@ -1,0 +1,11 @@
+defaults: &defaults
+  answer_encryption_key: "not secure"
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

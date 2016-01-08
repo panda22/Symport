@@ -1,0 +1,76 @@
+.dialog.large.data-export id="data-export-popup"
+  .row
+    .card-title
+      h2 Download Data as a CSV 
+
+  .row.export-step
+    .showAnswerContainer
+      .row
+        .page-header
+          .showAnswerText
+            p 1. Show the answer choices in the file as
+      .content
+        .row
+          .small-12.column
+            label
+              LabCompass.RadioButtonGroup value=downloadOptions.useCodes
+                label.yes-radio
+                  view view.RadioButton class="default-checked" value=true | Choice Codes (i.e 1, 2)
+                label.no-radio
+                  view view.RadioButton value=false | Labels (i.e Male, Female)
+        .row
+          .small-12.column
+            .seperator
+          .small-12.column
+            .questionText
+              ' How do you want to code empty question answers?
+              Ember.TextField value=downloadOptions.emptyAnswerCode
+          .small-12.column
+            p.questionText
+              .secondTextBox
+                ' How do you want to code answers to questions not
+                br
+                ' shown due to conditional logic:
+                Ember.TextField value=downloadOptions.conditionallyBlockedCode
+          .small-12.column
+            .questionText
+              ' Would you like to give checkbox answers their own columns?
+              LabCompass.RadioButtonGroup value=downloadOptions.checkboxHorizontal
+                label.yes-radio
+                  view view.RadioButton value=true | Yes
+                label.no-radio
+                  view view.RadioButton value=false | No
+  .row.export-step
+    .phiContainer
+      .row
+        .small-12.column
+          .page-header
+             p
+              ' 2. Would you like to
+              u 
+                |include
+              '
+              '  identifying information in your file?
+      .row
+        .small-12.column
+          .content
+            label
+              if canViewPhi
+                LabCompass.RadioButtonGroup value=downloadOptions.includePhi
+                  label.yes-radio
+                    view view.RadioButton value=true | Yes, include
+                  label.no-radio
+                    view view.RadioButton value=false | No
+              else
+                .sub-error
+                  p You do not have permission to view identifying information.
+  .row.export-step
+    .actions
+      .row
+        .small-12.column
+          button.button.cancel click="dataDownloaded" Cancel
+          export-data classNames="button main right" exportLink=downloadLink disabled=userPermissions.disableDownloadFormData additionalFields=additionalDownloadFields downloadOptions=downloadOptions
+            | Download Data
+
+
+

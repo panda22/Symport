@@ -1,0 +1,37 @@
+.dialog.small
+  .header
+    if reInvite
+      h2 Re-Invite a New User to Symport
+    else
+      h2 Invite a New User to Symport
+  .body
+    .row.invite-field-row
+      .small-12.column
+        ' You are inviting
+        u
+          |{{model.email}}
+        '
+        '  via email.
+    .row.invite-field-row
+      .small-12.column
+        | 1. Please enter their name
+        .row
+          .small-12.column
+            | First Name
+            LabCompass.ActionContextTextField value=firstName takeFocus=true
+            if errors.firstName
+              each error in errors.firstName
+                .error = error
+        .row
+          .small-12.column
+            | Last Name
+            Ember.TextField value=lastName
+    .row.invite-field-row
+      .small-12.column
+        | 2. Include a personal message below
+        .row.
+          .small-12.column
+            LabCompass.AutosizeTextArea value=message class="invite-message" selectOnFocus=true
+  .actions.invite-actions
+    button.button.cancel.big-dialog click="closeDialog" Cancel
+    button.button.right.main.big-dialog click="submit" Send Invite

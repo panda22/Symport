@@ -1,0 +1,5 @@
+each options
+  .checkbox-option
+    label
+      view view.option selectedValues=view.selectedValues value=value disabled=view.disabled
+      = value

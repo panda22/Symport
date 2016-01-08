@@ -1,0 +1,6 @@
+.drop-down-wrapper.content
+	input.drop-down-input value=val class={isEditable:blue-arrow:gray-arrow}
+	.option-container.hide
+.drop-down-test.hide
+	input
+	button.button click="setTestOption"

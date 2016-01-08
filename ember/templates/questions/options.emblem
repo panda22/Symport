@@ -1,0 +1,48 @@
+.question-builder-field#textbox-var-name
+  label.has-tooltip Textbox Variable Name:
+  <div data-tooltip data-width="350" aria-haspopup="true" class="tip-right tooltip-div" title="This variable name applies to the column of data containing the response to the textbox option in this question."></div>
+  LabCompass.VariableNameField id="textbox-var-name-field" highlightParentDepth=0 class="no-bot-marg question-variable-name question-field-input" value=view.textbox_var_name
+
+.question-builder-field-type-specific.for-options 
+  .div-for-test
+    .row
+      .small-2.column.edit-code-header-column
+        .code-wrapper
+          a.edit-code-header click="toggleEditCodes target='view'" Edit Codes
+      .small-10.column.answer-choice-header-column
+        label Answer Choices:
+    each question.config.selections
+      .row.answer-choice-row
+        .small-2.column
+          .code-wrapper
+            LabCompass.highlightParentTextField class="content" highlightParentDepth=4 value=code class="edit-question-code" disabled=true
+        if otherOption
+          .small-6.column style="padding-right: 10px;"
+            LabCompass.ActionContextTextField highlightParentDepth=3 actionContext=content class="option-value" value=value action="addOption" targetObject=view takeFocus=false
+          .small-3.column
+            Ember.TextField disabled=true
+        else  
+          .small-9.column
+            LabCompass.ActionContextTextField highlightParentDepth=3 actionContext=content class="option-value" value=value action="addOption" targetObject=view takeFocus=false
+        .small-1.column
+            if isNew
+              button.button.remove.rem-ans-choice.old-x tabindex="-1" click="removeOption this target='view'"
+            else
+              /if hasData
+              /  <span data-tooltip data-width="215" aria-haspopup="true" class="tip-right x-tooltip" title="You cannot delete this answer choice because data has been collected in this form."></span>
+              /else
+              if usedInCondition
+                <span data-tooltip data-width="215" aria-haspopup="true" class="tip-right x-tooltip" title="You cannot delete this answer choice because it is used in conditional logic."></span>
+              else
+                button.button.remove.rem-ans-choice.old-x tabindex="-1" click="removeOption this target='view'"
+
+  .row
+    .small-12.columns
+      each error in question.errors.optionConfigs
+        /.error = error
+        question-error errorString=error questionObject=question
+  button.button.light-plus-with-text-no-border.add-option.left tabindex="-1" click="addOption target='view'" Add Answer Choice
+  if view.showAddOtherOption
+    button.button.light-plus-with-text-no-border-no-image.add-option id="addTextOption" tabindex="-1" disabled=view.hasOtherOption click="addTextOption target='view'" Add Option With Textbox
+  else
+    button.button.light-plus-with-text-no-border-no-image.add-option id="addTextOption" style="visibility: hidden" tabindex="-1" disabled=view.hasOtherOption click="addTextOption target='view'" Add Option With Textbox

@@ -1,0 +1,11 @@
+.dialog.medium.import.import-rows
+  .header
+    h2 Only Add New Rows
+
+  .body
+    .content By selecting this option Symport will only add rows with a new Subject/Secondary ID pair to your database. Symport will only fill in data for the columns that are currently in Symport.
+    .content Example Image
+    .image
+
+  .actions
+    button.button.cancel click="closeDialog" Close

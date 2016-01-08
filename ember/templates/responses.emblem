@@ -1,0 +1,87 @@
+page-header title=myHeader
+
+.form-responses-form-page.main-content
+  .row
+    .small-12.column
+      if formStructure.userPermissions.canOnlyViewData
+        .instructions View data for - {{formStructure.name}}
+      else
+        .instructions Enter data into - {{formStructure.name}}
+  .row
+    .small-12.column
+      .specify-subject-box#subject-id-input-box
+        .left-side
+          .glass
+            .view-and-enter-img
+          .instruction
+            if formStructure.userPermissions.canOnlyViewData
+              label for="subjectID" Begin Typing to Select a Subject ID
+            else
+              label for="subjectID" Begin Typing to Create or Select a Subject ID
+            h6 Total Number of Subject IDs: {{length}}
+        .entry#subject-id-input
+          combo-box tabindex="-1" value=tempSubjectID action="selectSubject" options=subjectIDs formID="subjectID" allowCreate=canEnterData bottom=false
+  if formStructure.isManyToOne
+    if subjectID
+      .row.select-instance-row
+        .small-12.column
+          .specify-subject-box
+            .left-side
+              .glass.gray
+                .view-and-enter-img
+              .instruction
+                .content for="subjectID" Begin Typing to Create or Select a {{formStructure.secondaryId}}
+                h6.sub-table-header Number of {{formStructure.secondaryId}} for this subject: {{activeModel.responses.length}}
+            .entry#instance-entry
+              .column.small-9
+                combo-box-instances tabindex="-1" value=tempSecondaryID action="selectSecondaryId" options=secondaryIds allowCreate=canEnterData bottom=false
+              if secondaryID
+                if canEnterData
+                  .column.small-3
+                    .row
+                      .small-12.column
+                        h6.rename-instance
+                          a.rename-instance click="renameInstance" Rename
+                    .row
+                      .small-12.column
+                        h6
+                          a.delete-instance click="deleteResponse" Delete
+
+        .row
+          .small-12.column
+            if hasError
+              .response-lookup-error.error = error
+  .row
+    .small-12.column
+      outlet
+
+  if showBottomComboBox
+    if responseRouteLoaded
+      .row.bottom-id-box-row
+        .small-12.column
+          .specify-subject-box.bottom-box#subject-id-input-box-2
+            .left-side
+              .glass
+                .view-and-enter-img
+              .instruction
+                if formStructure.userPermissions.canOnlyViewData
+                  label for="subjectID" Begin Typing to Select a Subject ID
+                else
+                  label for="subjectID" Begin Typing to Create or Select a Subject ID
+                h6 Total Number of Subject IDs: {{length}}
+            .entry#subject-id-input-2
+                combo-box tabindex="-1" value=tempSubjectID action="viewForm" options=subjectIDs formID="subjectID2" allowCreate=canEnterData bottom=true
+
+  div id="enterEditJoyride"
+    ol class="joyride-list" data-joyride=""
+      li data-id="subject-id-input-box" class="joyrideEnterEdit1" id="enterEditTooltip1" data-options="tip_location:top;prev_button:false;next_button:false;"
+        p.content To add to a new record or to view an existing one, type the Subject ID into the Subject ID box and hit enter.
+        p.content
+          i Try pulling up Subject ID 100's existing responses now.
+      li data-id=project.demoProgress.demoQuestionId id="enterEditTooltip2" data-options="tip_location:top;prev_button:false;next_button:false;"
+        p.content
+          i To add data to a record, type in the information or select the correct answer option.
+        p.content Hint: I hear patient 100 was satisfied. Go ahead and select "Yes" for her now.
+      li data-id="savingButton" id="enterEditTooltip3"  data-options="tip_location:top;prev_button:false;next_button:false;"
+        p.content
+          i When finished editing a record, make sure to save the changes before leaving the page.

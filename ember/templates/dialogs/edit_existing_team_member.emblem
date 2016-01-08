@@ -1,0 +1,69 @@
+.dialog.xlarge.add-team-member#existing-team-member-popup
+  .header
+    h2 Edit Team Member - {{editModel.fullName}}
+  .body
+    .small-3.columns.personal-details-box
+        h3 Personal Details
+        label 
+          ' First Name
+          Ember.TextField value=editModel.firstName disabled=true
+        label 
+          ' Last Name
+          Ember.TextField value=editModel.lastName disabled=true
+        label 
+          ' Email
+          Ember.TextField value=editModel.email disabled=true
+        if editModel.administrator
+          label 
+            ' Expiration Date
+            date-field disabled="disabled"
+        else
+          label
+            ' Expiration Date
+            date-field value=editModel.expirationDate
+
+    .small-4.columns
+      .project-wide-permissions-box
+        h3 Project Wide Permissions
+        h6 Admins are given all form and project permissions
+          <span data-tooltip data-width="455" aria-haspopup="true" class="tip-right tooltip-div" title="Admins have full control over the project. Only admins can add or remove team members, set permissions, and delete responses. Admins are unable to revoke their own admin status. If you need to remove your admin status ask another project admin to do so."></span>
+        .admin-row
+          label 
+            ' Set User As Admin
+            LabCompass.RadioButtonGroup value=editModel.administrator disabled=editModel.isCurrentUser
+              label.yes-radio
+                view view.RadioButton value=true | Yes
+              label.no-radio
+                view view.RadioButton value=false | No
+          each error in editModel.errors.administrator
+            p.error = error
+      
+        if editModel.administrator
+          = partial "dialogs/team_member_radio_buttons_admin"
+        else
+          = partial "dialogs/team_member_radio_buttons_non_admin"
+
+    .small-5.columns
+      .form-permissions-box
+        h3 Form Specific Permissions
+        h6 Admins are given all form and project permissions
+          <span data-tooltip data-width="455" aria-haspopup="true" class="tip-left tooltip-div" title="Admins have full control over the project. Only admins can add or remove team members, set permissions, and delete responses. Admins are unable to revoke their own admin status. If you need to remove your admin status ask another project admin to do so."></span>
+        .form-permissions-info
+          .grid-container
+            table.form-permissions.grid
+              thead
+                tr
+                  th Form Name
+                  th Permission Level
+              tbody
+                each permission in editModel.structurePermissions
+                  tr.form-permission
+                    td = permission.formStructureName
+                    if editModel.administrator
+                      td.permission-level Enter/Edit & Build
+                    else
+                      td.permission-level
+                        Ember.Select content=LabCompass.FormStructPermsDisplay optionLabelPath="content.display" optionValuePath="content.value" value=permission.permissionLevel 
+  .actions
+    button.button.cancel.big-dialog click="closeDialog" Cancel
+    button.button.right.big-dialog.main click="update" Save Edits

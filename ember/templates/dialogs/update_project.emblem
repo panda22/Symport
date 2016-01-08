@@ -1,0 +1,16 @@
+.dialog.small.create-project
+  .header
+    h2 Rename Project
+  .body
+    ol
+      li.table-header
+        | Rename your project below
+        LabCompass.ActionContextTextField class="project-name" value=editModel.name selectOnFocus=true takeFocus=true
+      each error in editModel.errors.name
+        p.sub-error = error
+      li.table-header
+        | Attribute Data to:
+        LabCompass.ActionContextTextField class="project-name" value=editModel.attribution action="updateProjectName" actionContext=content
+  .actions
+    button.button.cancel click="closeDialog" Cancel
+    button.button.main.right click="updateProjectName" Save

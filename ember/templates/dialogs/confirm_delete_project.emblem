@@ -1,0 +1,17 @@
+.dialog.small.delete-project
+  .header
+    h2 Delete Project
+
+  .body
+    p
+      ' If you delete {{{name}}}, it will be deleted for all team members, and you will lose all the data it contains.
+    .input-group
+      p Type DELETE below and then hit the Delete Project button
+      LabCompass.ActionContextTextField value=input action="confirm" takeFocus=true
+      if error
+        .error You must enter "DELETE" exactly.
+
+  .actions
+
+    button.button.cancel click="closeDialog" Cancel
+    button.button.delete.right click="confirm" Delete Project

@@ -1,0 +1,13 @@
+.dialog.small.create-project
+  .header
+    h2 Delete Data
+  .body
+    p
+      ' Are you sure you want to delete the data for
+      span = subjectID
+      |?
+    p This will affect only the current form: {{model.formStructure.name}}
+    p The data will be permanently deleted.
+  .actions
+    button.button.cancel click="closeDialog" Cancel
+    button.button.delete.right click="confirmDeleteInstances" Delete

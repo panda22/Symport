@@ -1,0 +1,77 @@
+page-header title="Data"
+	.row
+		.small-12.column
+			dl.tabs
+				dd.active
+					link-to "view-and-query.saved-queries" tabindex="-1" id="qBuilder" | Query
+				dd
+					link-to "view-and-query.view" tabindex="-1" | View Data
+.project-grid-wrapper id="savedQueriesGrid"
+  .row.title-row
+    h3.main-instructions Build a query & view saved ones below
+  if project.structures.content
+    .row.create-query-row
+      .small-3.column
+        button.button.plus-with-text click="buildQuery" id="buildQueryButton" Build A New Query
+      .small-6.column
+        .sort-text.right
+          | Sort By:
+      .small-3.column
+        Ember.Select value=curOrderType content=orderTypes
+    each query in content
+      .row.query-card id=query.id
+        .small-12.column
+          .row.inner-card
+            .small-6.column
+              .query-card-left-text.sub-instructions
+                | {{query.name}}
+              if query.isChanged
+                .sub-error
+                  | A form has been edited, making this query invalid. Please edit.
+              else
+                .query-card-left-text.content
+                  | {{query.lastUpdatedString}}
+              .query-card-left-text.content.second
+                .query-created-text.left
+                  | {{query.createdString}}
+                .shared-graphic.left class=query.isShared:multiple-people:single-person
+            .button-container
+              .small-3.column
+                button.button.primary.alternate click="editQuery query"
+                  | Edit Parameters
+              .small-3.column
+                if query.isChanged
+                  button.button.primary disabled="disabled"
+                    | Re-Run & View Results
+                else
+                  button.button.primary click="runQuery query"
+                    | Re-Run & View Results
+          .row.tool-row
+            .small-12.column
+              .tool.right
+                if query.canDelete
+                  a.delete  click="deleteQuery query" Delete
+                else
+                  a.disabled Delete
+              .tool.right
+                if query.canDelete
+                  a  click="renameQuery query" Rename
+                else
+                  a.disabled Rename
+              .tool.right
+                if query.canEditPermissions
+                  a  click="editQueryPermissions query" Edit Permissions
+                else
+                  a.disabled Edit Permissions
+              .tool.right.duplicate
+                a click="duplicateQuery query" Duplicate
+    else
+      .no-saved-queries-graphic
+  else
+    .no-forms-graphic
+
+div id="newQueryJoyride"
+  ol class="joyride-list" data-joyride=""
+    li data-id="buildQueryButton" data-options="tip_location:left;prev_button:false;next_button:false;"
+      p.content 
+        i Click create a new query to find all of the subjects matching different parameters.  
